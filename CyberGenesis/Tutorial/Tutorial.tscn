@@ -1,0 +1,67 @@
+[gd_scene load_steps=9 format=3 uid="uid://bdwokadua7ota"]
+
+[ext_resource type="PackedScene" uid="uid://b8obav23g0xg5" path="res://darren_rogers.tscn" id="1_woyp7"]
+[ext_resource type="Texture2D" uid="uid://bw1pk854qoe5e" path="res://Assets/dry grass dirt part.png" id="2_e0h7s"]
+[ext_resource type="Texture2D" uid="uid://bh8g4rb28m4e4" path="res://Assets/dry grass.png" id="3_vt8l0"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a3c5f"]
+texture = ExtResource("2_e0h7s")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_247yb"]
+texture = ExtResource("3_vt8l0")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSet" id="TileSet_o1hfi"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_a3c5f")
+sources/1 = SubResource("TileSetAtlasSource_247yb")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2tbum"]
+texture = ExtResource("2_e0h7s")
+texture_region_size = Vector2i(1, 1)
+0:6/0 = 0
+0:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:6/0/physics_layer_0/angular_velocity = 0.0
+0:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 0, 1, 0, 1, 1, 0, 1)
+
+[sub_resource type="TileSet" id="TileSet_jyidg"]
+tile_size = Vector2i(1, 1)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_2tbum")
+
+[node name="Main" type="Node2D"]
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="GrissDodgelin" parent="World" instance=ExtResource("1_woyp7")]
+
+[node name="Camera2D" type="Camera2D" parent="World/GrissDodgelin"]
+zoom = Vector2(4, 4)
+
+[node name="TileMap" type="TileMap" parent="World"]
+tile_set = SubResource("TileSet_o1hfi")
+cell_quadrant_size = 32
+format = 2
+layer_0/tile_data = PackedInt32Array(131071, 65536, 0, 65536, 0, 0, 65537, 65536, 0, 65538, 0, 0, 65539, 65536, 0, 131070, 0, 0, 131069, 65536, 0, 131068, 0, 0, 65541, 65536, 0, 65543, 65536, 0, 65545, 65536, 0, 65547, 65536, 0, 65540, 0, 0, 65542, 0, 0, 65544, 0, 0, 65546, 0, 0, 65535, 1, 0, 65533, 1, 0, 1, 1, 0, 3, 1, 0, 5, 1, 0, 7, 1, 0, 9, 1, 0, 11, 1, 0, 65532, 65537, 0, 65534, 65537, 0, 0, 65537, 0, 2, 65537, 0, 4, 65537, 0, 6, 65537, 0, 8, 65537, 0, 10, 65537, 0, 131065, 0, 0, 131064, 0, 0, 131063, 0, 0, 131062, 0, 0, 131061, 0, 0, 131060, 0, 0, 131059, 0, 0, 131058, 0, 0, 131057, 0, 0)
+
+[node name="pixel" type="TileMap" parent="World"]
+tile_set = SubResource("TileSet_jyidg")
+cell_quadrant_size = 1
+format = 2
+layer_0/tile_data = PackedInt32Array(2096912, 0, 6, 2031376, 0, 6, 1965840, 0, 6, 1900304, 0, 6, 1834768, 0, 6, 1769232, 0, 6, 1703696, 0, 6, 1638160, 0, 6, 1572624, 0, 6, 1507088, 0, 6, 1441552, 0, 6, 1376016, 0, 6, 1310480, 0, 6, 1244944, 0, 6, 1179408, 0, 6, 1113872, 0, 6, 1048336, 0, 6, 982800, 0, 6, 917264, 0, 6, 851728, 0, 6, 786192, 0, 6, 720656, 0, 6, 655120, 0, 6, 655119, 0, 6, 720655, 0, 6, 786191, 0, 6, 851727, 0, 6, 917263, 0, 6, 982799, 0, 6, 1048335, 0, 6, 1113871, 0, 6, 1179407, 0, 6, 1244943, 0, 6, 1310479, 0, 6, 1376015, 0, 6, 1441551, 0, 6, 1507087, 0, 6, 1572623, 0, 6, 1638159, 0, 6, 1703695, 0, 6, 1769231, 0, 6, 1834767, 0, 6, 1900303, 0, 6, 1965839, 0, 6, 2031375, 0, 6, 392975, 0, 6, 458511, 0, 6, 524047, 0, 6, 589583, 0, 6, 589584, 0, 6, 524048, 0, 6, 458512, 0, 6, 392976, 0, 6, 130831, 0, 6, 196367, 0, 6, 261903, 0, 6, 327439, 0, 6, 327440, 0, 6, 261904, 0, 6, 196368, 0, 6, 130832, 0, 6)
