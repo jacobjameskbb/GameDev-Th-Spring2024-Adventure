@@ -1,13 +1,23 @@
-[gd_scene load_steps=7 format=3 uid="uid://b6a6sned8uphe"]
+[gd_scene load_steps=16 format=3 uid="uid://b6a6sned8uphe"]
 
 [ext_resource type="Texture2D" uid="uid://crubhtkm4h0we" path="res://Sprites/green walk 0.png" id="1_jy5nq"]
 [ext_resource type="Texture2D" uid="uid://2tl6qvnh85pl" path="res://Sprites/green walk 1.png" id="2_bild7"]
 [ext_resource type="Texture2D" uid="uid://bi2n6tvu0chc7" path="res://Sprites/green walk 2.png" id="3_3k7ww"]
 [ext_resource type="Texture2D" uid="uid://bddcr5f58e22f" path="res://Sprites/green walk 3.png" id="4_548m3"]
 [ext_resource type="Texture2D" uid="uid://ccetuxc2tgvoi" path="res://Sprites/green walk 4.png" id="5_m1spu"]
+[ext_resource type="Script" path="res://Player.gd" id="6_ls5pv"]
+[ext_resource type="Texture2D" uid="uid://bktjho4qkypv7" path="res://Sprites/Jethro's Dad.png" id="7_xvvg6"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_00h8g"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_1kt8q"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_jy5nq")
+}],
+"loop": true,
+"name": &"standing",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_jy5nq")
@@ -25,14 +35,120 @@ animations = [{
 "texture": ExtResource("5_m1spu")
 }],
 "loop": true,
-"name": &"default",
-"speed": 5.0
+"name": &"walking",
+"speed": 10.0
 }]
 
-[node name="Main" type="Node2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_on4uc"]
+radius = 6.2
+height = 15.6
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(-1, 1)
-sprite_frames = SubResource("SpriteFrames_00h8g")
-frame_progress = 0.856372
-speed_scale = 4.0
+[sub_resource type="AtlasTexture" id="AtlasTexture_mpti1"]
+atlas = ExtResource("7_xvvg6")
+region = Rect2(0, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bc7sh"]
+atlas = ExtResource("7_xvvg6")
+region = Rect2(48, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_heq8u"]
+atlas = ExtResource("7_xvvg6")
+region = Rect2(96, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2gynq"]
+atlas = ExtResource("7_xvvg6")
+region = Rect2(144, 0, 48, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oefg4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mpti1")
+}],
+"loop": true,
+"name": &"standing",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bc7sh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_heq8u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2gynq")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_clevp"]
+radius = 11.0
+height = 56.8
+
+[node name="Level 0" type="Node2D"]
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="World"]
+
+[node name="ColorRect" type="ColorRect" parent="World/StaticBody2D"]
+offset_left = -93.0
+offset_top = 556.0
+offset_right = 1217.0
+offset_bottom = 818.0
+
+[node name="ColorRect" type="ColorRect" parent="World/StaticBody2D/ColorRect"]
+offset_left = 33.0
+offset_top = -601.0
+offset_right = 182.0
+offset_bottom = 78.0
+
+[node name="ColorRect" type="ColorRect" parent="World/StaticBody2D/ColorRect/ColorRect"]
+offset_left = 1133.0
+offset_top = -32.0
+offset_right = 1282.0
+offset_bottom = 647.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="World/StaticBody2D"]
+polygon = PackedVector2Array(89, -45, -60, -45, -60, 824, 1220, 822, 1222, -76, 1073, -77, 1073, 556, 89, 556)
+
+[node name="GoombaAlien" type="CharacterBody2D" parent="World"]
+position = Vector2(638, 516)
+scale = Vector2(2, 2)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="World/GoombaAlien"]
+sprite_frames = SubResource("SpriteFrames_1kt8q")
+animation = &"walking"
+frame_progress = 0.16184
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/GoombaAlien"]
+position = Vector2(0, 0.2)
+shape = SubResource("CapsuleShape2D_on4uc")
+
+[node name="Player" type="CharacterBody2D" parent="World"]
+position = Vector2(362, 380)
+scale = Vector2(2, 2)
+script = ExtResource("6_ls5pv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="World/Player"]
+sprite_frames = SubResource("SpriteFrames_oefg4")
+animation = &"walking"
+autoplay = "walking"
+frame_progress = 0.132764
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Player"]
+position = Vector2(0.399994, 3.80001)
+shape = SubResource("CapsuleShape2D_clevp")
+
+[node name="UI" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Sound" type="Node2D" parent="."]
+visible = false
