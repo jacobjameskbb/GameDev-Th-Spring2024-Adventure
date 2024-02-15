@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b6a6sned8uphe"]
+[gd_scene load_steps=19 format=3 uid="uid://b6a6sned8uphe"]
 
 [ext_resource type="Texture2D" uid="uid://crubhtkm4h0we" path="res://Sprites/green walk 0.png" id="1_jy5nq"]
 [ext_resource type="Texture2D" uid="uid://2tl6qvnh85pl" path="res://Sprites/green walk 1.png" id="2_bild7"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://ccetuxc2tgvoi" path="res://Sprites/green walk 4.png" id="5_m1spu"]
 [ext_resource type="Script" path="res://Player.gd" id="6_ls5pv"]
 [ext_resource type="Texture2D" uid="uid://bktjho4qkypv7" path="res://Sprites/Jethro's Dad.png" id="7_xvvg6"]
+[ext_resource type="Script" path="res://Bat.gd" id="8_8ryn7"]
+[ext_resource type="Texture2D" uid="uid://1phorthu26aa" path="res://Sprites/bat.png" id="9_t78e3"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1kt8q"]
 animations = [{
@@ -43,6 +45,10 @@ animations = [{
 radius = 6.2
 height = 15.6
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_takya"]
+atlas = ExtResource("7_xvvg6")
+region = Rect2(192, 0, 48, 64)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_mpti1"]
 atlas = ExtResource("7_xvvg6")
 region = Rect2(0, 0, 48, 64)
@@ -61,6 +67,14 @@ region = Rect2(144, 0, 48, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_oefg4"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_takya")
+}],
+"loop": true,
+"name": &"attack bat",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_mpti1")
@@ -92,7 +106,7 @@ height = 56.8
 
 [node name="World" type="Node2D" parent="."]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="World"]
+[node name="StaticBody2D" type="StaticBody2D" parent="World" groups=["wall"]]
 
 [node name="ColorRect" type="ColorRect" parent="World/StaticBody2D"]
 offset_left = -93.0
@@ -101,12 +115,14 @@ offset_right = 1217.0
 offset_bottom = 818.0
 
 [node name="ColorRect" type="ColorRect" parent="World/StaticBody2D/ColorRect"]
+layout_mode = 0
 offset_left = 33.0
 offset_top = -601.0
 offset_right = 182.0
 offset_bottom = 78.0
 
 [node name="ColorRect" type="ColorRect" parent="World/StaticBody2D/ColorRect/ColorRect"]
+layout_mode = 0
 offset_left = 1133.0
 offset_top = -32.0
 offset_right = 1282.0
@@ -122,26 +138,34 @@ scale = Vector2(2, 2)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="World/GoombaAlien"]
 sprite_frames = SubResource("SpriteFrames_1kt8q")
 animation = &"walking"
-frame_progress = 0.16184
+frame_progress = 0.351428
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/GoombaAlien"]
 position = Vector2(0, 0.2)
 shape = SubResource("CapsuleShape2D_on4uc")
 
-[node name="Player" type="CharacterBody2D" parent="World"]
+[node name="Player" type="CharacterBody2D" parent="World" groups=["player"]]
 position = Vector2(362, 380)
 scale = Vector2(2, 2)
 script = ExtResource("6_ls5pv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="World/Player"]
 sprite_frames = SubResource("SpriteFrames_oefg4")
-animation = &"walking"
+animation = &"attack bat"
 autoplay = "walking"
-frame_progress = 0.132764
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Player"]
 position = Vector2(0.399994, 3.80001)
 shape = SubResource("CapsuleShape2D_clevp")
+
+[node name="Bat" type="CharacterBody2D" parent="World/Player"]
+position = Vector2(17.5, -4.49998)
+rotation = -1.07687
+script = ExtResource("8_8ryn7")
+
+[node name="Sprite2D" type="Sprite2D" parent="World/Player/Bat"]
+texture = ExtResource("9_t78e3")
+offset = Vector2(0, -15)
 
 [node name="UI" type="Control" parent="."]
 visible = false
