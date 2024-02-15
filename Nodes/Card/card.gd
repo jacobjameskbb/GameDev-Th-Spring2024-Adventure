@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 const MOVEMENT_SPEED = 300
 const ROTATION_SPEED = 20
+const DELETE_TIME_SECONDS = 15
 
 var collided_with_wall: bool = false
 
@@ -11,6 +12,8 @@ var colliding_with_player = false
 
 func _ready():
 	$CollisionShape2D.disabled = true
+	
+	
 
 func _physics_process(delta):
 	
@@ -32,7 +35,10 @@ func enable_collision():
 	while colliding_with_player:
 		await get_tree().process_frame
 	$CollisionShape2D.disabled = false
-   
+	await get_tree().create_timer(DELETE_TIME_SECONDS).timeout
+	queue_free()
+  
+
 
 #--AREAS--
 func _on_area_body_entered(body):

@@ -11,6 +11,8 @@ const ACCELERATION = 100
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+var direction = 'right'
+
 #Create control/other bool variables
 var pressed_left: bool = false
 var pressed_right: bool = false
@@ -27,6 +29,9 @@ var pressed_shoot_right: bool = false
 
 var just_pressed_shoot_left: bool = false
 var just_pressed_shoot_right: bool = false
+
+var pressed_attack_bat: bool = false
+var just_pressed_attack_bat: bool = false
 
 
 
@@ -51,6 +56,9 @@ func _physics_process(delta):
 	just_pressed_shoot_left = Input.is_action_just_pressed('launch card left')
 	just_pressed_shoot_right = Input.is_action_just_pressed('launch card right')
 	
+	pressed_attack_bat = Input.is_action_pressed('bat attack')
+	just_pressed_attack_bat = Input.is_action_just_pressed('bat attack')
+	
 	on_floor = is_on_floor()
 	
 	#-Set the velocity-
@@ -60,7 +68,7 @@ func _physics_process(delta):
 	if on_floor and just_pressed_jump:
 		velocity.y = JUMP_VELOCITY
 		
-	if pressed_left and velocity.x > -SPEED:
+	if pressed_left and velocity.x > -SPEED and not $Bat.swinging:
 		velocity.x -= ACCELERATION
 		if velocity.x < -SPEED:
 			velocity.x = SPEED
@@ -70,7 +78,7 @@ func _physics_process(delta):
 			velocity.x = 0
 		
 		
-	if pressed_right and velocity.x < SPEED:
+	if pressed_right and velocity.x < SPEED and not $Bat.swinging:
 		velocity.x += ACCELERATION
 		if velocity.x > SPEED:
 			velocity.x = SPEED
@@ -87,15 +95,27 @@ func _physics_process(delta):
 		shoot('left')
 	if just_pressed_shoot_right:
 		shoot('right')
+	
+	if just_pressed_attack_bat:
+		$Bat.attack(direction)
 	#-----VISUALS-----
-	if pressed_left:
-		$AnimatedSprite2D.flip_h = true
-		$AnimatedSprite2D.animation = 'walking'
-	if pressed_right:
-		$AnimatedSprite2D.flip_h = false
-		$AnimatedSprite2D.animation = 'walking'
-	if not pressed_left and not pressed_right:
-		$AnimatedSprite2D.animation = 'standing'
+	if (just_pressed_right and direction == 'left') or (just_pressed_left and direction == 'right'):
+			scale.x = -2 
+	if $Bat.swinging:
+		$AnimatedSprite2D.animation = 'attack bat'
+	else:
+		
+		if pressed_left:
+			direction = 'left'
+			$AnimatedSprite2D.animation = 'walking'
+		if pressed_right:
+			direction = 'right'
+			$AnimatedSprite2D.animation = 'walking'
+		if not pressed_left and not pressed_right:
+			$AnimatedSprite2D.animation = 'standing'
+	
+
+	
 
 #-----FUNCTIONS-----
 
