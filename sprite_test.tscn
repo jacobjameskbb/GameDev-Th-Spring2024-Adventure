@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcy12sg5pbupg"]
+
+[ext_resource type="SpriteFrames" uid="uid://dbof0c3ryxlme" path="res://Sprites/knight body.tres" id="1_6pgrx"]
+[ext_resource type="SpriteFrames" uid="uid://c5h4lhcy6vmyt" path="res://Sprites/knight legs.tres" id="2_2rgyo"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_6pgrx")
+animation = &"move"
+frame_progress = 0.140499
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_2rgyo")
+frame_progress = 0.274384
