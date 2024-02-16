@@ -47,7 +47,7 @@ radius = 6.2
 height = 15.6
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8w212"]
-size = Vector2(7.5, 8)
+size = Vector2(7.5, 7)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_takya"]
 atlas = ExtResource("7_xvvg6")
@@ -162,12 +162,12 @@ polygon = PackedVector2Array(89, -45, -60, -45, -60, 824, 1220, 822, 1222, -76, 
 position = Vector2(638, 516)
 scale = Vector2(2, 2)
 script = ExtResource("1_e2jam")
-initial_direction = "left"
+direction = "left"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="World/GoombaAlien"]
 sprite_frames = SubResource("SpriteFrames_1kt8q")
 animation = &"walking"
-frame_progress = 0.351428
+frame_progress = 0.704877
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/GoombaAlien"]
 position = Vector2(0, 0.2)
@@ -176,7 +176,7 @@ shape = SubResource("CapsuleShape2D_on4uc")
 [node name="wall_detect" type="Area2D" parent="World/GoombaAlien"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/GoombaAlien/wall_detect"]
-position = Vector2(-3.75, 4)
+position = Vector2(-3.75, 3.5)
 shape = SubResource("RectangleShape2D_8w212")
 
 [node name="Player" type="CharacterBody2D" parent="World" groups=["player"]]

@@ -1,16 +1,19 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
-@export_enum('left', 'right') var initial_direction: String
-@onready var direction = initial_direction
+const SPEED = 70
+@export_enum('left', 'right') var direction: String
 
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 
+func _ready():
+	$AnimatedSprite2D.play('walking')
+	
 func _physics_process(delta):
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -29,6 +32,5 @@ func _on_wall_detect_body_entered(body):
 		scale.x = -scale.x
 		if direction == 'left':
 			direction = 'right'
-			print(direction)
-		if direction == 'right':
+		elif direction == 'right':
 			direction = 'left'
