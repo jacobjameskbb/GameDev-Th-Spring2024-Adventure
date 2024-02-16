@@ -7,9 +7,8 @@
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("1_6pgrx")
-animation = &"move"
-frame_progress = 0.140499
+frame_progress = 0.777129
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_2rgyo")
-frame_progress = 0.274384
+frame_progress = 0.520088
