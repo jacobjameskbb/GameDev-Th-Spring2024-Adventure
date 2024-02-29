@@ -1,0 +1,47 @@
+[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://byacpr7o72n7u"]
+
+[ext_resource type="Texture2D" uid="uid://bs2p6j4ye46yv" path="res://Sprites/slug resting.png" id="1_ntlgs"]
+[ext_resource type="Texture2D" uid="uid://dxb07c06as1nh" path="res://Sprites/slug 1.png" id="2_2u4fj"]
+[ext_resource type="Texture2D" uid="uid://cg2g7pxnnvjdp" path="res://Sprites/slug 2.png" id="3_c8vwv"]
+[ext_resource type="Texture2D" uid="uid://cqbbrwwlttfl8" path="res://Sprites/slug squish 1.png" id="4_ced5n"]
+[ext_resource type="Texture2D" uid="uid://cq5c41dfwcwdr" path="res://Sprites/slug squish 2.png" id="5_3rheu"]
+[ext_resource type="Texture2D" uid="uid://vcxrwyjtyhgy" path="res://Sprites/slug squish 3.png" id="6_2w5v5"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ntlgs")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2u4fj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_c8vwv")
+}],
+"loop": true,
+"name": &"move",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2u4fj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ced5n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_3rheu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_2w5v5")
+}],
+"loop": true,
+"name": &"squish",
+"speed": 5.0
+}]
