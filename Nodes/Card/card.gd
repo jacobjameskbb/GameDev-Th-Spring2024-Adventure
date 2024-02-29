@@ -12,20 +12,15 @@ var colliding_with_player = false
 
 func _ready():
 	$CollisionShape2D.disabled = true
+	for i in range(0,10):
+		move(1)
 	
 	
 
 func _physics_process(delta):
 	
 	if not collided_with_wall:
-		if direction == 'left':
-			position.x -= MOVEMENT_SPEED * delta
-			rotation_degrees -= ROTATION_SPEED
-		elif direction == 'right':
-			position.x += MOVEMENT_SPEED * delta
-			rotation_degrees += ROTATION_SPEED
-		else:
-			print_debug('SELF_DEBUG: ROTATION FOR CARD NOT BEING SET OR NOT BEING SET CORRECTLY')
+		move(delta)
 
 
 
@@ -37,6 +32,16 @@ func enable_collision():
 	$CollisionShape2D.disabled = false
 	await get_tree().create_timer(DELETE_TIME_SECONDS).timeout
 	queue_free()
+	
+func move(delta):
+	if direction == 'left':
+		position.x -= MOVEMENT_SPEED * delta
+		rotation_degrees -= ROTATION_SPEED
+	elif direction == 'right':
+		position.x += MOVEMENT_SPEED * delta
+		rotation_degrees += ROTATION_SPEED
+	else:
+		print_debug('SELF_DEBUG: ROTATION FOR CARD NOT BEING SET OR NOT BEING SET CORRECTLY')
   
 
 

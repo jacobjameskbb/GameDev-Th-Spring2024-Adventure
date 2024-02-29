@@ -28,7 +28,7 @@ func _physics_process(delta):
 
 
 func _on_wall_detect_body_entered(body):
-	if body.is_in_group('wall'):
+	if body.is_in_group('wall enemy'):
 		scale.x = -scale.x
 		if direction == 'left':
 			direction = 'right'

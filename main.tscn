@@ -47,7 +47,7 @@ radius = 6.2
 height = 15.6
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8w212"]
-size = Vector2(7.5, 7)
+size = Vector2(2.5, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_takya"]
 atlas = ExtResource("7_xvvg6")
@@ -133,7 +133,7 @@ size = Vector2(6.46809, 39.2148)
 
 [node name="World" type="Node2D" parent="."]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="World" groups=["wall"]]
+[node name="StaticBody2D" type="StaticBody2D" parent="World" groups=["wall", "wall enemy"]]
 
 [node name="ColorRect" type="ColorRect" parent="World/StaticBody2D"]
 offset_left = -93.0
@@ -167,7 +167,7 @@ direction = "left"
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="World/GoombaAlien"]
 sprite_frames = SubResource("SpriteFrames_1kt8q")
 animation = &"walking"
-frame_progress = 0.704877
+frame_progress = 0.222977
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/GoombaAlien"]
 position = Vector2(0, 0.2)
@@ -176,7 +176,7 @@ shape = SubResource("CapsuleShape2D_on4uc")
 [node name="wall_detect" type="Area2D" parent="World/GoombaAlien"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/GoombaAlien/wall_detect"]
-position = Vector2(-3.75, 3.5)
+position = Vector2(-6.25, -1)
 shape = SubResource("RectangleShape2D_8w212")
 
 [node name="Player" type="CharacterBody2D" parent="World" groups=["player"]]
@@ -213,7 +213,6 @@ speed_scale = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Player/Bat"]
 position = Vector2(-0.118294, -15.0019)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_8h7uq")
 
 [node name="UI" type="Control" parent="."]

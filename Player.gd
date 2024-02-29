@@ -68,7 +68,7 @@ func _physics_process(delta):
 	if on_floor and just_pressed_jump:
 		velocity.y = JUMP_VELOCITY
 		
-	if pressed_left and velocity.x > -SPEED and not $Bat.swinging:
+	if pressed_left and velocity.x > -SPEED and not $Bat.swinging and direction == 'left':
 		velocity.x -= ACCELERATION
 		if velocity.x < -SPEED:
 			velocity.x = SPEED
@@ -78,7 +78,7 @@ func _physics_process(delta):
 			velocity.x = 0
 		
 		
-	if pressed_right and velocity.x < SPEED and not $Bat.swinging:
+	if pressed_right and velocity.x < SPEED and not $Bat.swinging and direction == 'right':
 		velocity.x += ACCELERATION
 		if velocity.x > SPEED:
 			velocity.x = SPEED
@@ -99,17 +99,19 @@ func _physics_process(delta):
 	if just_pressed_attack_bat:
 		$Bat.attack(direction)
 	#-----VISUALS-----
-	if (just_pressed_right and direction == 'left') or (just_pressed_left and direction == 'right'):
-			scale.x = -2 
+	if (pressed_right and direction == 'left' and not pressed_left) or (pressed_left and direction == 'right' and not pressed_right):
+			scale.x = -2
+			if direction == 'left':
+				direction = 'right'
+			else:
+				direction = 'left'
 	if $Bat.swinging:
 		$AnimatedSprite2D.animation = 'attack bat'
 	else:
 		
 		if pressed_left:
-			direction = 'left'
 			$AnimatedSprite2D.animation = 'walking'
 		if pressed_right:
-			direction = 'right'
 			$AnimatedSprite2D.animation = 'walking'
 		if not pressed_left and not pressed_right:
 			$AnimatedSprite2D.animation = 'standing'
