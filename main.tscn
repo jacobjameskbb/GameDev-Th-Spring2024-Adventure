@@ -1,5 +1,6 @@
-[gd_scene load_steps=22 format=3 uid="uid://b6a6sned8uphe"]
+[gd_scene load_steps=24 format=3 uid="uid://b6a6sned8uphe"]
 
+[ext_resource type="Script" path="res://GoombaAlien.gd" id="1_e2jam"]
 [ext_resource type="Texture2D" uid="uid://crubhtkm4h0we" path="res://Sprites/green walk 0.png" id="1_jy5nq"]
 [ext_resource type="Texture2D" uid="uid://2tl6qvnh85pl" path="res://Sprites/green walk 1.png" id="2_bild7"]
 [ext_resource type="Texture2D" uid="uid://bi2n6tvu0chc7" path="res://Sprites/green walk 2.png" id="3_3k7ww"]
@@ -44,6 +45,9 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_on4uc"]
 radius = 6.2
 height = 15.6
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8w212"]
+size = Vector2(7.5, 7)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_takya"]
 atlas = ExtResource("7_xvvg6")
@@ -157,15 +161,23 @@ polygon = PackedVector2Array(89, -45, -60, -45, -60, 824, 1220, 822, 1222, -76, 
 [node name="GoombaAlien" type="CharacterBody2D" parent="World"]
 position = Vector2(638, 516)
 scale = Vector2(2, 2)
+script = ExtResource("1_e2jam")
+direction = "left"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="World/GoombaAlien"]
 sprite_frames = SubResource("SpriteFrames_1kt8q")
 animation = &"walking"
-frame_progress = 0.351428
+frame_progress = 0.704877
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/GoombaAlien"]
 position = Vector2(0, 0.2)
 shape = SubResource("CapsuleShape2D_on4uc")
+
+[node name="wall_detect" type="Area2D" parent="World/GoombaAlien"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/GoombaAlien/wall_detect"]
+position = Vector2(-3.75, 3.5)
+shape = SubResource("RectangleShape2D_8w212")
 
 [node name="Player" type="CharacterBody2D" parent="World" groups=["player"]]
 position = Vector2(362, 380)
@@ -214,4 +226,5 @@ offset_bottom = 40.0
 [node name="Sound" type="Node2D" parent="."]
 visible = false
 
+[connection signal="body_entered" from="World/GoombaAlien/wall_detect" to="World/GoombaAlien" method="_on_wall_detect_body_entered"]
 [connection signal="animation_finished" from="World/Player/Bat/AnimationPlayer" to="World/Player/Bat" method="_on_animation_player_animation_finished"]
