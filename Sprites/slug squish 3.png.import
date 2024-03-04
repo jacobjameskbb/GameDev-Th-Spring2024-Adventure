@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dosdqfu1labv1"
-path="res://.godot/imported/chest demmon that eats you.png-c3a8e8f3940056b20002bfa392a30d67.ctex"
+uid="uid://vcxrwyjtyhgy"
+path="res://.godot/imported/slug squish 3.png-5419f3b74dd569744ac1fbdae010711b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/chest demmon that eats you.png"
-dest_files=["res://.godot/imported/chest demmon that eats you.png-c3a8e8f3940056b20002bfa392a30d67.ctex"]
+source_file="res://Sprites/slug squish 3.png"
+dest_files=["res://.godot/imported/slug squish 3.png-5419f3b74dd569744ac1fbdae010711b.ctex"]
 
 [params]
 
