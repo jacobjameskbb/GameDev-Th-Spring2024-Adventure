@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 const ROTATION_SPEED = 10
 
+var damage
 var swinging = false
 
 func _ready():

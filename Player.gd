@@ -1,5 +1,9 @@
 extends CharacterBody2D
 
+@export var damage_bat = 16
+@export var damage_card = 4
+
+
 #Loaded scenes
 var preload_card = preload("res://Nodes/Card/card.tscn")
 
@@ -36,7 +40,8 @@ var just_pressed_attack_bat: bool = false
 
 
 func _ready():
-	pass
+	$Bat.damage = damage_bat
+	
 
 func _physics_process(delta):
 	#------MOVEMENT------
@@ -124,5 +129,6 @@ func _physics_process(delta):
 func shoot(direction):
 	var new_card = preload_card.instantiate()
 	get_parent().add_child(new_card)
-	new_card.global_position = self.global_position + Vector2(0,10)
+	new_card.global_position = self.global_position + Vector2(0,15)
 	new_card.direction = direction
+	new_card.damage = damage_card

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://b6a6sned8uphe"]
+[gd_scene load_steps=25 format=3 uid="uid://b6a6sned8uphe"]
 
 [ext_resource type="Script" path="res://GoombaAlien.gd" id="1_e2jam"]
 [ext_resource type="Texture2D" uid="uid://crubhtkm4h0we" path="res://Sprites/green walk 0.png" id="1_jy5nq"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bddcr5f58e22f" path="res://Sprites/green walk 3.png" id="4_548m3"]
 [ext_resource type="Texture2D" uid="uid://ccetuxc2tgvoi" path="res://Sprites/green walk 4.png" id="5_m1spu"]
 [ext_resource type="Script" path="res://Player.gd" id="6_ls5pv"]
+[ext_resource type="PackedScene" uid="uid://8cclpqryrpk3" path="res://health_bar.tscn" id="7_ehovh"]
 [ext_resource type="Texture2D" uid="uid://bktjho4qkypv7" path="res://Sprites/Jethro's Dad.png" id="7_xvvg6"]
 [ext_resource type="Script" path="res://Bat.gd" id="8_8ryn7"]
 [ext_resource type="Texture2D" uid="uid://1phorthu26aa" path="res://Sprites/bat.png" id="9_t78e3"]
@@ -47,7 +48,7 @@ radius = 6.2
 height = 15.6
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8w212"]
-size = Vector2(2.5, 16)
+size = Vector2(3.5, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_takya"]
 atlas = ExtResource("7_xvvg6")
@@ -134,6 +135,8 @@ size = Vector2(6.46809, 39.2148)
 [node name="World" type="Node2D" parent="."]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="World" groups=["wall", "wall enemy"]]
+collision_layer = 3
+collision_mask = 3
 
 [node name="ColorRect" type="ColorRect" parent="World/StaticBody2D"]
 offset_left = -93.0
@@ -174,10 +177,25 @@ position = Vector2(0, 0.2)
 shape = SubResource("CapsuleShape2D_on4uc")
 
 [node name="wall_detect" type="Area2D" parent="World/GoombaAlien"]
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/GoombaAlien/wall_detect"]
-position = Vector2(-6.25, -1)
+position = Vector2(-5.75, -1)
 shape = SubResource("RectangleShape2D_8w212")
+
+[node name="attack_detect" type="Area2D" parent="World/GoombaAlien"]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/GoombaAlien/attack_detect"]
+position = Vector2(0, 0.2)
+shape = SubResource("CapsuleShape2D_on4uc")
+
+[node name="HealthBar" parent="World/GoombaAlien" instance=ExtResource("7_ehovh")]
+position = Vector2(-10, -11.5)
+scale = Vector2(0.2, 0.2)
+get_health_from_parent = true
 
 [node name="Player" type="CharacterBody2D" parent="World" groups=["player"]]
 position = Vector2(362, 380)
@@ -193,11 +211,11 @@ autoplay = "walking"
 position = Vector2(0.399994, 3.80001)
 shape = SubResource("CapsuleShape2D_clevp")
 
-[node name="Bat" type="CharacterBody2D" parent="World/Player"]
+[node name="Bat" type="CharacterBody2D" parent="World/Player" groups=["bat"]]
 position = Vector2(17.5, -4.49998)
 rotation = -1.07687
-collision_layer = 0
-collision_mask = 0
+collision_layer = 4
+collision_mask = 4
 script = ExtResource("8_8ryn7")
 
 [node name="Sprite2D" type="Sprite2D" parent="World/Player/Bat"]
@@ -226,4 +244,5 @@ offset_bottom = 40.0
 visible = false
 
 [connection signal="body_entered" from="World/GoombaAlien/wall_detect" to="World/GoombaAlien" method="_on_wall_detect_body_entered"]
+[connection signal="body_entered" from="World/GoombaAlien/attack_detect" to="World/GoombaAlien" method="_on_attack_detect_body_entered"]
 [connection signal="animation_finished" from="World/Player/Bat/AnimationPlayer" to="World/Player/Bat" method="_on_animation_player_animation_finished"]

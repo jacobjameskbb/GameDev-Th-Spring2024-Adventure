@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+var damage
+
 const MOVEMENT_SPEED = 300
 const ROTATION_SPEED = 20
 const DELETE_TIME_SECONDS = 15
@@ -41,7 +43,7 @@ func move(delta):
 		position.x += MOVEMENT_SPEED * delta
 		rotation_degrees += ROTATION_SPEED
 	else:
-		print_debug('SELF_DEBUG: ROTATION FOR CARD NOT BEING SET OR NOT BEING SET CORRECTLY')
+		print_debug('SELF_DEBUG: ROTATION FOR CARD NOT BEING SET OR NOT BEING SET CORRECTLY, ', direction)
   
 
 
