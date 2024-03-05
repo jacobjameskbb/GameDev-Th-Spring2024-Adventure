@@ -43,7 +43,8 @@ func move(delta):
 		position.x += MOVEMENT_SPEED * delta
 		rotation_degrees += ROTATION_SPEED
 	else:
-		print_debug('SELF_DEBUG: ROTATION FOR CARD NOT BEING SET OR NOT BEING SET CORRECTLY, ', direction)
+		pass
+		#print_debug('SELF_DEBUG: ROTATION FOR CARD NOT BEING SET OR NOT BEING SET CORRECTLY, ', direction)
   
 
 

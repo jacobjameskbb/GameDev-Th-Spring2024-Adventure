@@ -1,7 +1,14 @@
 extends CharacterBody2D
 
+
 @export var damage_bat = 16
 @export var damage_card = 4
+@export var card_cooldown = 0.2
+
+@export var max_health = 100
+@onready var health = max_health
+
+var cooldown = false
 
 
 #Loaded scenes
@@ -37,7 +44,8 @@ var just_pressed_shoot_right: bool = false
 var pressed_attack_bat: bool = false
 var just_pressed_attack_bat: bool = false
 
-
+#dead variable
+var dead = false
 
 func _ready():
 	$Bat.damage = damage_bat
@@ -69,57 +77,63 @@ func _physics_process(delta):
 	#-Set the velocity-
 	if not on_floor:
 		velocity.y += gravity * delta
-
-	if on_floor and just_pressed_jump:
-		velocity.y = JUMP_VELOCITY
-		
-	if pressed_left and velocity.x > -SPEED and not $Bat.swinging and direction == 'left':
-		velocity.x -= ACCELERATION
-		if velocity.x < -SPEED:
-			velocity.x = SPEED
-	elif velocity.x<0:
-		velocity.x += ACCELERATION
-		if velocity.x > 0:
-			velocity.x = 0
-		
-		
-	if pressed_right and velocity.x < SPEED and not $Bat.swinging and direction == 'right':
-		velocity.x += ACCELERATION
-		if velocity.x > SPEED:
-			velocity.x = SPEED
-	elif velocity.x>0:
-		velocity.x -= ACCELERATION
-		if velocity.x < 0:
-			velocity.x = 0
+	if not dead:
+		if on_floor and just_pressed_jump:
+			velocity.y = JUMP_VELOCITY
+			
+		if pressed_left and velocity.x > -SPEED and not $Bat.swinging and direction == 'left':
+			velocity.x -= ACCELERATION
+			if velocity.x < -SPEED:
+				velocity.x = SPEED
+		elif velocity.x<0:
+			velocity.x += ACCELERATION
+			if velocity.x > 0:
+				velocity.x = 0
+			
+			
+		if pressed_right and velocity.x < SPEED and not $Bat.swinging and direction == 'right':
+			velocity.x += ACCELERATION
+			if velocity.x > SPEED:
+				velocity.x = SPEED
+		elif velocity.x>0:
+			velocity.x -= ACCELERATION
+			if velocity.x < 0:
+				velocity.x = 0
+	elif dead:
+		velocity.x = 0
 			
 	#move
 	move_and_slide()
 	
 	#-----OTHER CONTROLS----
-	if just_pressed_shoot_left:
-		shoot('left')
-	if just_pressed_shoot_right:
-		shoot('right')
-	
-	if just_pressed_attack_bat:
-		$Bat.attack(direction)
-	#-----VISUALS-----
-	if (pressed_right and direction == 'left' and not pressed_left) or (pressed_left and direction == 'right' and not pressed_right):
-			scale.x = -2
-			if direction == 'left':
-				direction = 'right'
-			else:
-				direction = 'left'
-	if $Bat.swinging:
-		$AnimatedSprite2D.animation = 'attack bat'
-	else:
+	if not dead:
+		if just_pressed_shoot_left and not cooldown:
+			shoot('left')
+			cooldown = true
+		if just_pressed_shoot_right and not cooldown:
+			shoot('right')
+			cooldown = true
 		
-		if pressed_left:
-			$AnimatedSprite2D.animation = 'walking'
-		if pressed_right:
-			$AnimatedSprite2D.animation = 'walking'
-		if not pressed_left and not pressed_right:
-			$AnimatedSprite2D.animation = 'standing'
+		if just_pressed_attack_bat:
+			$Bat.attack(direction)
+	#-----VISUALS-----
+	if not dead:
+		if (pressed_right and direction == 'left' and not pressed_left) or (pressed_left and direction == 'right' and not pressed_right):
+				scale.x = -2
+				if direction == 'left':
+					direction = 'right'
+				else:
+					direction = 'left'
+		if $Bat.swinging:
+			$AnimatedSprite2D.animation = 'attack bat'
+		else:
+		
+			if pressed_left:
+				$AnimatedSprite2D.animation = 'walking'
+			if pressed_right:
+				$AnimatedSprite2D.animation = 'walking'
+			if not pressed_left and not pressed_right:
+				$AnimatedSprite2D.animation = 'standing'
 	
 
 	
@@ -132,3 +146,30 @@ func shoot(direction):
 	new_card.global_position = self.global_position + Vector2(0,15)
 	new_card.direction = direction
 	new_card.damage = damage_card
+	await get_tree().create_timer(card_cooldown).timeout
+	cooldown = false
+	
+func death():
+	$AnimatedSprite2D.play('death')
+	dead = true
+
+#------CONNECTIONS-----------------
+
+func _on_animated_sprite_2d_animation_looped():
+	print('finished animation: ', $AnimatedSprite2D.animation)
+	if $AnimatedSprite2D.animation == 'death':
+		$AnimatedSprite2D.speed_scale = 0
+		$AnimatedSprite2D.frame = 4
+
+
+func _on_damage_detect_left_body_entered(body):
+	if body.is_in_group('enemy') and body.is_in_group('damage'):
+		health -= body.damage
+
+
+func _on_damage_detect_right_body_entered(body):
+	if body.is_in_group('enemy') and body.is_in_group('damage'):
+		if body.dead != null:
+			if not body.dead:
+				health -= body.damage
+

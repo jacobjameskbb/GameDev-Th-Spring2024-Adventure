@@ -1,11 +1,16 @@
-[gd_scene load_steps=25 format=3 uid="uid://b6a6sned8uphe"]
+[gd_scene load_steps=38 format=3 uid="uid://b6a6sned8uphe"]
 
 [ext_resource type="Script" path="res://GoombaAlien.gd" id="1_e2jam"]
 [ext_resource type="Texture2D" uid="uid://crubhtkm4h0we" path="res://Sprites/green walk 0.png" id="1_jy5nq"]
 [ext_resource type="Texture2D" uid="uid://2tl6qvnh85pl" path="res://Sprites/green walk 1.png" id="2_bild7"]
+[ext_resource type="Texture2D" uid="uid://d1inw82xh0efx" path="res://Sprites/green die 1.png" id="2_txkjl"]
 [ext_resource type="Texture2D" uid="uid://bi2n6tvu0chc7" path="res://Sprites/green walk 2.png" id="3_3k7ww"]
+[ext_resource type="Texture2D" uid="uid://bbwqd7ydixmr4" path="res://Sprites/green die 2.png" id="3_tcm8e"]
+[ext_resource type="Texture2D" uid="uid://mh7tr0mm14wh" path="res://Sprites/green die 3.png" id="4_335b3"]
 [ext_resource type="Texture2D" uid="uid://bddcr5f58e22f" path="res://Sprites/green walk 3.png" id="4_548m3"]
+[ext_resource type="Texture2D" uid="uid://bhn3lyt7gx536" path="res://Sprites/green die 4.png" id="5_dowi0"]
 [ext_resource type="Texture2D" uid="uid://ccetuxc2tgvoi" path="res://Sprites/green walk 4.png" id="5_m1spu"]
+[ext_resource type="Texture2D" uid="uid://d0u1grex8tbij" path="res://Sprites/green die 5.png" id="6_2uu1y"]
 [ext_resource type="Script" path="res://Player.gd" id="6_ls5pv"]
 [ext_resource type="PackedScene" uid="uid://8cclpqryrpk3" path="res://health_bar.tscn" id="7_ehovh"]
 [ext_resource type="Texture2D" uid="uid://bktjho4qkypv7" path="res://Sprites/Jethro's Dad.png" id="7_xvvg6"]
@@ -14,6 +19,35 @@
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1kt8q"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_txkjl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_tcm8e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_335b3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_dowi0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_2uu1y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_2uu1y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_2uu1y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_2uu1y")
+}],
+"loop": false,
+"name": &"death",
+"speed": 7.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_jy5nq")
@@ -54,6 +88,34 @@ size = Vector2(3.5, 16)
 atlas = ExtResource("7_xvvg6")
 region = Rect2(192, 0, 48, 64)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_hxm4d"]
+atlas = ExtResource("7_xvvg6")
+region = Rect2(240, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4rk3w"]
+atlas = ExtResource("7_xvvg6")
+region = Rect2(288, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ohso"]
+atlas = ExtResource("7_xvvg6")
+region = Rect2(336, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5tbri"]
+atlas = ExtResource("7_xvvg6")
+region = Rect2(384, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hxjee"]
+atlas = ExtResource("7_xvvg6")
+region = Rect2(384, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f5dyn"]
+atlas = ExtResource("7_xvvg6")
+region = Rect2(384, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hjbs0"]
+atlas = ExtResource("7_xvvg6")
+region = Rect2(384, 0, 48, 64)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_mpti1"]
 atlas = ExtResource("7_xvvg6")
 region = Rect2(0, 0, 48, 64)
@@ -79,6 +141,32 @@ animations = [{
 "loop": true,
 "name": &"attack bat",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hxm4d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4rk3w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ohso")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5tbri")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hxjee")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f5dyn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hjbs0")
+}],
+"loop": true,
+"name": &"death",
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -130,6 +218,9 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8h7uq"]
 size = Vector2(6.46809, 39.2148)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uwnri"]
+size = Vector2(14.5, 43)
+
 [node name="Level 0" type="Node2D"]
 
 [node name="World" type="Node2D" parent="."]
@@ -161,7 +252,7 @@ offset_bottom = 647.0
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="World/StaticBody2D"]
 polygon = PackedVector2Array(89, -45, -60, -45, -60, 824, 1220, 822, 1222, -76, 1073, -77, 1073, 556, 89, 556)
 
-[node name="GoombaAlien" type="CharacterBody2D" parent="World"]
+[node name="GoombaAlien" type="CharacterBody2D" parent="World" groups=["damage", "enemy"]]
 position = Vector2(638, 516)
 scale = Vector2(2, 2)
 script = ExtResource("1_e2jam")
@@ -169,8 +260,8 @@ direction = "left"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="World/GoombaAlien"]
 sprite_frames = SubResource("SpriteFrames_1kt8q")
-animation = &"walking"
-frame_progress = 0.222977
+animation = &"death"
+frame = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/GoombaAlien"]
 position = Vector2(0, 0.2)
@@ -184,28 +275,32 @@ collision_mask = 2
 position = Vector2(-5.75, -1)
 shape = SubResource("RectangleShape2D_8w212")
 
-[node name="attack_detect" type="Area2D" parent="World/GoombaAlien"]
+[node name="attack_detect" type="Area2D" parent="World/GoombaAlien/wall_detect"]
 collision_layer = 0
 collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/GoombaAlien/attack_detect"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/GoombaAlien/wall_detect/attack_detect"]
 position = Vector2(0, 0.2)
 shape = SubResource("CapsuleShape2D_on4uc")
 
 [node name="HealthBar" parent="World/GoombaAlien" instance=ExtResource("7_ehovh")]
-position = Vector2(-10, -11.5)
+position = Vector2(0, -11)
 scale = Vector2(0.2, 0.2)
-get_health_from_parent = true
 
 [node name="Player" type="CharacterBody2D" parent="World" groups=["player"]]
 position = Vector2(362, 380)
 scale = Vector2(2, 2)
 script = ExtResource("6_ls5pv")
 
+[node name="HealthBar" parent="World/Player" instance=ExtResource("7_ehovh")]
+position = Vector2(0.5, -28.5)
+scale = Vector2(0.2, 0.2)
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="World/Player"]
 sprite_frames = SubResource("SpriteFrames_oefg4")
-animation = &"attack bat"
+animation = &"death"
 autoplay = "walking"
+frame_progress = 0.259991
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Player"]
 position = Vector2(0.399994, 3.80001)
@@ -233,6 +328,18 @@ speed_scale = 3.0
 position = Vector2(-0.118294, -15.0019)
 shape = SubResource("RectangleShape2D_8h7uq")
 
+[node name="DamageDetectLeft" type="Area2D" parent="World/Player"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Player/DamageDetectLeft"]
+position = Vector2(-6.75, 8.5)
+shape = SubResource("RectangleShape2D_uwnri")
+
+[node name="DamageDetectRight" type="Area2D" parent="World/Player"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Player/DamageDetectRight"]
+position = Vector2(7.5, 8.5)
+shape = SubResource("RectangleShape2D_uwnri")
+
 [node name="UI" type="Control" parent="."]
 visible = false
 layout_mode = 3
@@ -243,6 +350,11 @@ offset_bottom = 40.0
 [node name="Sound" type="Node2D" parent="."]
 visible = false
 
+[connection signal="animation_finished" from="World/GoombaAlien/AnimatedSprite2D" to="World/GoombaAlien" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="World/GoombaAlien/wall_detect" to="World/GoombaAlien" method="_on_wall_detect_body_entered"]
-[connection signal="body_entered" from="World/GoombaAlien/attack_detect" to="World/GoombaAlien" method="_on_attack_detect_body_entered"]
+[connection signal="body_entered" from="World/GoombaAlien/wall_detect/attack_detect" to="World/GoombaAlien" method="_on_attack_detect_body_entered"]
+[connection signal="animation_finished" from="World/Player/AnimatedSprite2D" to="World/Player" method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="animation_looped" from="World/Player/AnimatedSprite2D" to="World/Player" method="_on_animated_sprite_2d_animation_looped"]
 [connection signal="animation_finished" from="World/Player/Bat/AnimationPlayer" to="World/Player/Bat" method="_on_animation_player_animation_finished"]
+[connection signal="body_entered" from="World/Player/DamageDetectLeft" to="World/Player" method="_on_damage_detect_left_body_entered"]
+[connection signal="body_entered" from="World/Player/DamageDetectRight" to="World/Player" method="_on_damage_detect_right_body_entered"]
