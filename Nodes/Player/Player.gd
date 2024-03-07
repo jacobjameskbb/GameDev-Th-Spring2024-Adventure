@@ -156,7 +156,6 @@ func death():
 #------CONNECTIONS-----------------
 
 func _on_animated_sprite_2d_animation_looped():
-	print('finished animation: ', $AnimatedSprite2D.animation)
 	if $AnimatedSprite2D.animation == 'death':
 		$AnimatedSprite2D.speed_scale = 0
 		$AnimatedSprite2D.frame = 4
