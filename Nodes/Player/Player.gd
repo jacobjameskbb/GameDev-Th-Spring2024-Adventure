@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 @export var damage_bat = 16
 @export var damage_card = 4
-@export var card_cooldown = 0.2
+@export var card_cooldown = 0.4
 
 @export var max_health = 100
 @onready var health = max_health

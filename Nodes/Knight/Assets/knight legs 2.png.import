@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bveac4jsxggh"
-path="res://.godot/imported/knight torso 1.png-e0a6918f5d2b33664abbd10528f8359f.ctex"
+uid="uid://c73ldu76c5baq"
+path="res://.godot/imported/knight legs 2.png-f4e5a088481b50dce33495b39aa06ea4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/knight torso 1.png"
-dest_files=["res://.godot/imported/knight torso 1.png-e0a6918f5d2b33664abbd10528f8359f.ctex"]
+source_file="res://Nodes/Knight/Assets/knight legs 2.png"
+dest_files=["res://.godot/imported/knight legs 2.png-f4e5a088481b50dce33495b39aa06ea4.ctex"]
 
 [params]
 

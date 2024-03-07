@@ -1,7 +1,10 @@
-[gd_scene load_steps=38 format=3 uid="uid://b6a6sned8uphe"]
+[gd_scene load_steps=41 format=3 uid="uid://b6a6sned8uphe"]
 
-[ext_resource type="Script" path="res://GoombaAlien.gd" id="1_e2jam"]
+[ext_resource type="Script" path="res://Nodes/GoombaAlien/GoombaAlien.gd" id="1_e2jam"]
 [ext_resource type="Texture2D" uid="uid://crubhtkm4h0we" path="res://Sprites/green walk 0.png" id="1_jy5nq"]
+[ext_resource type="SpriteFrames" uid="uid://dbof0c3ryxlme" path="res://Nodes/Knight/knight body.tres" id="1_v1i5w"]
+[ext_resource type="Script" path="res://Nodes/Knight/Knight.gd" id="1_xtjqj"]
+[ext_resource type="SpriteFrames" uid="uid://c5h4lhcy6vmyt" path="res://Nodes/Knight/knight legs.tres" id="2_1urmw"]
 [ext_resource type="Texture2D" uid="uid://2tl6qvnh85pl" path="res://Sprites/green walk 1.png" id="2_bild7"]
 [ext_resource type="Texture2D" uid="uid://d1inw82xh0efx" path="res://Sprites/green die 1.png" id="2_txkjl"]
 [ext_resource type="Texture2D" uid="uid://bi2n6tvu0chc7" path="res://Sprites/green walk 2.png" id="3_3k7ww"]
@@ -11,8 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://bhn3lyt7gx536" path="res://Sprites/green die 4.png" id="5_dowi0"]
 [ext_resource type="Texture2D" uid="uid://ccetuxc2tgvoi" path="res://Sprites/green walk 4.png" id="5_m1spu"]
 [ext_resource type="Texture2D" uid="uid://d0u1grex8tbij" path="res://Sprites/green die 5.png" id="6_2uu1y"]
-[ext_resource type="Script" path="res://Player.gd" id="6_ls5pv"]
-[ext_resource type="PackedScene" uid="uid://8cclpqryrpk3" path="res://health_bar.tscn" id="7_ehovh"]
+[ext_resource type="Script" path="res://Nodes/Player/Player.gd" id="6_ls5pv"]
+[ext_resource type="PackedScene" uid="uid://8cclpqryrpk3" path="res://Nodes/HealthBar/health_bar.tscn" id="7_ehovh"]
 [ext_resource type="Texture2D" uid="uid://bktjho4qkypv7" path="res://Sprites/Jethro's Dad.png" id="7_xvvg6"]
 [ext_resource type="Script" path="res://Bat.gd" id="8_8ryn7"]
 [ext_resource type="Texture2D" uid="uid://1phorthu26aa" path="res://Sprites/bat.png" id="9_t78e3"]
@@ -225,6 +228,24 @@ size = Vector2(14.5, 43)
 
 [node name="World" type="Node2D" parent="."]
 
+[node name="Knight" type="CharacterBody2D" parent="World"]
+position = Vector2(816, 413)
+script = ExtResource("1_xtjqj")
+
+[node name="AnimTorso" type="AnimatedSprite2D" parent="World/Knight"]
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("1_v1i5w")
+animation = &"attacking"
+frame_progress = 0.325736
+
+[node name="AnimLegs" type="AnimatedSprite2D" parent="World/Knight"]
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("2_1urmw")
+frame_progress = 0.0792762
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="World/Knight"]
+polygon = PackedVector2Array(-32, 40, -32, 50, -25.9546, 64, 26.0658, 64, 32, 50, 32, 40, 28, 22, 18, 3, 6, -42, -6, -56, -21, -56, -31, -46, -49, -46, -55, -40, -54, -30, -47, -24, -22, 20, -28, 22)
+
 [node name="StaticBody2D" type="StaticBody2D" parent="World" groups=["wall", "wall enemy"]]
 collision_layer = 3
 collision_mask = 3
@@ -300,7 +321,7 @@ scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_oefg4")
 animation = &"death"
 autoplay = "walking"
-frame_progress = 0.259991
+frame_progress = 0.334954
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Player"]
 position = Vector2(0.399994, 3.80001)
