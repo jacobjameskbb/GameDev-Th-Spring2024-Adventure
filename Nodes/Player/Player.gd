@@ -152,6 +152,9 @@ func shoot(direction):
 func death():
 	$AnimatedSprite2D.play('death')
 	dead = true
+	
+func attack(damage):
+	health -= damage
 
 #------CONNECTIONS-----------------
 
@@ -159,16 +162,4 @@ func _on_animated_sprite_2d_animation_looped():
 	if $AnimatedSprite2D.animation == 'death':
 		$AnimatedSprite2D.speed_scale = 0
 		$AnimatedSprite2D.frame = 4
-
-
-func _on_damage_detect_left_body_entered(body):
-	if body.is_in_group('enemy') and body.is_in_group('damage'):
-		health -= body.damage
-
-
-func _on_damage_detect_right_body_entered(body):
-	if body.is_in_group('enemy') and body.is_in_group('damage'):
-		if body.dead != null:
-			if not body.dead:
-				health -= body.damage
 
