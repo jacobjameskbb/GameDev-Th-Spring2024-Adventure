@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://e8nkfr60ydl4"
-path="res://.godot/imported/mailbox.png-763b32f6ed569eedc34e07c8f1e04026.ctex"
+uid="uid://cafquw5yp4fes"
+path="res://.godot/imported/maibox bending.png-418401b2dd609d22e28542aa0c28ec1f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/mailbox.png"
-dest_files=["res://.godot/imported/mailbox.png-763b32f6ed569eedc34e07c8f1e04026.ctex"]
+source_file="res://Nodes/Mailbox/maibox bending.png"
+dest_files=["res://.godot/imported/maibox bending.png-418401b2dd609d22e28542aa0c28ec1f.ctex"]
 
 [params]
 

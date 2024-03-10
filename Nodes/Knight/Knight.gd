@@ -182,8 +182,8 @@ func update_walls(walls):
 		else:
 			touching_walls['attack'] = true
 
-func attack(damage, type):
-	health -= damage
+func attack(amount, type):
+	health -= amount
 	
 func death():
 	queue_free()

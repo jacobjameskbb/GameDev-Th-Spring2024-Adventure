@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brmhj2855nj1h"
-path="res://.godot/imported/mailbox attack 3.png-fc0f07a89f5bc08349c7b718e11a1a7d.ctex"
+uid="uid://e8nkfr60ydl4"
+path="res://.godot/imported/mailbox.png-8522532a736bd7ef09404852531bc644.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/mailbox attack 3.png"
-dest_files=["res://.godot/imported/mailbox attack 3.png-fc0f07a89f5bc08349c7b718e11a1a7d.ctex"]
+source_file="res://Nodes/Mailbox/mailbox.png"
+dest_files=["res://.godot/imported/mailbox.png-8522532a736bd7ef09404852531bc644.ctex"]
 
 [params]
 

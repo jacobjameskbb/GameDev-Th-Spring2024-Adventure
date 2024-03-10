@@ -50,8 +50,8 @@ func _on_wall_detect_body_entered(body):
 	
 
 #Enemies of this node call this functon to attack it
-func attack(damage, type):
-	health -= damage
+func attack(amount, type):
+	health -= amount
 	if is_on_floor():
 		velocity.y = -DAMAGE_JUMP
 		print('JUMPPP')

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dlmlqxk3rphpk"
-path="res://.godot/imported/mailbox rising 2.png-d1ef4121bb3c1bd29caf85078dcd13f6.ctex"
+path="res://.godot/imported/mailbox rising 2.png-41a9fa1c30ea82cf0465a41676c7c5b5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/mailbox rising 2.png"
-dest_files=["res://.godot/imported/mailbox rising 2.png-d1ef4121bb3c1bd29caf85078dcd13f6.ctex"]
+source_file="res://Nodes/Mailbox/mailbox rising 2.png"
+dest_files=["res://.godot/imported/mailbox rising 2.png-41a9fa1c30ea82cf0465a41676c7c5b5.ctex"]
 
 [params]
 

@@ -8,7 +8,7 @@ var swinging = false
 func _ready():
 	hide()
 
-func attack(direction):
+func swing():
 	show()
 	$AnimationPlayer.play('bat_attack')
 	swinging = true

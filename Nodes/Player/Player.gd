@@ -115,7 +115,7 @@ func _physics_process(delta):
 			cooldown = true
 		
 		if just_pressed_attack_bat:
-			$Bat.attack(direction)
+			$Bat.swing()
 	#-----VISUALS-----
 	if not dead:
 		if (pressed_right and direction == 'left' and not pressed_left) or (pressed_left and direction == 'right' and not pressed_right):
@@ -140,11 +140,11 @@ func _physics_process(delta):
 
 #-----FUNCTIONS-----
 
-func shoot(direction):
+func shoot(shoot_direction):
 	var new_card = preload_card.instantiate()
 	get_parent().add_child(new_card)
 	new_card.global_position = self.global_position + Vector2(0,15)
-	new_card.direction = direction
+	new_card.direction = shoot_direction
 	new_card.damage = damage_card
 	await get_tree().create_timer(card_cooldown).timeout
 	cooldown = false
