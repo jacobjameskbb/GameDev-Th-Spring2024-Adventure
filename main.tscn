@@ -1,10 +1,8 @@
-[gd_scene load_steps=45 format=3 uid="uid://b6a6sned8uphe"]
+[gd_scene load_steps=39 format=3 uid="uid://b6a6sned8uphe"]
 
 [ext_resource type="Script" path="res://Nodes/GoombaAlien/GoombaAlien.gd" id="1_e2jam"]
+[ext_resource type="PackedScene" uid="uid://dyrysltj3wt0q" path="res://Nodes/Knight/knight.tscn" id="1_fixo4"]
 [ext_resource type="Texture2D" uid="uid://crubhtkm4h0we" path="res://Sprites/green walk 0.png" id="1_jy5nq"]
-[ext_resource type="SpriteFrames" uid="uid://dbof0c3ryxlme" path="res://Nodes/Knight/knight body.tres" id="1_v1i5w"]
-[ext_resource type="Script" path="res://Nodes/Knight/Knight.gd" id="1_xtjqj"]
-[ext_resource type="SpriteFrames" uid="uid://c5h4lhcy6vmyt" path="res://Nodes/Knight/knight legs.tres" id="2_1urmw"]
 [ext_resource type="Texture2D" uid="uid://2tl6qvnh85pl" path="res://Sprites/green walk 1.png" id="2_bild7"]
 [ext_resource type="Texture2D" uid="uid://d1inw82xh0efx" path="res://Sprites/green die 1.png" id="2_txkjl"]
 [ext_resource type="Texture2D" uid="uid://bi2n6tvu0chc7" path="res://Sprites/green walk 2.png" id="3_3k7ww"]
@@ -19,18 +17,6 @@
 [ext_resource type="Texture2D" uid="uid://bktjho4qkypv7" path="res://Sprites/Jethro's Dad.png" id="7_xvvg6"]
 [ext_resource type="Script" path="res://Bat.gd" id="8_8ryn7"]
 [ext_resource type="Texture2D" uid="uid://1phorthu26aa" path="res://Sprites/bat.png" id="9_t78e3"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8uci3"]
-size = Vector2(25, 115)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_s385r"]
-size = Vector2(222, 104)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_djg57"]
-radius = 283.854
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kcasl"]
-size = Vector2(66, 132)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1kt8q"]
 animations = [{
@@ -240,55 +226,10 @@ size = Vector2(14.5, 43)
 
 [node name="World" type="Node2D" parent="."]
 
-[node name="Knight" type="CharacterBody2D" parent="World"]
-position = Vector2(154, 414)
-script = ExtResource("1_xtjqj")
-
-[node name="AnimTorso" type="AnimatedSprite2D" parent="World/Knight"]
-scale = Vector2(2, 2)
-sprite_frames = ExtResource("1_v1i5w")
-animation = &"attacking"
-
-[node name="AnimLegs" type="AnimatedSprite2D" parent="World/Knight"]
-scale = Vector2(2, 2)
-sprite_frames = ExtResource("2_1urmw")
-frame_progress = 0.91592
-
-[node name="CollisionAttacking" type="CollisionPolygon2D" parent="World/Knight"]
-polygon = PackedVector2Array(-32, 40, -32, 50, -25.9546, 64, 26.0658, 64, 32, 50, 32, 40, 28, 22, 18, 3, 6, -42, -6, -56, -21, -56, -31, -46, -49, -46, -55, -40, -54, -30, -47, -24, -22, 20, -28, 22)
-
-[node name="CollisionNormal" type="CollisionPolygon2D" parent="World/Knight"]
-position = Vector2(0, 1)
-polygon = PackedVector2Array(-32, 40, -32, 50, -25.9546, 64, 26.0658, 64, 32, 50, 32, 40, 28, 22, 18, 3, 6, -42, -6, -56, -21, -56, -31, -46, -36, -33, -36, -7, -22, 20, -28, 22)
-
-[node name="DetectWallLeft" type="Area2D" parent="World/Knight"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Knight/DetectWallLeft"]
-position = Vector2(-40.5, 5)
-shape = SubResource("RectangleShape2D_8uci3")
-
-[node name="DetectWallRight" type="Area2D" parent="World/Knight"]
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="World/Knight/DetectWallRight"]
-position = Vector2(40.5, 5)
-shape = SubResource("RectangleShape2D_8uci3")
-
-[node name="DetectWallAttack" type="Area2D" parent="World/Knight"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Knight/DetectWallAttack"]
-position = Vector2(0, 9)
-shape = SubResource("RectangleShape2D_s385r")
-
-[node name="DetectPlayerFar" type="Area2D" parent="World/Knight"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Knight/DetectPlayerFar"]
-shape = SubResource("CircleShape2D_djg57")
-
-[node name="DetectClosePlayer" type="Area2D" parent="World/Knight"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Knight/DetectClosePlayer"]
-position = Vector2(-26, -6)
-shape = SubResource("RectangleShape2D_kcasl")
+[node name="Knight" parent="World" instance=ExtResource("1_fixo4")]
+position = Vector2(262, 368)
+collision_layer = 26
+collision_mask = 3
 
 [node name="walls" type="StaticBody2D" parent="World" groups=["wall", "wall enemy"]]
 collision_layer = 3
@@ -320,6 +261,7 @@ polygon = PackedVector2Array(89, -45, -60, -45, -60, 824, 1220, 822, 1222, -76, 
 [node name="GoombaAlien" type="CharacterBody2D" parent="World" groups=["damage", "enemy", "parkour obstacle"]]
 position = Vector2(435, 458)
 scale = Vector2(2, 2)
+collision_layer = 24
 script = ExtResource("1_e2jam")
 direction = "left"
 
@@ -332,6 +274,14 @@ frame = 6
 position = Vector2(0, 0.2)
 shape = SubResource("CapsuleShape2D_on4uc")
 
+[node name="attack_detect" type="Area2D" parent="World/GoombaAlien"]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/GoombaAlien/attack_detect"]
+position = Vector2(0, 0.2)
+shape = SubResource("CapsuleShape2D_on4uc")
+
 [node name="wall_detect" type="Area2D" parent="World/GoombaAlien"]
 collision_layer = 2
 collision_mask = 2
@@ -340,14 +290,6 @@ collision_mask = 2
 position = Vector2(-5.75, -1)
 shape = SubResource("RectangleShape2D_8w212")
 
-[node name="attack_detect" type="Area2D" parent="World/GoombaAlien/wall_detect"]
-collision_layer = 0
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/GoombaAlien/wall_detect/attack_detect"]
-position = Vector2(0, 0.2)
-shape = SubResource("CapsuleShape2D_on4uc")
-
 [node name="HealthBar" parent="World/GoombaAlien" instance=ExtResource("7_ehovh")]
 position = Vector2(0, -11)
 scale = Vector2(0.2, 0.2)
@@ -355,6 +297,7 @@ scale = Vector2(0.2, 0.2)
 [node name="Player" type="CharacterBody2D" parent="World" groups=["player"]]
 position = Vector2(971, 378)
 scale = Vector2(2, 2)
+collision_mask = 9
 script = ExtResource("6_ls5pv")
 
 [node name="HealthBar" parent="World/Player" instance=ExtResource("7_ehovh")]
@@ -393,6 +336,15 @@ speed_scale = 3.0
 position = Vector2(-0.118294, -15.0019)
 shape = SubResource("RectangleShape2D_8h7uq")
 
+[node name="Area2D" type="Area2D" parent="World/Player/Bat"]
+collision_layer = 17
+collision_mask = 17
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Player/Bat/Area2D"]
+position = Vector2(-0.118294, -15.0019)
+shape = SubResource("RectangleShape2D_8h7uq")
+disabled = true
+
 [node name="DamageDetectLeft" type="Area2D" parent="World/Player"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Player/DamageDetectLeft"]
@@ -415,22 +367,12 @@ offset_bottom = 40.0
 [node name="Sound" type="Node2D" parent="."]
 visible = false
 
-[connection signal="animation_looped" from="World/Knight/AnimTorso" to="World/Knight" method="_on_anim_torso_animation_looped"]
-[connection signal="body_entered" from="World/Knight/DetectWallLeft" to="World/Knight" method="_on_detect_wall_left_body_entered"]
-[connection signal="body_exited" from="World/Knight/DetectWallLeft" to="World/Knight" method="_on_detect_wall_left_body_exited"]
-[connection signal="body_entered" from="World/Knight/DetectWallRight" to="World/Knight" method="_on_detect_wall_right_body_entered"]
-[connection signal="body_exited" from="World/Knight/DetectWallRight" to="World/Knight" method="_on_detect_wall_right_body_exited"]
-[connection signal="body_entered" from="World/Knight/DetectWallAttack" to="World/Knight" method="_on_detect_wall_attack_body_entered"]
-[connection signal="body_exited" from="World/Knight/DetectWallAttack" to="World/Knight" method="_on_detect_wall_attack_body_exited"]
-[connection signal="body_entered" from="World/Knight/DetectPlayerFar" to="World/Knight" method="_on_detect_player_far_body_entered"]
-[connection signal="body_exited" from="World/Knight/DetectPlayerFar" to="World/Knight" method="_on_detect_player_far_body_exited"]
-[connection signal="body_entered" from="World/Knight/DetectClosePlayer" to="World/Knight" method="_on_detect_close_player_body_entered"]
-[connection signal="body_exited" from="World/Knight/DetectClosePlayer" to="World/Knight" method="_on_detect_close_player_body_exited"]
 [connection signal="animation_finished" from="World/GoombaAlien/AnimatedSprite2D" to="World/GoombaAlien" method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="body_entered" from="World/GoombaAlien/attack_detect" to="World/GoombaAlien" method="_on_attack_detect_body_entered"]
 [connection signal="body_entered" from="World/GoombaAlien/wall_detect" to="World/GoombaAlien" method="_on_wall_detect_body_entered"]
-[connection signal="body_entered" from="World/GoombaAlien/wall_detect/attack_detect" to="World/GoombaAlien" method="_on_attack_detect_body_entered"]
 [connection signal="animation_finished" from="World/Player/AnimatedSprite2D" to="World/Player" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="animation_looped" from="World/Player/AnimatedSprite2D" to="World/Player" method="_on_animated_sprite_2d_animation_looped"]
 [connection signal="animation_finished" from="World/Player/Bat/AnimationPlayer" to="World/Player/Bat" method="_on_animation_player_animation_finished"]
+[connection signal="body_entered" from="World/Player/Bat/Area2D" to="World/Player/Bat" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="World/Player/DamageDetectLeft" to="World/Player" method="_on_damage_detect_left_body_entered"]
 [connection signal="body_entered" from="World/Player/DamageDetectRight" to="World/Player" method="_on_damage_detect_right_body_entered"]

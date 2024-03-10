@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var damage
+var damage = 4
 
 const MOVEMENT_SPEED = 300
 const ROTATION_SPEED = 20
@@ -55,6 +55,8 @@ func _on_area_body_entered(body):
 		call_deferred('enable_collision')
 	if body.is_in_group('player'):
 		colliding_with_player = true
+	if body.is_in_group('enemy'):
+		body.attack(damage, 'card')
 
 
 func _on_area_body_exited(body):

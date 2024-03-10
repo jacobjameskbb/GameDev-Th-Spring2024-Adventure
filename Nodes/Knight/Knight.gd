@@ -1,7 +1,10 @@
 extends CharacterBody2D
 
 #-----VARIABLES-----
-@export var damage = 20
+@export var max_health = 60
+@onready var health = max_health
+
+@export var damage = 30
 
 const SPEED = 60.0
 const ATTACKING_SPEED = 200
@@ -38,6 +41,9 @@ var player_close_range = false
 
 @onready var player = get_parent().get_node('Player')
 
+var previous_position = null
+@onready var position_countdown = RESET_POSITION_COUNTDOWN
+const RESET_POSITION_COUNTDOWN = 5
 
 #-----BASE FUNCTIONS-------
 func _ready():
@@ -71,8 +77,19 @@ func _physics_process(delta):
 				if stand_cooldown <0:
 					stand_cooldown = null
 					state = 'walking'
-			print(stand_cooldown)
 		if state == 'walking':
+			#variables
+			if previous_position == null:
+				previous_position = self.position
+			position_countdown -= 1
+			if position_countdown <= 0:
+				position_countdown = RESET_POSITION_COUNTDOWN
+				if position == previous_position:
+					state = 'standing'
+					previous_position = null
+					target_location = null
+				else:
+					previous_position = self.position
 			#Animation
 			$AnimTorso.animation = 'walking'
 			$AnimLegs.speed_scale = 1
@@ -81,16 +98,16 @@ func _physics_process(delta):
 			#Movement
 			if target_location == null:
 				target_location = self.position.x + random.randi_range(-WALK_RANGE, WALK_RANGE)
-				print(target_location)
 			if target_location > self.position.x:
 				velocity.x = SPEED
-				
-			
+				if direction == 'left':
+					direction = 'right'
+					scale.x = -1
 				if target_location <= self.position.x + SPEED or touching_walls['right_normal']:
 					state = 'standing'
 					target_location = null
-					if touching_walls['right_normal']:
-						print('WALL RIGHT')
+					previous_position = null
+					position_countdown = RESET_POSITION_COUNTDOWN
 			elif target_location < self.position.x:
 				velocity.x = -SPEED
 				if direction == 'right':
@@ -98,10 +115,9 @@ func _physics_process(delta):
 					scale.x = -1
 				if target_location >= self.position.x - SPEED or touching_walls['left_normal']:
 					state = 'standing'
+					position_countdown = RESET_POSITION_COUNTDOWN
+					previous_position = null
 					target_location = null
-					if touching_walls['left_normal']:
-						print('WALL LEFT')
-			print(direction)
 		if state == 'attacking':
 			#Animation
 			$AnimTorso.animation = 'attacking'
@@ -137,6 +153,8 @@ func _physics_process(delta):
 					if body.global_position.x > self.global_position.x and is_on_floor():
 						velocity.y = JUMP_VELOCITY
 						break
+			if not player_far_range:
+				state = 'standing'
 			
 		
 		#----VISUALS-------
@@ -164,6 +182,11 @@ func update_walls(walls):
 		else:
 			touching_walls['attack'] = true
 
+func attack(damage, type):
+	health -= damage
+	
+func death():
+	queue_free()
 #--------CONNECTIONS--------
 func _on_detect_wall_left_body_entered(body):
 	if body.is_in_group('wall'):
@@ -235,8 +258,9 @@ func _on_detect_close_player_body_entered(body):
 func _on_detect_close_player_body_exited(body):
 	if body.is_in_group('player'):
 		player_close_range = false
+		
 
 
 func _on_anim_torso_animation_looped():
 	if $AnimTorso.animation == 'attacking' and player_close_range:
-		player.attack(damage)
+		player.attack(damage, 'none')

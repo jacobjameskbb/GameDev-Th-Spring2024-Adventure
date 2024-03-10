@@ -153,7 +153,8 @@ func death():
 	$AnimatedSprite2D.play('death')
 	dead = true
 	
-func attack(damage):
+#Enemies call this function to attack player
+func attack(damage, type):
 	health -= damage
 
 #------CONNECTIONS-----------------

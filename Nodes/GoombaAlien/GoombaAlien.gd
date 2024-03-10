@@ -49,16 +49,12 @@ func _on_wall_detect_body_entered(body):
 			direction = 'left'
 	
 
-
-func _on_attack_detect_body_entered(body):
-	if body.is_in_group('bat'):
-		health -= body.damage
-		if is_on_floor() and not dead:
-			velocity.y = -DAMAGE_JUMP
-	if body.is_in_group('card'):
-		health -= body.get_parent().damage
-		if is_on_floor() and not dead:
-			velocity.y = -DAMAGE_JUMP
+#Enemies of this node call this functon to attack it
+func attack(damage, type):
+	health -= damage
+	if is_on_floor():
+		velocity.y = -DAMAGE_JUMP
+		print('JUMPPP')
 	
 
 

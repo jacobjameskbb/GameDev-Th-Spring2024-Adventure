@@ -1,0 +1,85 @@
+[gd_scene load_steps=9 format=3 uid="uid://dyrysltj3wt0q"]
+
+[ext_resource type="Script" path="res://Nodes/Knight/Knight.gd" id="1_vokaf"]
+[ext_resource type="SpriteFrames" uid="uid://dbof0c3ryxlme" path="res://Nodes/Knight/knight body.tres" id="2_rb47o"]
+[ext_resource type="SpriteFrames" uid="uid://c5h4lhcy6vmyt" path="res://Nodes/Knight/knight legs.tres" id="3_v5g22"]
+[ext_resource type="PackedScene" uid="uid://8cclpqryrpk3" path="res://Nodes/HealthBar/health_bar.tscn" id="4_4k772"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8uci3"]
+size = Vector2(25, 115)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s385r"]
+size = Vector2(222, 104)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_djg57"]
+radius = 283.854
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kcasl"]
+size = Vector2(66, 132)
+
+[node name="Knight" type="CharacterBody2D" groups=["enemy"]]
+position = Vector2(154, 414)
+collision_layer = 8
+script = ExtResource("1_vokaf")
+
+[node name="AnimTorso" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("2_rb47o")
+animation = &"attacking"
+
+[node name="AnimLegs" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("3_v5g22")
+frame_progress = 0.91592
+
+[node name="CollisionAttacking" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-32, 40, -32, 50, -25.9546, 64, 26.0658, 64, 32, 50, 32, 40, 28, 22, 18, 3, 6, -42, -6, -56, -21, -56, -31, -46, -49, -46, -55, -40, -54, -30, -47, -24, -22, 20, -28, 22)
+
+[node name="CollisionNormal" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, 1)
+polygon = PackedVector2Array(-32, 40, -32, 50, -25.9546, 64, 26.0658, 64, 32, 50, 32, 40, 28, 22, 18, 3, 6, -42, -6, -56, -21, -56, -31, -46, -36, -33, -36, -7, -22, 20, -28, 22)
+
+[node name="DetectWallLeft" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectWallLeft"]
+position = Vector2(-40.5, 5)
+shape = SubResource("RectangleShape2D_8uci3")
+
+[node name="DetectWallRight" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DetectWallRight"]
+position = Vector2(40.5, 5)
+shape = SubResource("RectangleShape2D_8uci3")
+
+[node name="DetectWallAttack" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectWallAttack"]
+position = Vector2(0, 9)
+shape = SubResource("RectangleShape2D_s385r")
+
+[node name="DetectPlayerFar" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectPlayerFar"]
+shape = SubResource("CircleShape2D_djg57")
+
+[node name="DetectClosePlayer" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectClosePlayer"]
+position = Vector2(-26, -6)
+shape = SubResource("RectangleShape2D_kcasl")
+
+[node name="HealthBar" parent="." instance=ExtResource("4_4k772")]
+position = Vector2(0, -74)
+scale = Vector2(0.5, 0.5)
+
+[connection signal="animation_looped" from="AnimTorso" to="." method="_on_anim_torso_animation_looped"]
+[connection signal="body_entered" from="DetectWallLeft" to="." method="_on_detect_wall_left_body_entered"]
+[connection signal="body_exited" from="DetectWallLeft" to="." method="_on_detect_wall_left_body_exited"]
+[connection signal="body_entered" from="DetectWallRight" to="." method="_on_detect_wall_right_body_entered"]
+[connection signal="body_exited" from="DetectWallRight" to="." method="_on_detect_wall_right_body_exited"]
+[connection signal="body_entered" from="DetectWallAttack" to="." method="_on_detect_wall_attack_body_entered"]
+[connection signal="body_exited" from="DetectWallAttack" to="." method="_on_detect_wall_attack_body_exited"]
+[connection signal="body_entered" from="DetectPlayerFar" to="." method="_on_detect_player_far_body_entered"]
+[connection signal="body_exited" from="DetectPlayerFar" to="." method="_on_detect_player_far_body_exited"]
+[connection signal="body_entered" from="DetectClosePlayer" to="." method="_on_detect_close_player_body_entered"]
+[connection signal="body_exited" from="DetectClosePlayer" to="." method="_on_detect_close_player_body_exited"]
