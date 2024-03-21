@@ -1,7 +1,8 @@
-[gd_scene load_steps=45 format=3 uid="uid://b6a6sned8uphe"]
+[gd_scene load_steps=46 format=3 uid="uid://b6a6sned8uphe"]
 
 [ext_resource type="PackedScene" uid="uid://dyrysltj3wt0q" path="res://Nodes/Knight/knight.tscn" id="1_fixo4"]
 [ext_resource type="PackedScene" uid="uid://0yhtecd3nn4a" path="res://Nodes/GoombaAlien/goomba_alien.tscn" id="2_jngvw"]
+[ext_resource type="Texture2D" uid="uid://bbg8rd0povgv2" path="res://Nodes/Player/Jethro's Dad.png" id="6_lhyr2"]
 [ext_resource type="Script" path="res://Nodes/Player/Player.gd" id="6_ls5pv"]
 [ext_resource type="PackedScene" uid="uid://8cclpqryrpk3" path="res://Nodes/HealthBar/health_bar.tscn" id="7_ehovh"]
 [ext_resource type="Texture2D" uid="uid://bktjho4qkypv7" path="res://Sprites/Jethro's Dad.png" id="7_xvvg6"]
@@ -57,16 +58,16 @@ region = Rect2(384, 0, 48, 64)
 atlas = ExtResource("7_xvvg6")
 region = Rect2(0, 0, 48, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bc7sh"]
-atlas = ExtResource("7_xvvg6")
+[sub_resource type="AtlasTexture" id="AtlasTexture_ay8d3"]
+atlas = ExtResource("6_lhyr2")
 region = Rect2(48, 0, 48, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_heq8u"]
-atlas = ExtResource("7_xvvg6")
+[sub_resource type="AtlasTexture" id="AtlasTexture_qv3u7"]
+atlas = ExtResource("6_lhyr2")
 region = Rect2(96, 0, 48, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2gynq"]
-atlas = ExtResource("7_xvvg6")
+[sub_resource type="AtlasTexture" id="AtlasTexture_mvo3o"]
+atlas = ExtResource("6_lhyr2")
 region = Rect2(144, 0, 48, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_oefg4"]
@@ -115,13 +116,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bc7sh")
+"texture": SubResource("AtlasTexture_ay8d3")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_heq8u")
+"texture": SubResource("AtlasTexture_qv3u7")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2gynq")
+"texture": SubResource("AtlasTexture_mvo3o")
 }],
 "loop": true,
 "name": &"walking",
@@ -446,9 +447,8 @@ scale = Vector2(0.2, 0.2)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="World/Player"]
 sprite_frames = SubResource("SpriteFrames_oefg4")
-animation = &"death"
+animation = &"walking"
 autoplay = "walking"
-frame_progress = 0.334954
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Player"]
 position = Vector2(0.399994, 3.80001)
@@ -498,7 +498,7 @@ position = Vector2(7.5, 8.5)
 shape = SubResource("RectangleShape2D_uwnri")
 
 [node name="Mailbox" type="CharacterBody2D" parent="World"]
-position = Vector2(813, 474)
+position = Vector2(1261, 415)
 scale = Vector2(2, 2)
 collision_layer = 26
 collision_mask = 3
