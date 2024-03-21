@@ -5,12 +5,12 @@
 [ext_resource type="Texture2D" uid="uid://bbg8rd0povgv2" path="res://Nodes/Player/Jethro's Dad.png" id="6_lhyr2"]
 [ext_resource type="Script" path="res://Nodes/Player/Player.gd" id="6_ls5pv"]
 [ext_resource type="PackedScene" uid="uid://8cclpqryrpk3" path="res://Nodes/HealthBar/health_bar.tscn" id="7_ehovh"]
+[ext_resource type="Texture2D" uid="uid://c7lfhp72ydvmn" path="res://Sprites/basic_bat.png" id="7_jgxw4"]
 [ext_resource type="Texture2D" uid="uid://bktjho4qkypv7" path="res://Sprites/Jethro's Dad.png" id="7_xvvg6"]
 [ext_resource type="Script" path="res://Bat.gd" id="8_8ryn7"]
 [ext_resource type="Script" path="res://Mailbox.gd" id="8_cfe80"]
 [ext_resource type="Texture2D" uid="uid://khbb75yik457" path="res://Sprites/mailbox atack 1.png" id="8_r2ftp"]
 [ext_resource type="Texture2D" uid="uid://bvo11txnd1x63" path="res://Nodes/Mailbox/mailbox attack 2.png" id="9_b3hj0"]
-[ext_resource type="Texture2D" uid="uid://1phorthu26aa" path="res://Sprites/bat.png" id="9_t78e3"]
 [ext_resource type="Texture2D" uid="uid://brmhj2855nj1h" path="res://Nodes/Mailbox/mailbox attack 3.png" id="10_f4hxe"]
 [ext_resource type="Texture2D" uid="uid://c4jt3ye2qvgvs" path="res://Nodes/Mailbox/mailbox attack 4.png" id="11_3e4q6"]
 [ext_resource type="Texture2D" uid="uid://cafquw5yp4fes" path="res://Nodes/Mailbox/maibox bending.png" id="12_w711b"]
@@ -462,7 +462,7 @@ collision_mask = 4
 script = ExtResource("8_8ryn7")
 
 [node name="Sprite2D" type="Sprite2D" parent="World/Player/Bat"]
-texture = ExtResource("9_t78e3")
+texture = ExtResource("7_jgxw4")
 offset = Vector2(0, -15)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="World/Player/Bat"]
