@@ -395,7 +395,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ck4yb"]
-size = Vector2(24.5, 75.5)
+size = Vector2(25.25, 72.25)
 
 [node name="Level 0" type="Node2D"]
 
@@ -498,7 +498,7 @@ position = Vector2(7.5, 8.5)
 shape = SubResource("RectangleShape2D_uwnri")
 
 [node name="Mailbox" type="CharacterBody2D" parent="World"]
-position = Vector2(1261, 415)
+position = Vector2(922, 463)
 scale = Vector2(2, 2)
 collision_layer = 26
 collision_mask = 3
@@ -507,13 +507,12 @@ script = ExtResource("8_cfe80")
 [node name="Area2D" type="Area2D" parent="World/Mailbox"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="World/Mailbox"]
-position = Vector2(84.5, -27.5)
 sprite_frames = SubResource("SpriteFrames_bk1yh")
 animation = &"attacking"
 frame_progress = 0.0369256
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Mailbox"]
-position = Vector2(80.25, -25.25)
+position = Vector2(-1.375, 4.125)
 shape = SubResource("RectangleShape2D_ck4yb")
 
 [node name="UI" type="Control" parent="."]
