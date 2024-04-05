@@ -508,8 +508,8 @@ script = ExtResource("8_cfe80")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="World/Mailbox"]
 sprite_frames = SubResource("SpriteFrames_bk1yh")
-animation = &"attacking"
-frame_progress = 0.0369256
+animation = &"walking"
+frame_progress = 0.967707
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Mailbox"]
 position = Vector2(-1.375, 4.125)

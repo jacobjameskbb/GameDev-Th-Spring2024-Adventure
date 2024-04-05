@@ -1,5 +1,9 @@
 extends CharacterBody2D
 
+#Player level 0: Cant do attacks
+#Player level 1: hit with bat
+#Player level 2: throw cards
+@export var player_level = 0
 
 @export var damage_bat = 16
 @export var damage_card = 4
@@ -63,14 +67,25 @@ func _physics_process(delta):
 	just_pressed_right = Input.is_action_just_pressed('right')
 	just_pressed_jump = Input.is_action_just_pressed('jump')
 	
-	pressed_shoot_left = Input.is_action_pressed('launch card left')
-	pressed_shoot_right = Input.is_action_pressed('launch card right')
+	if player_level > 1:
+		pressed_shoot_left = Input.is_action_pressed('launch card left')
+		pressed_shoot_right = Input.is_action_pressed('launch card right')
+		
+		just_pressed_shoot_left = Input.is_action_just_pressed('launch card left')
+		just_pressed_shoot_right = Input.is_action_just_pressed('launch card right')
+	else:
+		pressed_shoot_left = false
+		pressed_shoot_right = false
+		
+		just_pressed_shoot_left = false
+		just_pressed_shoot_right = false
 	
-	just_pressed_shoot_left = Input.is_action_just_pressed('launch card left')
-	just_pressed_shoot_right = Input.is_action_just_pressed('launch card right')
-	
-	pressed_attack_bat = Input.is_action_pressed('bat attack')
-	just_pressed_attack_bat = Input.is_action_just_pressed('bat attack')
+	if player_level >0:
+		pressed_attack_bat = Input.is_action_pressed('bat attack')
+		just_pressed_attack_bat = Input.is_action_just_pressed('bat attack')
+	else:
+		pressed_attack_bat = false
+		just_pressed_attack_bat = false
 	
 	on_floor = is_on_floor()
 	

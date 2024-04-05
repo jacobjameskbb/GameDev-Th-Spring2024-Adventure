@@ -1,0 +1,107 @@
+[gd_scene load_steps=7 format=3 uid="uid://bfv1xexuduuw5"]
+
+[ext_resource type="Texture2D" uid="uid://kiegqgxbbks6" path="res://Sprites/fence.png" id="1_qff8o"]
+[ext_resource type="Script" path="res://PanoramaHBox.gd" id="1_sre38"]
+[ext_resource type="Script" path="res://marker control.gd" id="3_3wbyo"]
+[ext_resource type="Texture2D" uid="uid://b0b31r4asfa6a" path="res://Sprites/lamp post.png" id="3_en04p"]
+[ext_resource type="Texture2D" uid="uid://crubhtkm4h0we" path="res://Sprites/green walk 0.png" id="4_55da2"]
+[ext_resource type="Texture2D" uid="uid://ye4pv8yd4wdo" path="res://Sprites/car miata.png" id="4_xvytn"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Tiled Sprites" type="HBoxContainer" parent="Background"]
+clip_contents = true
+layout_direction = 2
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -307.0
+offset_top = 190.0
+offset_right = 749.0
+offset_bottom = 281.0
+grow_horizontal = 2
+pivot_offset = Vector2(1, 0)
+theme_override_constants/separation = 0
+alignment = 1
+script = ExtResource("1_sre38")
+
+[node name="TextureRect" type="TextureRect" parent="Background/Tiled Sprites"]
+layout_mode = 2
+texture = ExtResource("1_qff8o")
+expand_mode = 3
+
+[node name="TextureRect2" type="TextureRect" parent="Background/Tiled Sprites"]
+layout_mode = 2
+texture = ExtResource("1_qff8o")
+expand_mode = 3
+
+[node name="TextureRect3" type="TextureRect" parent="Background/Tiled Sprites"]
+layout_mode = 2
+texture = ExtResource("1_qff8o")
+expand_mode = 3
+
+[node name="TextureRect4" type="TextureRect" parent="Background/Tiled Sprites"]
+layout_mode = 2
+texture = ExtResource("1_qff8o")
+expand_mode = 3
+
+[node name="TextureRect5" type="TextureRect" parent="Background/Tiled Sprites"]
+layout_mode = 2
+texture = ExtResource("1_qff8o")
+expand_mode = 3
+
+[node name="TextureRect6" type="TextureRect" parent="Background/Tiled Sprites"]
+layout_mode = 2
+texture = ExtResource("1_qff8o")
+expand_mode = 3
+
+[node name="TextureRect7" type="TextureRect" parent="Background/Tiled Sprites"]
+layout_mode = 2
+texture = ExtResource("1_qff8o")
+expand_mode = 3
+
+[node name="TextureRect8" type="TextureRect" parent="Background/Tiled Sprites"]
+layout_mode = 2
+texture = ExtResource("1_qff8o")
+expand_mode = 3
+
+[node name="TextureRect9" type="TextureRect" parent="Background/Tiled Sprites"]
+layout_mode = 2
+texture = ExtResource("1_qff8o")
+expand_mode = 3
+
+[node name="TextureRect10" type="TextureRect" parent="Background/Tiled Sprites"]
+layout_mode = 2
+texture = ExtResource("1_qff8o")
+expand_mode = 3
+
+[node name="TextureRect11" type="TextureRect" parent="Background/Tiled Sprites"]
+layout_mode = 2
+texture = ExtResource("1_qff8o")
+expand_mode = 3
+
+[node name="LampPost" type="Sprite2D" parent="Background"]
+position = Vector2(-80, 264)
+texture = ExtResource("3_en04p")
+
+[node name="LampPost2" type="Sprite2D" parent="Background"]
+position = Vector2(169, 264)
+texture = ExtResource("3_en04p")
+
+[node name="CarMiata" type="Sprite2D" parent="Background"]
+position = Vector2(-161, 288)
+texture = ExtResource("4_xvytn")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(220, 286)
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="*Player*" type="Marker2D" parent="World"]
+position = Vector2(206, 353)
+script = ExtResource("3_3wbyo")
+
+[node name="GreenWalk0" type="Sprite2D" parent="World/*Player*"]
+texture = ExtResource("4_55da2")
