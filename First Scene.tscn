@@ -1,15 +1,26 @@
-[gd_scene load_steps=7 format=3 uid="uid://bfv1xexuduuw5"]
+[gd_scene load_steps=12 format=3 uid="uid://bfv1xexuduuw5"]
 
 [ext_resource type="Texture2D" uid="uid://kiegqgxbbks6" path="res://Sprites/fence.png" id="1_qff8o"]
 [ext_resource type="Script" path="res://PanoramaHBox.gd" id="1_sre38"]
-[ext_resource type="Script" path="res://marker control.gd" id="3_3wbyo"]
 [ext_resource type="Texture2D" uid="uid://b0b31r4asfa6a" path="res://Sprites/lamp post.png" id="3_en04p"]
-[ext_resource type="Texture2D" uid="uid://crubhtkm4h0we" path="res://Sprites/green walk 0.png" id="4_55da2"]
+[ext_resource type="Script" path="res://Entrance.gd" id="4_4o3oj"]
 [ext_resource type="Texture2D" uid="uid://ye4pv8yd4wdo" path="res://Sprites/car miata.png" id="4_xvytn"]
+[ext_resource type="Texture2D" uid="uid://dgrk5hiycd7eo" path="res://Sprites/press e.png" id="5_5wb1i"]
+[ext_resource type="PackedScene" uid="uid://d1f1fk2kiy4ty" path="res://player.tscn" id="5_22a4l"]
+[ext_resource type="Script" path="res://camera.gd" id="6_prsqu"]
+[ext_resource type="Texture2D" uid="uid://b1jqq7ker54lu" path="res://Sprites/milk store new.png" id="7_24ptn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pgsb5"]
+size = Vector2(4124, 620)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1php0"]
+size = Vector2(48, 63)
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Background" type="Node2D" parent="."]
+position = Vector2(103, -215)
+scale = Vector2(2, 2)
 
 [node name="Tiled Sprites" type="HBoxContainer" parent="Background"]
 clip_contents = true
@@ -17,15 +28,17 @@ layout_direction = 2
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -307.0
-offset_top = 190.0
-offset_right = 749.0
-offset_bottom = 281.0
+offset_left = -1138.5
+offset_top = 96.0
+offset_right = -82.5
+offset_bottom = 187.0
 grow_horizontal = 2
+scale = Vector2(2, 2)
 pivot_offset = Vector2(1, 0)
 theme_override_constants/separation = 0
 alignment = 1
 script = ExtResource("1_sre38")
+metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="Background/Tiled Sprites"]
 layout_mode = 2
@@ -43,21 +56,6 @@ texture = ExtResource("1_qff8o")
 expand_mode = 3
 
 [node name="TextureRect4" type="TextureRect" parent="Background/Tiled Sprites"]
-layout_mode = 2
-texture = ExtResource("1_qff8o")
-expand_mode = 3
-
-[node name="TextureRect5" type="TextureRect" parent="Background/Tiled Sprites"]
-layout_mode = 2
-texture = ExtResource("1_qff8o")
-expand_mode = 3
-
-[node name="TextureRect6" type="TextureRect" parent="Background/Tiled Sprites"]
-layout_mode = 2
-texture = ExtResource("1_qff8o")
-expand_mode = 3
-
-[node name="TextureRect7" type="TextureRect" parent="Background/Tiled Sprites"]
 layout_mode = 2
 texture = ExtResource("1_qff8o")
 expand_mode = 3
@@ -82,26 +80,136 @@ layout_mode = 2
 texture = ExtResource("1_qff8o")
 expand_mode = 3
 
-[node name="LampPost" type="Sprite2D" parent="Background"]
-position = Vector2(-80, 264)
-texture = ExtResource("3_en04p")
+[node name="TextureRect12" type="TextureRect" parent="Background/Tiled Sprites"]
+layout_mode = 2
+texture = ExtResource("1_qff8o")
+expand_mode = 3
 
-[node name="LampPost2" type="Sprite2D" parent="Background"]
-position = Vector2(169, 264)
-texture = ExtResource("3_en04p")
+[node name="TextureRect13" type="TextureRect" parent="Background/Tiled Sprites"]
+layout_mode = 2
+texture = ExtResource("1_qff8o")
+expand_mode = 3
 
-[node name="CarMiata" type="Sprite2D" parent="Background"]
-position = Vector2(-161, 288)
-texture = ExtResource("4_xvytn")
+[node name="TextureRect14" type="TextureRect" parent="Background/Tiled Sprites"]
+layout_mode = 2
+texture = ExtResource("1_qff8o")
+expand_mode = 3
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(220, 286)
+[node name="TextureRect15" type="TextureRect" parent="Background/Tiled Sprites"]
+layout_mode = 2
+texture = ExtResource("1_qff8o")
+expand_mode = 3
+
+[node name="TextureRect16" type="TextureRect" parent="Background/Tiled Sprites"]
+layout_mode = 2
+texture = ExtResource("1_qff8o")
+expand_mode = 3
+
+[node name="TextureRect17" type="TextureRect" parent="Background/Tiled Sprites"]
+layout_mode = 2
+texture = ExtResource("1_qff8o")
+expand_mode = 3
+
+[node name="TextureRect18" type="TextureRect" parent="Background/Tiled Sprites"]
+layout_mode = 2
+texture = ExtResource("1_qff8o")
+expand_mode = 3
+
+[node name="TextureRect5" type="TextureRect" parent="Background/Tiled Sprites"]
+layout_mode = 2
+texture = ExtResource("1_qff8o")
+expand_mode = 3
+
+[node name="TextureRect6" type="TextureRect" parent="Background/Tiled Sprites"]
+layout_mode = 2
+texture = ExtResource("1_qff8o")
+expand_mode = 3
+
+[node name="TextureRect7" type="TextureRect" parent="Background/Tiled Sprites"]
+layout_mode = 2
+texture = ExtResource("1_qff8o")
+expand_mode = 3
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Background/Tiled Sprites"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Tiled Sprites/StaticBody2D"]
+position = Vector2(702, 133.5)
+scale = Vector2(0.25, 0.25)
+shape = SubResource("RectangleShape2D_pgsb5")
 
 [node name="World" type="Node2D" parent="."]
 
-[node name="*Player*" type="Marker2D" parent="World"]
-position = Vector2(206, 353)
-script = ExtResource("3_3wbyo")
+[node name="MilkStore" type="Sprite2D" parent="World"]
+position = Vector2(1185, -302)
+scale = Vector2(2, 2)
+texture = ExtResource("7_24ptn")
 
-[node name="GreenWalk0" type="Sprite2D" parent="World/*Player*"]
-texture = ExtResource("4_55da2")
+[node name="Area2D" type="Area2D" parent="World/MilkStore"]
+position = Vector2(4, 207.5)
+script = ExtResource("4_4o3oj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/MilkStore/Area2D"]
+position = Vector2(4.5, 11)
+shape = SubResource("RectangleShape2D_1php0")
+
+[node name="Sprite2D" type="Sprite2D" parent="World/MilkStore/Area2D"]
+visible = false
+position = Vector2(4, -31)
+texture = ExtResource("5_5wb1i")
+
+[node name="walls" type="StaticBody2D" parent="World"]
+position = Vector2(-424, -229)
+collision_layer = 3
+collision_mask = 3
+
+[node name="Camera2D" type="Camera2D" parent="World"]
+position = Vector2(-398, 77)
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+script = ExtResource("6_prsqu")
+
+[node name="Player" parent="World" instance=ExtResource("5_22a4l")]
+position = Vector2(-400, 127)
+
+[node name="LampPost" type="Sprite2D" parent="."]
+position = Vector2(-220, 116)
+scale = Vector2(2, 2)
+texture = ExtResource("3_en04p")
+
+[node name="LampPost7" type="Sprite2D" parent="."]
+position = Vector2(-620, 116)
+scale = Vector2(2, 2)
+texture = ExtResource("3_en04p")
+
+[node name="LampPost2" type="Sprite2D" parent="."]
+position = Vector2(180, 116)
+scale = Vector2(2, 2)
+texture = ExtResource("3_en04p")
+
+[node name="LampPost3" type="Sprite2D" parent="."]
+position = Vector2(580, 116)
+scale = Vector2(2, 2)
+texture = ExtResource("3_en04p")
+
+[node name="LampPost4" type="Sprite2D" parent="."]
+position = Vector2(980, 116)
+scale = Vector2(2, 2)
+texture = ExtResource("3_en04p")
+
+[node name="LampPost5" type="Sprite2D" parent="."]
+position = Vector2(1380, 116)
+scale = Vector2(2, 2)
+texture = ExtResource("3_en04p")
+
+[node name="LampPost6" type="Sprite2D" parent="."]
+position = Vector2(1780, 116)
+scale = Vector2(2, 2)
+texture = ExtResource("3_en04p")
+
+[node name="CarMiata" type="Sprite2D" parent="."]
+position = Vector2(-385, 189)
+scale = Vector2(2, 2)
+texture = ExtResource("4_xvytn")
+
+[connection signal="body_entered" from="World/MilkStore/Area2D" to="World/MilkStore/Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="World/MilkStore/Area2D" to="World/MilkStore/Area2D" method="_on_body_exited"]

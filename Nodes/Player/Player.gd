@@ -48,8 +48,16 @@ var just_pressed_shoot_right: bool = false
 var pressed_attack_bat: bool = false
 var just_pressed_attack_bat: bool = false
 
+var pressed_interact: bool = false
+var just_pressed_interact: bool = false
+
 #dead variable
 var dead = false
+
+var can_move = true
+
+#SCENE 1
+var scene1_can_enter = false
 
 func _ready():
 	$Bat.damage = damage_bat
@@ -86,13 +94,16 @@ func _physics_process(delta):
 	else:
 		pressed_attack_bat = false
 		just_pressed_attack_bat = false
+		
+	just_pressed_interact = Input.is_action_just_pressed('interact')
+	pressed_interact = Input.is_action_pressed('interact')
 	
 	on_floor = is_on_floor()
 	
 	#-Set the velocity-
 	if not on_floor:
 		velocity.y += gravity * delta
-	if not dead:
+	if not dead and can_move:
 		if on_floor and just_pressed_jump:
 			velocity.y = JUMP_VELOCITY
 			
@@ -121,7 +132,7 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	#-----OTHER CONTROLS----
-	if not dead:
+	if not dead and can_move:
 		if just_pressed_shoot_left and not cooldown:
 			shoot('left')
 			cooldown = true
@@ -131,8 +142,13 @@ func _physics_process(delta):
 		
 		if just_pressed_attack_bat:
 			$Bat.swing()
+			
+	if just_pressed_interact and not dead:
+		print('hello')
+		if scene1_can_enter:
+			print('INSIDE MILK STORE')
 	#-----VISUALS-----
-	if not dead:
+	if not dead and can_move:
 		if (pressed_right and direction == 'left' and not pressed_left) or (pressed_left and direction == 'right' and not pressed_right):
 				scale.x = -2
 				if direction == 'left':

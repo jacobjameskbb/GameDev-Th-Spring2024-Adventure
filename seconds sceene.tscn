@@ -1,0 +1,77 @@
+[gd_scene load_steps=8 format=3 uid="uid://cfwqbab6wkmxp"]
+
+[ext_resource type="Script" path="res://cashier.gd" id="1_8f8uc"]
+[ext_resource type="Texture2D" uid="uid://dt12h7xdxfvef" path="res://Sprites/cashier.png" id="1_p0hp7"]
+[ext_resource type="Script" path="res://camera.gd" id="3_xqgks"]
+[ext_resource type="PackedScene" uid="uid://d1f1fk2kiy4ty" path="res://player.tscn" id="4_kqcib"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xyicr"]
+size = Vector2(34.4734, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mwhfh"]
+size = Vector2(12.0175, 70.9264)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bxu3f"]
+size = Vector2(17.5762, 33.9714)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="background" type="Node2D" parent="."]
+
+[node name="walls" type="StaticBody2D" parent="." groups=["wall", "wall enemy"]]
+position = Vector2(-732, -359)
+scale = Vector2(2, 2)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls"]
+position = Vector2(1396, 657)
+rotation = 3.14159
+scale = Vector2(111.059, -11.6206)
+shape = SubResource("RectangleShape2D_xyicr")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="walls"]
+position = Vector2(-103, 186)
+rotation = -3.14159
+scale = Vector2(111.059, -11.6206)
+shape = SubResource("RectangleShape2D_mwhfh")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="walls"]
+position = Vector2(3615, 225)
+rotation = -3.14159
+scale = Vector2(111.059, -11.6206)
+shape = SubResource("RectangleShape2D_mwhfh")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Cashier" type="CharacterBody2D" parent="Node2D"]
+script = ExtResource("1_8f8uc")
+
+[node name="Cashier" type="Sprite2D" parent="Node2D/Cashier"]
+position = Vector2(4521, 595)
+scale = Vector2(2, 2)
+texture = ExtResource("1_p0hp7")
+region_enabled = true
+region_rect = Rect2(0, 0, 157, 128)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node2D/Cashier"]
+polygon = PackedVector2Array(4406, 608, 4406, 625, 4415, 632, 4416, 722, 4668, 722, 4666, 642, 4678, 624, 4678, 607, 4599, 609, 4523, 609, 4513, 597, 4499, 597, 4499, 608, 4483, 608, 4476, 479, 4463, 475, 4445, 494, 4433, 496, 4433, 504, 4441, 508, 4440, 516, 4446, 522, 4460, 523, 4456, 538, 4461, 608)
+
+[node name="Scene Trigger" type="Area2D" parent="Node2D/Cashier"]
+position = Vector2(4325, 620)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Cashier/Scene Trigger"]
+position = Vector2(20.1216, -97)
+scale = Vector2(5.67572, -13.973)
+shape = SubResource("RectangleShape2D_bxu3f")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(3753, 429)
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+script = ExtResource("3_xqgks")
+
+[node name="Player" parent="." instance=ExtResource("4_kqcib")]
+position = Vector2(3751, 479)
+
+[connection signal="body_entered" from="Node2D/Cashier/Scene Trigger" to="Node2D/Cashier" method="_on_scene_trigger_body_entered"]
