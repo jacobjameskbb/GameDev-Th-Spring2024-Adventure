@@ -261,7 +261,6 @@ func _on_detect_wall_attack_body_exited(body):
 func _on_detect_close_player_body_entered(body):
 	if body.is_in_group('player'):
 		player_close_range = true
-		death()
 
 
 func _on_detect_close_player_body_exited(body):
