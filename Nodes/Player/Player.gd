@@ -59,6 +59,8 @@ var can_move = true
 #SCENE 1
 var scene1_can_enter = false
 
+signal coin_collected
+
 func _ready():
 	$Bat.damage = damage_bat
 	
@@ -165,9 +167,8 @@ func _physics_process(delta):
 				$AnimatedSprite2D.animation = 'walking'
 			if not pressed_left and not pressed_right:
 				$AnimatedSprite2D.animation = 'standing'
-	
 
-	
+
 
 #-----FUNCTIONS-----
 
@@ -187,6 +188,9 @@ func death():
 #Enemies call this function to attack player
 func attack(damage, type):
 	health -= damage
+
+func collect_coin(value):
+	emit_signal("coin_collected",value)
 
 #------CONNECTIONS-----------------
 
