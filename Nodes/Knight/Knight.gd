@@ -45,6 +45,9 @@ var previous_position = null
 @onready var position_countdown = RESET_POSITION_COUNTDOWN
 const RESET_POSITION_COUNTDOWN = 5
 
+@onready var coin = load("res://money.tscn")
+
+
 #-----BASE FUNCTIONS-------
 func _ready():
 	random.randomize()
@@ -186,6 +189,11 @@ func attack(amount, type):
 	health -= amount
 	
 func death():
+	for i in range(1,20):
+		var new_coin = coin.instantiate()
+		new_coin.position = self.position
+		get_parent().call_deferred("add_child",new_coin)
+	
 	queue_free()
 #--------CONNECTIONS--------
 func _on_detect_wall_left_body_entered(body):
