@@ -1,6 +1,6 @@
 extends HBoxContainer
 
-@onready var player = $"../../World/Player"
+@onready var player = $"../Player"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -19,4 +19,4 @@ func _process(delta):
 		
 
 func length_of_one():
-	return $TextureRect.size.x*2
+	return $TextureRect.size.x*scale.x

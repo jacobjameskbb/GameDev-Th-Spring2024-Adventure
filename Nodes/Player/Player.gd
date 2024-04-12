@@ -144,9 +144,8 @@ func _physics_process(delta):
 			$Bat.swing()
 			
 	if just_pressed_interact and not dead:
-		print('hello')
 		if scene1_can_enter:
-			print('INSIDE MILK STORE')
+			get_tree().change_scene_to_file("res://seconds sceene.tscn")
 	#-----VISUALS-----
 	if not dead and can_move:
 		if (pressed_right and direction == 'left' and not pressed_left) or (pressed_left and direction == 'right' and not pressed_right):
