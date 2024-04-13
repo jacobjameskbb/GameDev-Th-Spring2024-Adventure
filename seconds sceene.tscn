@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cfwqbab6wkmxp"]
+[gd_scene load_steps=18 format=3 uid="uid://cfwqbab6wkmxp"]
 
 [ext_resource type="Script" path="res://cashier.gd" id="1_8f8uc"]
 [ext_resource type="Script" path="res://PanoramaHBox.gd" id="1_67t6x"]
@@ -27,6 +27,10 @@ region = Rect2(157, 0, 157, 128)
 atlas = ExtResource("1_p0hp7")
 region = Rect2(314, 0, 157, 128)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_afdt3"]
+atlas = ExtResource("1_p0hp7")
+region = Rect2(471, 0, 157, 128)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_i7xeu"]
 animations = [{
 "frames": [{
@@ -38,6 +42,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2jvaf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_afdt3")
 }],
 "loop": true,
 "name": &"default",
@@ -66,10 +73,10 @@ tracks/1/path = NodePath("Cashier/AnimatedSprite2D:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 4, 6),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 4, 6, 8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2]
+"values": [0, 1, 2, 3]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_20tth"]
@@ -239,26 +246,25 @@ shape = SubResource("RectangleShape2D_bxu3f")
 position = Vector2(4521, 594)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_i7xeu")
-frame = 2
 
 [node name="CashierCutscene" type="AnimationPlayer" parent="World"]
 libraries = {
 "": SubResource("AnimationLibrary_20tth")
 }
 
-[node name="Sign" type="Sprite2D" parent="World"]
-position = Vector2(-237, 720)
-scale = Vector2(2, 2)
-texture = ExtResource("8_cs0in")
-
 [node name="Camera2D" type="Camera2D" parent="World"]
-position = Vector2(3713, 534)
+position = Vector2(3953, 529)
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 script = ExtResource("3_xqgks")
 
 [node name="Player" parent="World" instance=ExtResource("4_kqcib")]
-position = Vector2(3711, 584)
+position = Vector2(3951, 579)
+
+[node name="Sign" type="Sprite2D" parent="World"]
+position = Vector2(-237, 720)
+scale = Vector2(2, 2)
+texture = ExtResource("8_cs0in")
 
 [node name="BlackShade" type="ColorRect" parent="World"]
 visible = false

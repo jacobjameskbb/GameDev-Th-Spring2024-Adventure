@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://b6a6sned8uphe"]
+[gd_scene load_steps=24 format=3 uid="uid://b6a6sned8uphe"]
 
 [ext_resource type="PackedScene" uid="uid://dyrysltj3wt0q" path="res://Nodes/Knight/knight.tscn" id="1_fixo4"]
 [ext_resource type="PackedScene" uid="uid://0yhtecd3nn4a" path="res://Nodes/GoombaAlien/goomba_alien.tscn" id="2_jngvw"]
@@ -255,6 +255,8 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ck4yb"]
 size = Vector2(25.25, 72.25)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8heox"]
+
 [node name="Level 0" type="Node2D"]
 
 [node name="World" type="Node2D" parent="."]
@@ -267,6 +269,7 @@ collision_mask = 3
 [node name="GoombaAlien" parent="World" instance=ExtResource("2_jngvw")]
 
 [node name="Player" parent="World" instance=ExtResource("3_kxaad")]
+player_level = 10
 
 [node name="Mailbox" type="CharacterBody2D" parent="World"]
 position = Vector2(922, 463)
@@ -285,6 +288,13 @@ frame_progress = 0.967707
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Mailbox"]
 position = Vector2(-1.375, 4.125)
 shape = SubResource("RectangleShape2D_ck4yb")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="World"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/StaticBody2D"]
+position = Vector2(283, 656)
+scale = Vector2(-435.182, 5.50344)
+shape = SubResource("RectangleShape2D_8heox")
 
 [node name="UI" type="Control" parent="."]
 visible = false
