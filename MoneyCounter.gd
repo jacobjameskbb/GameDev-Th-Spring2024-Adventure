@@ -40,7 +40,6 @@ var flip_queue = []
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	reset_counter()
-	add(129382)
 
 func add(number):
 	value += number
@@ -48,8 +47,7 @@ func add(number):
 	
 	for place in number_queue:
 		if number_queue[place] != prev_number_queue[place]:
-			print('Flipping ' + place + ' to ' + str(number_queue[place]))
-			flip_number(place,number_queue[place])
+			flip_number(place)
 
 	save_old_values()
 
@@ -57,7 +55,7 @@ func save_old_values():
 	for place in number_queue:
 		prev_number_queue[place] = number_queue[place]
 
-func flip_number(place,next_number):
+func flip_number(place):
 	if $Counter.is_playing() == false:
 		$Counter.play_backwards("flip_"+place)
 	else:
@@ -75,14 +73,13 @@ func set_number_queue(number):
 	number_queue['t'] = floor(number / 10)
 	number = number % 10
 	number_queue['o'] = number
-	print(number_queue)
 
 func reset_counter():
 	for label in label_dictionary:
 		label_dictionary[label].play("0")
 
 
-func _on_counter_animation_finished(anim_name):
+func _on_counter_animation_finished(_anim_name):
 	$Counter.speed_scale = 5 + len(flip_queue) % 10
 	
 	if len(flip_queue) != 0:
@@ -91,6 +88,3 @@ func _on_counter_animation_finished(anim_name):
 		label_dictionary[flip_place].play(str(number_queue[flip_place]))
 		$Counter.play_backwards('flip_' + flip_place)
 
-
-func _on_timer_timeout():
-	add(10)
