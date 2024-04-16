@@ -147,6 +147,43 @@ shape = SubResource("RectangleShape2D_xqh8e")
 position = Vector2(0, 152)
 shape = SubResource("RectangleShape2D_xqh8e")
 
+[node name="PickupBat" type="CharacterBody2D" parent="World"]
+position = Vector2(891, 348)
+rotation = 1.23604
+scale = Vector2(2, 2)
+script = ExtResource("3_nhivt")
+
+[node name="Sprite2D" type="Sprite2D" parent="World/PickupBat"]
+texture = ExtResource("4_475mq")
+
+[node name="Area2D" type="Area2D" parent="World/PickupBat"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/PickupBat/Area2D"]
+position = Vector2(-23.0461, -8.28131)
+rotation = 0.326594
+shape = SubResource("RectangleShape2D_p7q72")
+
+[node name="Window" type="CharacterBody2D" parent="World"]
+position = Vector2(367, 222)
+scale = Vector2(2, 2)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="World/Window"]
+sprite_frames = SubResource("SpriteFrames_psutq")
+
+[node name="Area2D" type="Area2D" parent="World/Window"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Window/Area2D"]
+shape = SubResource("RectangleShape2D_j3dcm")
+
+[node name="Camera2D" type="Camera2D" parent="World"]
+position = Vector2(467, 167)
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+script = ExtResource("2_rvrdv")
+
+[node name="Player" parent="World" instance=ExtResource("3_omlen")]
+position = Vector2(465, 217)
+
 [node name="Text" type="Node2D" parent="World"]
 position = Vector2(836, 206)
 script = ExtResource("8_vsifn")
