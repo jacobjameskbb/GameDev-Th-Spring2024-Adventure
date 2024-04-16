@@ -184,6 +184,7 @@ speed_scale = 3.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bat"]
 position = Vector2(-0.118294, -15.0019)
 shape = SubResource("RectangleShape2D_8h7uq")
+disabled = true
 
 [node name="Area2D" type="Area2D" parent="Bat"]
 collision_layer = 17

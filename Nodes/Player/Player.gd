@@ -1,5 +1,12 @@
 extends CharacterBody2D
 
+var interactions = {
+	'pickup_bat' = false,
+	'scene1_enter' = false,
+	'scene2_enter' = false,
+	'scene3_enter' = false,
+}
+
 #Player level 0: Cant do attacks
 #Player level 1: hit with bat
 #Player level 2: throw cards
@@ -146,8 +153,12 @@ func _physics_process(delta):
 			$Bat.swing()
 			
 	if just_pressed_interact and not dead:
-		if scene1_can_enter:
+		if interactions['scene1_enter']:
 			get_tree().change_scene_to_file("res://seconds sceene.tscn")
+		if interactions['pickup_bat']:
+			player_level = 1
+		if interactions['scene2_enter']:
+			get_tree().change_scene_to_file("res://basement.tscn")
 	#-----VISUALS-----
 	if not dead and can_move:
 		if (pressed_right and direction == 'left' and not pressed_left) or (pressed_left and direction == 'right' and not pressed_right):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cfwqbab6wkmxp"]
+[gd_scene load_steps=25 format=3 uid="uid://cfwqbab6wkmxp"]
 
 [ext_resource type="Script" path="res://cashier.gd" id="1_8f8uc"]
 [ext_resource type="Script" path="res://PanoramaHBox.gd" id="1_67t6x"]
@@ -7,6 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://cj85kup6v7amd" path="res://Sprites/shelves light.png" id="3_3h22u"]
 [ext_resource type="Script" path="res://camera.gd" id="3_xqgks"]
 [ext_resource type="PackedScene" uid="uid://d1f1fk2kiy4ty" path="res://player.tscn" id="4_kqcib"]
+[ext_resource type="Script" path="res://Basement Entrance.gd" id="6_ni8w8"]
+[ext_resource type="Script" path="res://Text.gd" id="7_han4y"]
+[ext_resource type="FontFile" uid="uid://do5gjoyxrtu6a" path="res://PublicPixel.ttf" id="8_arw6r"]
 [ext_resource type="Texture2D" uid="uid://bvlg1cwparbr" path="res://Sprites/sign.png" id="8_cs0in"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xawxv"]
@@ -50,6 +53,69 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_imqe1"]
+size = Vector2(83, 183)
+
+[sub_resource type="Animation" id="Animation_comn3"]
+resource_name = "fade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 40), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_s7amm"]
+resource_name = "fade out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -40)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b1sl7"]
+_data = {
+"fade": SubResource("Animation_comn3"),
+"fade out": SubResource("Animation_s7amm")
+}
 
 [sub_resource type="Animation" id="Animation_u8elv"]
 resource_name = "Scary"
@@ -231,9 +297,6 @@ texture = ExtResource("3_3h22u")
 position = Vector2(0, 8)
 script = ExtResource("1_8f8uc")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="World/Cashier"]
-polygon = PackedVector2Array(4406, 608, 4406, 625, 4415, 632, 4416, 722, 4668, 722, 4666, 642, 4678, 624, 4678, 607, 4599, 609, 4523, 609, 4513, 597, 4499, 597, 4499, 608, 4483, 608, 4476, 479, 4463, 475, 4445, 494, 4433, 496, 4433, 504, 4441, 508, 4440, 516, 4446, 522, 4460, 523, 4456, 538, 4461, 608)
-
 [node name="Scene Trigger" type="Area2D" parent="World/Cashier"]
 position = Vector2(4325, 620)
 
@@ -246,6 +309,30 @@ shape = SubResource("RectangleShape2D_bxu3f")
 position = Vector2(4521, 594)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_i7xeu")
+
+[node name="Basement Entrance" type="Area2D" parent="World/Cashier"]
+position = Vector2(4542, 671)
+script = ExtResource("6_ni8w8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Cashier/Basement Entrance"]
+position = Vector2(1.5, -14.5)
+shape = SubResource("RectangleShape2D_imqe1")
+
+[node name="Text" type="Node2D" parent="World/Cashier/Basement Entrance"]
+position = Vector2(-30, -114)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("7_han4y")
+
+[node name="Label" type="Label" parent="World/Cashier/Basement Entrance/Text"]
+offset_right = 144.0
+offset_bottom = 46.0001
+theme_override_fonts/font = ExtResource("8_arw6r")
+
+[node name="Animation" type="AnimationPlayer" parent="World/Cashier/Basement Entrance/Text"]
+root_node = NodePath("../Label")
+libraries = {
+"": SubResource("AnimationLibrary_b1sl7")
+}
 
 [node name="CashierCutscene" type="AnimationPlayer" parent="World"]
 libraries = {
@@ -276,3 +363,6 @@ offset_bottom = 923.0
 color = Color(0, 0, 0, 1)
 
 [connection signal="body_entered" from="World/Cashier/Scene Trigger" to="World/Cashier" method="_on_scene_trigger_body_entered"]
+[connection signal="body_entered" from="World/Cashier/Basement Entrance" to="World/Cashier/Basement Entrance" method="_on_body_entered"]
+[connection signal="body_exited" from="World/Cashier/Basement Entrance" to="World/Cashier/Basement Entrance" method="_on_body_exited"]
+[connection signal="animation_finished" from="World/CashierCutscene" to="World/Cashier" method="_on_cashier_cutscene_animation_finished"]

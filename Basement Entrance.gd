@@ -1,28 +1,24 @@
 extends Area2D
 
-var player_in = false
-@onready var player = $"../../Player"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$Text.set_text('Press "F"')
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if player_in:
-		$Text.fade_in()
-	else:
-		$Text.fade_out()
+	pass
 
 
 func _on_body_entered(body):
 	if body.is_in_group('player'):
-		player_in = true
-		player.interactions['scene1_enter'] = true
+		$Text.fade_in()
+		$Text.set_text('"F" Enter Basement')
+		body.interactions['scene2_enter'] = true
 
 
 func _on_body_exited(body):
 	if body.is_in_group('player'):
-		player_in = false
-		player.interactions['scene1_enter'] = false
+		$Text.fade_out()
+		body.interactions['scene2_enter'] = false
