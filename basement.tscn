@@ -160,7 +160,6 @@ texture = ExtResource("4_475mq")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/PickupBat/Area2D"]
 position = Vector2(-23.0461, -8.28131)
 rotation = 0.326594
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_p7q72")
 
 [node name="Window" type="CharacterBody2D" parent="World"]
