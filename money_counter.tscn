@@ -1,8 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://bqq10ifdxte3h"]
+[gd_scene load_steps=11 format=3 uid="uid://ddnyn77rc12u8"]
 
 [ext_resource type="Script" path="res://MoneyCounter.gd" id="1_hsf2m"]
 [ext_resource type="Texture2D" uid="uid://c7xvh3mfps45k" path="res://Sprites/money_counter.png" id="2_jh442"]
-[ext_resource type="SpriteFrames" uid="uid://cq0skb5i8hphx" path="res://Sprites/numbers.tres" id="3_7bttp"]
+[ext_resource type="SpriteFrames" path="res://Sprites/numbers.tres" id="3_7bttp"]
 
 [sub_resource type="Animation" id="Animation_u088r"]
 resource_name = "flip_T"
@@ -321,6 +321,7 @@ _data = {
 }
 
 [node name="MoneyCounter" type="Node2D"]
+position = Vector2(570, 303)
 scale = Vector2(4, 4)
 script = ExtResource("1_hsf2m")
 

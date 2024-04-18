@@ -40,6 +40,12 @@ var flip_queue = []
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	reset_counter()
+	test_add()
+	
+func test_add():
+	while true:
+		await get_tree().create_timer(0.4).timeout
+		add(1)
 
 func add(number):
 	value += number

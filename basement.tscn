@@ -14,6 +14,34 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xqh8e"]
 size = Vector2(514, 320)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p7q72"]
+size = Vector2(68.9695, 28.499)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jg7n1"]
+atlas = ExtResource("5_1yi5o")
+region = Rect2(0, 0, 48, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dms4x"]
+atlas = ExtResource("5_1yi5o")
+region = Rect2(48, 0, 48, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_psutq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jg7n1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dms4x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j3dcm"]
+size = Vector2(48, 40)
+
 [sub_resource type="Animation" id="Animation_comn3"]
 resource_name = "fade"
 tracks/0/type = "value"
@@ -74,35 +102,7 @@ _data = {
 "fade out": SubResource("Animation_s7amm")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_p7q72"]
-size = Vector2(68.9695, 28.499)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jg7n1"]
-atlas = ExtResource("5_1yi5o")
-region = Rect2(0, 0, 48, 40)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dms4x"]
-atlas = ExtResource("5_1yi5o")
-region = Rect2(48, 0, 48, 40)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_psutq"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jg7n1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dms4x")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_j3dcm"]
-size = Vector2(48, 40)
-
-[node name="Node2D" type="Node2D"]
+[node name="Node2D2" type="Node2D"]
 
 [node name="World" type="Node2D" parent="."]
 
@@ -166,11 +166,14 @@ shape = SubResource("RectangleShape2D_p7q72")
 [node name="Window" type="CharacterBody2D" parent="World"]
 position = Vector2(367, 222)
 scale = Vector2(2, 2)
+script = ExtResource("7_83s63")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="World/Window"]
 sprite_frames = SubResource("SpriteFrames_psutq")
 
 [node name="Area2D" type="Area2D" parent="World/Window"]
+collision_layer = 4
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Window/Area2D"]
 shape = SubResource("RectangleShape2D_j3dcm")
@@ -199,48 +202,6 @@ root_node = NodePath("../Label")
 libraries = {
 "": SubResource("AnimationLibrary_b1sl7")
 }
-
-[node name="PickupBat" type="CharacterBody2D" parent="World" groups=["bat"]]
-position = Vector2(891, 348)
-rotation = 1.23604
-scale = Vector2(2, 2)
-script = ExtResource("3_nhivt")
-
-[node name="Sprite2D" type="Sprite2D" parent="World/PickupBat"]
-texture = ExtResource("4_475mq")
-
-[node name="Area2D" type="Area2D" parent="World/PickupBat"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/PickupBat/Area2D"]
-position = Vector2(-23.0461, -8.28131)
-rotation = 0.326594
-shape = SubResource("RectangleShape2D_p7q72")
-
-[node name="Window" type="CharacterBody2D" parent="World"]
-position = Vector2(367, 222)
-scale = Vector2(2, 2)
-collision_layer = 0
-collision_mask = 0
-script = ExtResource("7_83s63")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="World/Window"]
-sprite_frames = SubResource("SpriteFrames_psutq")
-
-[node name="Area2D" type="Area2D" parent="World/Window"]
-collision_layer = 4
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Window/Area2D"]
-shape = SubResource("RectangleShape2D_j3dcm")
-
-[node name="Camera2D" type="Camera2D" parent="World"]
-position = Vector2(467, 167)
-zoom = Vector2(2, 2)
-position_smoothing_enabled = true
-script = ExtResource("2_rvrdv")
-
-[node name="Player" parent="World" instance=ExtResource("3_omlen")]
-position = Vector2(465, 217)
 
 [connection signal="body_entered" from="World/PickupBat/Area2D" to="World/PickupBat" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="World/PickupBat/Area2D" to="World/PickupBat" method="_on_area_2d_body_exited"]
