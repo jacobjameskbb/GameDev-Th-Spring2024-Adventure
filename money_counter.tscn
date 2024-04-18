@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://MoneyCounter.gd" id="1_hsf2m"]
 [ext_resource type="Texture2D" uid="uid://c7xvh3mfps45k" path="res://Sprites/money_counter.png" id="2_jh442"]
-[ext_resource type="SpriteFrames" path="res://Sprites/numbers.tres" id="3_7bttp"]
+[ext_resource type="SpriteFrames" uid="uid://cq0skb5i8hphx" path="res://Sprites/numbers.tres" id="3_7bttp"]
 
 [sub_resource type="Animation" id="Animation_u088r"]
 resource_name = "flip_T"
@@ -329,13 +329,13 @@ script = ExtResource("1_hsf2m")
 texture = ExtResource("2_jh442")
 
 [node name="ones" type="AnimatedSprite2D" parent="."]
-position = Vector2(22.5, 0)
+position = Vector2(22.5, -4)
+scale = Vector2(1, 1e-05)
 sprite_frames = ExtResource("3_7bttp")
-animation = &"2"
+animation = &"8"
 
 [node name="ones-switch" type="AnimatedSprite2D" parent="."]
-position = Vector2(22.5, 4)
-scale = Vector2(1, 1e-05)
+position = Vector2(22.5, 0)
 sprite_frames = ExtResource("3_7bttp")
 animation = &"2"
 
@@ -351,24 +351,24 @@ sprite_frames = ExtResource("3_7bttp")
 animation = &"2"
 
 [node name="hundreds" type="AnimatedSprite2D" parent="."]
-position = Vector2(4.5, 0)
+position = Vector2(4.5, -4)
+scale = Vector2(1, 1e-05)
 sprite_frames = ExtResource("3_7bttp")
 animation = &"2"
 
 [node name="hundreds-switch" type="AnimatedSprite2D" parent="."]
-position = Vector2(4.5, 4)
-scale = Vector2(1, 1e-05)
+position = Vector2(4.5, 0)
 sprite_frames = ExtResource("3_7bttp")
 animation = &"2"
 
 [node name="thousands" type="AnimatedSprite2D" parent="."]
-position = Vector2(-4.5, 0)
+position = Vector2(-4.5, -3.99997)
+scale = Vector2(1, 1e-05)
 sprite_frames = ExtResource("3_7bttp")
 animation = &"2"
 
 [node name="thousands-switch" type="AnimatedSprite2D" parent="."]
-position = Vector2(-4.5, 4)
-scale = Vector2(1, 1e-05)
+position = Vector2(-4.5, 0)
 sprite_frames = ExtResource("3_7bttp")
 animation = &"2"
 
@@ -384,13 +384,13 @@ sprite_frames = ExtResource("3_7bttp")
 animation = &"2"
 
 [node name="hundred-thousands" type="AnimatedSprite2D" parent="."]
-position = Vector2(-22.5, 0)
+position = Vector2(-22.5, -3.99997)
+scale = Vector2(1, 1e-05)
 sprite_frames = ExtResource("3_7bttp")
 animation = &"2"
 
 [node name="hundred-thousands-switch" type="AnimatedSprite2D" parent="."]
-position = Vector2(-22.5, 4)
-scale = Vector2(1, 1e-05)
+position = Vector2(-22.5, 0)
 sprite_frames = ExtResource("3_7bttp")
 animation = &"2"
 
