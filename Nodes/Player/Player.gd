@@ -159,6 +159,8 @@ func _physics_process(delta):
 			player_level = 1
 		if interactions['scene2_enter']:
 			get_tree().change_scene_to_file("res://basement.tscn")
+		if interactions['scene3_enter']:
+			get_tree().change_scene_to_file("res://outside.tscn")
 	#-----VISUALS-----
 	if not dead and can_move:
 		if (pressed_right and direction == 'left' and not pressed_left) or (pressed_left and direction == 'right' and not pressed_right):
