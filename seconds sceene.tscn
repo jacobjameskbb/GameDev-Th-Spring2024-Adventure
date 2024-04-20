@@ -122,7 +122,7 @@ resource_name = "Scary"
 length = 10.0
 tracks/0/type = "value"
 tracks/0/imported = false
-tracks/0/enabled = true
+tracks/0/enabled = false
 tracks/0/path = NodePath("BlackShade:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
@@ -134,7 +134,7 @@ tracks/0/keys = {
 }
 tracks/1/type = "value"
 tracks/1/imported = false
-tracks/1/enabled = true
+tracks/1/enabled = false
 tracks/1/path = NodePath("Cashier/AnimatedSprite2D:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
@@ -143,6 +143,30 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DialoguePlayer:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["I want some milk."]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("DialoguePlayer:visible_characters")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2, 2.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 10, 20]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_20tth"]
@@ -293,6 +317,26 @@ texture = ExtResource("3_3h22u")
 layout_mode = 2
 texture = ExtResource("3_3h22u")
 
+[node name="DialogueCashier" type="Label" parent="World"]
+offset_left = 4315.0
+offset_top = 598.0
+offset_right = 4603.0
+offset_bottom = 644.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("8_arw6r")
+horizontal_alignment = 2
+
+[node name="DialoguePlayer" type="Label" parent="World"]
+offset_left = 4247.0
+offset_top = 572.0
+offset_right = 4677.0
+offset_bottom = 718.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("8_arw6r")
+text = "I want some milk."
+visible_characters = 20
+visible_ratio = 1.17647
+
 [node name="Cashier" type="CharacterBody2D" parent="World"]
 position = Vector2(0, 8)
 script = ExtResource("1_8f8uc")
@@ -309,6 +353,7 @@ shape = SubResource("RectangleShape2D_bxu3f")
 position = Vector2(4521, 594)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_i7xeu")
+frame = 1
 
 [node name="Basement Entrance" type="Area2D" parent="World/Cashier"]
 position = Vector2(4542, 671)

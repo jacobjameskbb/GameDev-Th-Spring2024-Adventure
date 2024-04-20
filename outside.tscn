@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c50w6lyesi3jq"]
+[gd_scene load_steps=16 format=3 uid="uid://c50w6lyesi3jq"]
 
 [ext_resource type="Texture2D" uid="uid://bm0n088ubf6fs" path="res://Sprites/trees background.png" id="1_l4y8o"]
 [ext_resource type="Texture2D" uid="uid://brkrk8hld82nw" path="res://Sprites/grass.png" id="2_cjiq6"]
@@ -8,9 +8,23 @@
 [ext_resource type="PackedScene" uid="uid://d1f1fk2kiy4ty" path="res://player.tscn" id="4_sq2gi"]
 [ext_resource type="Script" path="res://House.gd" id="5_xt01e"]
 [ext_resource type="Texture2D" uid="uid://dqrbqjvkbl3av" path="res://Sprites/skybox.png" id="6_4slbi"]
+[ext_resource type="Script" path="res://CameraSpeedup.gd" id="8_3hjmn"]
+[ext_resource type="Texture2D" uid="uid://c1q7irc2jdvp1" path="res://Sprites/fall tube.png" id="9_ntb5u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3c4c1"]
+size = Vector2(1224.75, 361)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4mnxl"]
+size = Vector2(85, 134.046)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_adbcd"]
-size = Vector2(1843.25, 361)
+size = Vector2(1843.25, 514)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ej6qn"]
+size = Vector2(1843.25, 428.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n8ndn"]
+size = Vector2(444, 209)
 
 [node name="Node2D" type="Node2D"]
 
@@ -20,17 +34,21 @@ size = Vector2(1843.25, 361)
 position = Vector2(1233, 493)
 scale = Vector2(2, 2)
 
+[node name="Sprite2D3" type="Sprite2D" parent="World/StaticBody2D"]
+position = Vector2(-183.5, -147)
+texture = ExtResource("3_sf8wy")
+
 [node name="Sprite2D" type="Sprite2D" parent="World/StaticBody2D"]
-position = Vector2(-124.5, 0)
+position = Vector2(-124.5, -44)
 texture = ExtResource("1_l4y8o")
 
 [node name="Sprite2D4" type="Sprite2D" parent="World/StaticBody2D"]
 position = Vector2(-138.5, 147)
 texture = ExtResource("2_cjiq6")
 
-[node name="Sprite2D3" type="Sprite2D" parent="World/StaticBody2D"]
-position = Vector2(-183.5, -147)
-texture = ExtResource("3_sf8wy")
+[node name="Sprite2D5" type="Sprite2D" parent="World/StaticBody2D"]
+position = Vector2(-138.5, 248)
+texture = ExtResource("2_cjiq6")
 
 [node name="House" type="Sprite2D" parent="World/StaticBody2D"]
 position = Vector2(-385, 72)
@@ -39,16 +57,34 @@ offset = Vector2(1, -80)
 script = ExtResource("5_xt01e")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/StaticBody2D"]
-position = Vector2(296.875, 254)
-shape = SubResource("RectangleShape2D_adbcd")
+position = Vector2(-12.375, 254)
+shape = SubResource("RectangleShape2D_3c4c1")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="World/StaticBody2D"]
+position = Vector2(561.5, 277)
+rotation = -0.270765
+shape = SubResource("RectangleShape2D_4mnxl")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="World/StaticBody2D"]
+position = Vector2(763, 275.5)
+rotation = 3.43536
+shape = SubResource("RectangleShape2D_4mnxl")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="World/StaticBody2D"]
 position = Vector2(-1471.5, -64.5)
 shape = SubResource("RectangleShape2D_adbcd")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="World/StaticBody2D"]
-position = Vector2(2120.5, -62)
-shape = SubResource("RectangleShape2D_adbcd")
+position = Vector2(1648.5, 94.5)
+shape = SubResource("RectangleShape2D_ej6qn")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="World/StaticBody2D"]
+position = Vector2(1624.5, 542.25)
+shape = SubResource("RectangleShape2D_ej6qn")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="World/StaticBody2D"]
+position = Vector2(-302, 543.5)
+shape = SubResource("RectangleShape2D_ej6qn")
 
 [node name="Camera2D" type="Camera2D" parent="World"]
 position = Vector2(458, 477)
@@ -59,6 +95,14 @@ script = ExtResource("3_gi3m2")
 [node name="Player" parent="World" instance=ExtResource("4_sq2gi")]
 position = Vector2(467, 522)
 
+[node name="CameraSpeedup" type="Area2D" parent="World"]
+position = Vector2(2570, 935)
+script = ExtResource("8_3hjmn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/CameraSpeedup"]
+position = Vector2(11, -186)
+shape = SubResource("RectangleShape2D_n8ndn")
+
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground"]
@@ -66,3 +110,10 @@ z_index = -3
 position = Vector2(572.917, 317.75)
 scale = Vector2(2.44833, 2.44833)
 texture = ExtResource("6_4slbi")
+
+[node name="FallTube" type="Sprite2D" parent="."]
+position = Vector2(2555, 1521)
+scale = Vector2(2, 2)
+texture = ExtResource("9_ntb5u")
+
+[connection signal="body_entered" from="World/CameraSpeedup" to="World/CameraSpeedup" method="_on_body_entered"]
