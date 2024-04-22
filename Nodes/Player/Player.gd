@@ -154,15 +154,16 @@ func _physics_process(delta):
 			
 	if just_pressed_interact and not dead:
 		if interactions['scene1_enter']:
-			get_tree().change_scene_to_file("res://seconds sceene.tscn")
+			get_tree().change_scene_to_file("res://milk store.tscn")
 		if interactions['pickup_bat']:
 			player_level = 1
 		if interactions['scene2_enter']:
 			get_tree().change_scene_to_file("res://basement.tscn")
 		if interactions['scene3_enter']:
 			get_tree().change_scene_to_file("res://outside.tscn")
-	#-----VISUALS-----
+	#-----VISUALS AND SOUNDS-----
 	if not dead and can_move:
+		
 		if (pressed_right and direction == 'left' and not pressed_left) or (pressed_left and direction == 'right' and not pressed_right):
 				scale.x = -2
 				if direction == 'left':
@@ -171,14 +172,22 @@ func _physics_process(delta):
 					direction = 'left'
 		if $Bat.swinging:
 			$AnimatedSprite2D.animation = 'attack bat'
+			$"../../Sounds/Walking".stop()
 		else:
 		
 			if pressed_left:
 				$AnimatedSprite2D.animation = 'walking'
+				$"../../Sounds/Walking".start()
 			if pressed_right:
 				$AnimatedSprite2D.animation = 'walking'
+				$"../../Sounds/Walking".start()
 			if not pressed_left and not pressed_right:
 				$AnimatedSprite2D.animation = 'standing'
+				$"../../Sounds/Walking".stop()
+			if not is_on_floor():
+				$"../../Sounds/Walking".stop()
+	else:
+		$"../../Sounds/Walking".stop()
 
 
 

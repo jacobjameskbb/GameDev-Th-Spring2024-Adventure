@@ -29,6 +29,7 @@ func set_text(text):
 	
 func fade_in():
 	if not fading_in:
+		print('fade in')
 		fading_in = true
 		break_fade_out = true
 		break_fade_in = false

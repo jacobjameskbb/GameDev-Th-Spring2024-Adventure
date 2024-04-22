@@ -20,6 +20,7 @@ func _process(delta):
 func _on_area_2d_body_entered(body):
 	if body.is_in_group('bat'):
 		$AnimatedSprite2D.frame += 1
+		broken = true
 	if body.is_in_group('player'):
 		player_near = true
 		

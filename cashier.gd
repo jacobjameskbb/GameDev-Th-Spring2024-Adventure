@@ -21,10 +21,12 @@ func _on_scene_trigger_body_entered(body):
 			body.can_move = false
 			body.velocity.x = 0
 			body.get_node('AnimatedSprite2D').animation = 'standing'
-			$"../CashierCutscene".play("Scary")
+			$"../CashierCutscene".play('Scary')
+			
 
 
 func _on_cashier_cutscene_animation_finished(anim_name):
 	if anim_name == 'Scary':
 		player.can_move = true
 		
+ 

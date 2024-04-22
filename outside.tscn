@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c50w6lyesi3jq"]
+[gd_scene load_steps=31 format=3 uid="uid://c50w6lyesi3jq"]
 
 [ext_resource type="Texture2D" uid="uid://bm0n088ubf6fs" path="res://Sprites/trees background.png" id="1_l4y8o"]
 [ext_resource type="Texture2D" uid="uid://brkrk8hld82nw" path="res://Sprites/grass.png" id="2_cjiq6"]
@@ -10,6 +10,21 @@
 [ext_resource type="Texture2D" uid="uid://dqrbqjvkbl3av" path="res://Sprites/skybox.png" id="6_4slbi"]
 [ext_resource type="Script" path="res://CameraSpeedup.gd" id="8_3hjmn"]
 [ext_resource type="Texture2D" uid="uid://c1q7irc2jdvp1" path="res://Sprites/fall tube.png" id="9_ntb5u"]
+[ext_resource type="PackedScene" uid="uid://dmkswt3j12c27" path="res://sound_pool.tscn" id="11_0bgj3"]
+[ext_resource type="AudioStream" uid="uid://bcmi28l6dbnpg" path="res://Sounds/Single-footstep-on-concrete-with-sneaker-shoes-2-www.FesliyanStudios.com.mp3" id="12_7m46g"]
+[ext_resource type="AudioStream" uid="uid://ddubengxd61rk" path="res://Sounds/Single-footstep-on-concrete-with-sneaker-shoes-3-www.FesliyanStudios.com.mp3" id="13_cxmgy"]
+[ext_resource type="AudioStream" uid="uid://b42kuprndatmo" path="res://Sounds/Single-footstep-on-concrete-with-sneaker-shoes-4-www.FesliyanStudios.com.mp3" id="14_5wtaa"]
+[ext_resource type="AudioStream" uid="uid://laivyxn4dfwb" path="res://Sounds/Single-footstep-on-concrete-with-sneaker-shoes-5-www.FesliyanStudios.com.mp3" id="15_bljvm"]
+[ext_resource type="AudioStream" uid="uid://bv58gucxinhin" path="res://Sounds/Single-footstep-on-concrete-with-sneaker-shoes-6-www.FesliyanStudios.com.mp3" id="16_4yhl7"]
+[ext_resource type="AudioStream" uid="uid://banevehkl42gd" path="res://Sounds/Single-footstep-on-concrete-with-sneaker-shoes-7-www.FesliyanStudios.com.mp3" id="17_mbqdj"]
+[ext_resource type="AudioStream" uid="uid://b8ak21e84hwqt" path="res://Sounds/378008__krucifix444__outside-ambience-2.wav" id="18_qonep"]
+[ext_resource type="Script" path="res://Single.gd" id="19_hqoh3"]
+[ext_resource type="AudioStream" uid="uid://dsqei8vbv4hi7" path="res://Sounds/534218__thesoundfxguy_yt__piano-jump-scare-stinger.wav" id="20_lu46h"]
+[ext_resource type="AudioStream" uid="uid://cvwgwnwv3sjqf" path="res://Sounds/411129__malisz99__jump-scare.mp3" id="21_hvu41"]
+[ext_resource type="AudioStream" uid="uid://ccretiryx1jp" path="res://Sounds/348220__tbrook__switch-light-03.wav" id="22_jxgrt"]
+[ext_resource type="AudioStream" uid="uid://dngqhoqek7ikm" path="res://Sounds/31622__srehpog__light_crate_smash1.wav" id="23_81v0r"]
+[ext_resource type="AudioStream" uid="uid://c8snraakikxcc" path="res://Sounds/31623__srehpog__light_crate_smash2.wav" id="24_12qd1"]
+[ext_resource type="AudioStream" uid="uid://bpjk3a3ntn755" path="res://Sounds/31624__srehpog__light_crate_smash3.wav" id="25_vaurq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3c4c1"]
 size = Vector2(1224.75, 361)
@@ -115,5 +130,65 @@ texture = ExtResource("6_4slbi")
 position = Vector2(2555, 1521)
 scale = Vector2(2, 2)
 texture = ExtResource("9_ntb5u")
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="Walking" parent="Sounds" instance=ExtResource("11_0bgj3")]
+delay = 0.3
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Sounds/Walking"]
+stream = ExtResource("12_7m46g")
+volume_db = -22.286
+mix_target = 1
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="Sounds/Walking"]
+stream = ExtResource("13_cxmgy")
+volume_db = -22.286
+mix_target = 1
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="Sounds/Walking"]
+stream = ExtResource("14_5wtaa")
+volume_db = -22.286
+mix_target = 1
+
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="Sounds/Walking"]
+stream = ExtResource("15_bljvm")
+volume_db = -22.286
+mix_target = 1
+
+[node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="Sounds/Walking"]
+stream = ExtResource("16_4yhl7")
+volume_db = -22.286
+mix_target = 1
+
+[node name="AudioStreamPlayer6" type="AudioStreamPlayer" parent="Sounds/Walking"]
+stream = ExtResource("17_mbqdj")
+volume_db = -22.286
+mix_target = 1
+
+[node name="Background" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("18_qonep")
+autoplay = true
+
+[node name="Single" type="Node" parent="Sounds"]
+script = ExtResource("19_hqoh3")
+
+[node name="Jumpscare" type="AudioStreamPlayer" parent="Sounds/Single"]
+stream = ExtResource("20_lu46h")
+
+[node name="Critters" type="AudioStreamPlayer" parent="Sounds/Single"]
+stream = ExtResource("21_hvu41")
+
+[node name="LightSwitch" type="AudioStreamPlayer" parent="Sounds/Single"]
+stream = ExtResource("22_jxgrt")
+
+[node name="smash1" type="AudioStreamPlayer" parent="Sounds/Single"]
+stream = ExtResource("23_81v0r")
+
+[node name="smash2" type="AudioStreamPlayer" parent="Sounds/Single"]
+stream = ExtResource("24_12qd1")
+
+[node name="smash3" type="AudioStreamPlayer" parent="Sounds/Single"]
+stream = ExtResource("25_vaurq")
 
 [connection signal="body_entered" from="World/CameraSpeedup" to="World/CameraSpeedup" method="_on_body_entered"]
