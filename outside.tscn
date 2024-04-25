@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://c50w6lyesi3jq"]
+[gd_scene load_steps=38 format=3 uid="uid://c50w6lyesi3jq"]
 
 [ext_resource type="Texture2D" uid="uid://bm0n088ubf6fs" path="res://Sprites/trees background.png" id="1_l4y8o"]
 [ext_resource type="Texture2D" uid="uid://brkrk8hld82nw" path="res://Sprites/grass.png" id="2_cjiq6"]
@@ -9,25 +9,31 @@
 [ext_resource type="Script" path="res://House.gd" id="5_xt01e"]
 [ext_resource type="Texture2D" uid="uid://dqrbqjvkbl3av" path="res://Sprites/skybox.png" id="6_4slbi"]
 [ext_resource type="Script" path="res://CameraSpeedup.gd" id="8_3hjmn"]
+[ext_resource type="Script" path="res://InAir.gd" id="9_hapci"]
 [ext_resource type="Texture2D" uid="uid://c1q7irc2jdvp1" path="res://Sprites/fall tube.png" id="9_ntb5u"]
 [ext_resource type="PackedScene" uid="uid://dmkswt3j12c27" path="res://sound_pool.tscn" id="11_0bgj3"]
-[ext_resource type="AudioStream" uid="uid://bcmi28l6dbnpg" path="res://Sounds/Single-footstep-on-concrete-with-sneaker-shoes-2-www.FesliyanStudios.com.mp3" id="12_7m46g"]
-[ext_resource type="AudioStream" uid="uid://ddubengxd61rk" path="res://Sounds/Single-footstep-on-concrete-with-sneaker-shoes-3-www.FesliyanStudios.com.mp3" id="13_cxmgy"]
-[ext_resource type="AudioStream" uid="uid://b42kuprndatmo" path="res://Sounds/Single-footstep-on-concrete-with-sneaker-shoes-4-www.FesliyanStudios.com.mp3" id="14_5wtaa"]
-[ext_resource type="AudioStream" uid="uid://laivyxn4dfwb" path="res://Sounds/Single-footstep-on-concrete-with-sneaker-shoes-5-www.FesliyanStudios.com.mp3" id="15_bljvm"]
-[ext_resource type="AudioStream" uid="uid://bv58gucxinhin" path="res://Sounds/Single-footstep-on-concrete-with-sneaker-shoes-6-www.FesliyanStudios.com.mp3" id="16_4yhl7"]
-[ext_resource type="AudioStream" uid="uid://banevehkl42gd" path="res://Sounds/Single-footstep-on-concrete-with-sneaker-shoes-7-www.FesliyanStudios.com.mp3" id="17_mbqdj"]
+[ext_resource type="AudioStream" uid="uid://bcmi28l6dbnpg" path="res://Sounds/Step.mp3" id="12_7m46g"]
+[ext_resource type="AudioStream" uid="uid://ddubengxd61rk" path="res://Sounds/Step2.mp3" id="13_cxmgy"]
+[ext_resource type="AudioStream" uid="uid://b42kuprndatmo" path="res://Sounds/Step3.mp3" id="14_5wtaa"]
+[ext_resource type="AudioStream" uid="uid://laivyxn4dfwb" path="res://Sounds/Step4.mp3" id="15_bljvm"]
+[ext_resource type="AudioStream" uid="uid://bv58gucxinhin" path="res://Sounds/Step5.mp3" id="16_4yhl7"]
+[ext_resource type="AudioStream" uid="uid://banevehkl42gd" path="res://Sounds/Step6.mp3" id="17_mbqdj"]
 [ext_resource type="AudioStream" uid="uid://b8ak21e84hwqt" path="res://Sounds/378008__krucifix444__outside-ambience-2.wav" id="18_qonep"]
 [ext_resource type="Script" path="res://Single.gd" id="19_hqoh3"]
 [ext_resource type="AudioStream" uid="uid://dsqei8vbv4hi7" path="res://Sounds/534218__thesoundfxguy_yt__piano-jump-scare-stinger.wav" id="20_lu46h"]
+[ext_resource type="Script" path="res://BackgroundAudio.gd" id="20_sg41f"]
 [ext_resource type="AudioStream" uid="uid://cvwgwnwv3sjqf" path="res://Sounds/411129__malisz99__jump-scare.mp3" id="21_hvu41"]
 [ext_resource type="AudioStream" uid="uid://ccretiryx1jp" path="res://Sounds/348220__tbrook__switch-light-03.wav" id="22_jxgrt"]
 [ext_resource type="AudioStream" uid="uid://dngqhoqek7ikm" path="res://Sounds/31622__srehpog__light_crate_smash1.wav" id="23_81v0r"]
 [ext_resource type="AudioStream" uid="uid://c8snraakikxcc" path="res://Sounds/31623__srehpog__light_crate_smash2.wav" id="24_12qd1"]
 [ext_resource type="AudioStream" uid="uid://bpjk3a3ntn755" path="res://Sounds/31624__srehpog__light_crate_smash3.wav" id="25_vaurq"]
+[ext_resource type="AudioStream" uid="uid://ofn0a2atfny7" path="res://Sounds/grass step1.wav" id="26_tyy7a"]
+[ext_resource type="AudioStream" uid="uid://ctq636usd44d0" path="res://Sounds/grass step2.wav" id="27_nkjll"]
+[ext_resource type="AudioStream" uid="uid://c3o25y66ypt5v" path="res://Sounds/grass step3.wav" id="28_oajgb"]
+[ext_resource type="AudioStream" uid="uid://bd8e30iarisml" path="res://Sounds/grass step4.wav" id="29_88gog"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3c4c1"]
-size = Vector2(1224.75, 361)
+size = Vector2(1571.75, 361)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4mnxl"]
 size = Vector2(85, 134.046)
@@ -40,6 +46,9 @@ size = Vector2(1843.25, 428.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n8ndn"]
 size = Vector2(444, 209)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vqs2j"]
+size = Vector2(938, 368)
 
 [node name="Node2D" type="Node2D"]
 
@@ -72,16 +81,16 @@ offset = Vector2(1, -80)
 script = ExtResource("5_xt01e")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/StaticBody2D"]
-position = Vector2(-12.375, 254)
+position = Vector2(161.125, 254)
 shape = SubResource("RectangleShape2D_3c4c1")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="World/StaticBody2D"]
-position = Vector2(561.5, 277)
+position = Vector2(643, -897)
 rotation = -0.270765
 shape = SubResource("RectangleShape2D_4mnxl")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="World/StaticBody2D"]
-position = Vector2(763, 275.5)
+position = Vector2(844.5, -898.5)
 rotation = 3.43536
 shape = SubResource("RectangleShape2D_4mnxl")
 
@@ -90,7 +99,7 @@ position = Vector2(-1471.5, -64.5)
 shape = SubResource("RectangleShape2D_adbcd")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="World/StaticBody2D"]
-position = Vector2(1648.5, 94.5)
+position = Vector2(1950.5, -24.5)
 shape = SubResource("RectangleShape2D_ej6qn")
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="World/StaticBody2D"]
@@ -101,22 +110,32 @@ shape = SubResource("RectangleShape2D_ej6qn")
 position = Vector2(-302, 543.5)
 shape = SubResource("RectangleShape2D_ej6qn")
 
-[node name="Camera2D" type="Camera2D" parent="World"]
-position = Vector2(458, 477)
+[node name="Player" parent="World" instance=ExtResource("4_sq2gi")]
+position = Vector2(467, 522)
+on_grass = true
+
+[node name="Camera2D" type="Camera2D" parent="World/Player"]
+position = Vector2(-4.5, -22.5)
+scale = Vector2(0.5, 0.5)
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 script = ExtResource("3_gi3m2")
-
-[node name="Player" parent="World" instance=ExtResource("4_sq2gi")]
-position = Vector2(467, 522)
 
 [node name="CameraSpeedup" type="Area2D" parent="World"]
 position = Vector2(2570, 935)
 script = ExtResource("8_3hjmn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/CameraSpeedup"]
-position = Vector2(11, -186)
+position = Vector2(174, -2534)
 shape = SubResource("RectangleShape2D_n8ndn")
+
+[node name="InAir" type="Area2D" parent="World"]
+position = Vector2(2544, 544)
+script = ExtResource("9_hapci")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/InAir"]
+position = Vector2(360, -96)
+shape = SubResource("RectangleShape2D_vqs2j")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -127,7 +146,7 @@ scale = Vector2(2.44833, 2.44833)
 texture = ExtResource("6_4slbi")
 
 [node name="FallTube" type="Sprite2D" parent="."]
-position = Vector2(2555, 1521)
+position = Vector2(2718, -827)
 scale = Vector2(2, 2)
 texture = ExtResource("9_ntb5u")
 
@@ -169,6 +188,7 @@ mix_target = 1
 [node name="Background" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("18_qonep")
 autoplay = true
+script = ExtResource("20_sg41f")
 
 [node name="Single" type="Node" parent="Sounds"]
 script = ExtResource("19_hqoh3")
@@ -191,4 +211,26 @@ stream = ExtResource("24_12qd1")
 [node name="smash3" type="AudioStreamPlayer" parent="Sounds/Single"]
 stream = ExtResource("25_vaurq")
 
+[node name="GrassWalking" parent="Sounds" instance=ExtResource("11_0bgj3")]
+delay = 0.3
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Sounds/GrassWalking"]
+stream = ExtResource("26_tyy7a")
+pitch_scale = 0.7
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="Sounds/GrassWalking"]
+stream = ExtResource("27_nkjll")
+pitch_scale = 0.7
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="Sounds/GrassWalking"]
+stream = ExtResource("28_oajgb")
+pitch_scale = 0.7
+
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="Sounds/GrassWalking"]
+stream = ExtResource("29_88gog")
+pitch_scale = 0.7
+
 [connection signal="body_entered" from="World/CameraSpeedup" to="World/CameraSpeedup" method="_on_body_entered"]
+[connection signal="body_entered" from="World/InAir" to="World/InAir" method="_on_body_entered"]
+[connection signal="body_exited" from="World/InAir" to="World/InAir" method="_on_body_exited"]
+[connection signal="finished" from="Sounds/Background" to="Sounds/Background" method="_on_finished"]

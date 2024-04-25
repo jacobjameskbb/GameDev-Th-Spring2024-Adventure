@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://cfwqbab6wkmxp"]
+[gd_scene load_steps=28 format=3 uid="uid://cfwqbab6wkmxp"]
 
 [ext_resource type="Script" path="res://PanoramaHBox.gd" id="1_fy0xt"]
 [ext_resource type="Texture2D" uid="uid://ly3wjbw48q30" path="res://Sprites/shelves.png" id="2_rpc2d"]
@@ -11,21 +11,8 @@
 [ext_resource type="Script" path="res://camera.gd" id="9_rng0v"]
 [ext_resource type="PackedScene" uid="uid://d1f1fk2kiy4ty" path="res://player.tscn" id="10_4jgrr"]
 [ext_resource type="Texture2D" uid="uid://bvlg1cwparbr" path="res://Sprites/sign.png" id="11_ii4sx"]
-[ext_resource type="PackedScene" uid="uid://dmkswt3j12c27" path="res://sound_pool.tscn" id="12_2tc7m"]
-[ext_resource type="AudioStream" uid="uid://ca5q15msegdyq" path="res://Sounds/676234__newlocknew__ambdsgn_creepy-otherworldly-industrial-ambience-2_em.wav" id="12_wgvn7"]
-[ext_resource type="AudioStream" uid="uid://bcmi28l6dbnpg" path="res://Sounds/Single-footstep-on-concrete-with-sneaker-shoes-2-www.FesliyanStudios.com.mp3" id="13_ycxrb"]
-[ext_resource type="AudioStream" uid="uid://ddubengxd61rk" path="res://Sounds/Single-footstep-on-concrete-with-sneaker-shoes-3-www.FesliyanStudios.com.mp3" id="14_d8cbr"]
-[ext_resource type="AudioStream" uid="uid://b42kuprndatmo" path="res://Sounds/Single-footstep-on-concrete-with-sneaker-shoes-4-www.FesliyanStudios.com.mp3" id="15_ksiws"]
-[ext_resource type="AudioStream" uid="uid://laivyxn4dfwb" path="res://Sounds/Single-footstep-on-concrete-with-sneaker-shoes-5-www.FesliyanStudios.com.mp3" id="16_uvv3m"]
-[ext_resource type="AudioStream" uid="uid://bv58gucxinhin" path="res://Sounds/Single-footstep-on-concrete-with-sneaker-shoes-6-www.FesliyanStudios.com.mp3" id="17_ttsnr"]
-[ext_resource type="AudioStream" uid="uid://banevehkl42gd" path="res://Sounds/Single-footstep-on-concrete-with-sneaker-shoes-7-www.FesliyanStudios.com.mp3" id="18_fm58p"]
-[ext_resource type="Script" path="res://Single.gd" id="20_avad0"]
-[ext_resource type="AudioStream" uid="uid://dsqei8vbv4hi7" path="res://Sounds/534218__thesoundfxguy_yt__piano-jump-scare-stinger.wav" id="21_qo258"]
-[ext_resource type="AudioStream" uid="uid://cvwgwnwv3sjqf" path="res://Sounds/411129__malisz99__jump-scare.mp3" id="22_hggjy"]
-[ext_resource type="AudioStream" uid="uid://ccretiryx1jp" path="res://Sounds/348220__tbrook__switch-light-03.wav" id="23_7s5du"]
-[ext_resource type="AudioStream" uid="uid://dngqhoqek7ikm" path="res://Sounds/31622__srehpog__light_crate_smash1.wav" id="24_15m52"]
-[ext_resource type="AudioStream" uid="uid://c8snraakikxcc" path="res://Sounds/31623__srehpog__light_crate_smash2.wav" id="25_0br0i"]
-[ext_resource type="AudioStream" uid="uid://bpjk3a3ntn755" path="res://Sounds/31624__srehpog__light_crate_smash3.wav" id="26_a6hcx"]
+[ext_resource type="PackedScene" uid="uid://ce2kyubmccdjg" path="res://sounds.tscn" id="12_npnvo"]
+[ext_resource type="AudioStream" uid="uid://ca5q15msegdyq" path="res://Sounds/676234__newlocknew__ambdsgn_creepy-otherworldly-industrial-ambience-2_em.wav" id="13_6amlp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xawxv"]
 size = Vector2(4124, 620)
@@ -473,14 +460,15 @@ position = Vector2(1.5, -14.5)
 shape = SubResource("RectangleShape2D_imqe1")
 
 [node name="Text" type="Node2D" parent="World/Cashier/Basement Entrance"]
-position = Vector2(-31, -93)
+position = Vector2(-58, -123)
 scale = Vector2(0.5, 0.5)
 script = ExtResource("7_l5nyx")
 
 [node name="Label" type="Label" parent="World/Cashier/Basement Entrance/Text"]
 modulate = Color(1, 1, 1, 0)
+offset_top = 40.0
 offset_right = 288.0
-offset_bottom = 46.0001
+offset_bottom = 86.0001
 theme_override_fonts/font = ExtResource("8_s3jhc")
 text = "\"F\" Enter basement"
 
@@ -515,14 +503,15 @@ libraries = {
 "": SubResource("AnimationLibrary_20tth")
 }
 
-[node name="Camera2D" type="Camera2D" parent="World"]
-position = Vector2(-425, 572)
+[node name="Player" parent="World" instance=ExtResource("10_4jgrr")]
+position = Vector2(4770, 525)
+
+[node name="Camera2D" type="Camera2D" parent="World/Player"]
+position = Vector2(1, -25)
+scale = Vector2(0.5, 0.5)
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 script = ExtResource("9_rng0v")
-
-[node name="Player" parent="World" instance=ExtResource("10_4jgrr")]
-position = Vector2(-427, 622)
 
 [node name="Sign" type="Sprite2D" parent="World"]
 position = Vector2(-237, 720)
@@ -537,53 +526,11 @@ offset_right = 5198.0
 offset_bottom = 923.0
 color = Color(0, 0, 0, 1)
 
-[node name="Sounds" type="Node" parent="."]
+[node name="Sounds" parent="." instance=ExtResource("12_npnvo")]
 
-[node name="Walking" parent="Sounds" instance=ExtResource("12_2tc7m")]
-delay = 0.3
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Sounds/Walking"]
-stream = ExtResource("13_ycxrb")
-
-[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="Sounds/Walking"]
-stream = ExtResource("14_d8cbr")
-
-[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="Sounds/Walking"]
-stream = ExtResource("15_ksiws")
-
-[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="Sounds/Walking"]
-stream = ExtResource("16_uvv3m")
-
-[node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="Sounds/Walking"]
-stream = ExtResource("17_ttsnr")
-
-[node name="AudioStreamPlayer6" type="AudioStreamPlayer" parent="Sounds/Walking"]
-stream = ExtResource("18_fm58p")
-
-[node name="Background" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource("12_wgvn7")
+[node name="Background2" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("13_6amlp")
 autoplay = true
-
-[node name="Single" type="Node" parent="Sounds"]
-script = ExtResource("20_avad0")
-
-[node name="Jumpscare" type="AudioStreamPlayer" parent="Sounds/Single"]
-stream = ExtResource("21_qo258")
-
-[node name="Critters" type="AudioStreamPlayer" parent="Sounds/Single"]
-stream = ExtResource("22_hggjy")
-
-[node name="LightSwitch" type="AudioStreamPlayer" parent="Sounds/Single"]
-stream = ExtResource("23_7s5du")
-
-[node name="smash1" type="AudioStreamPlayer" parent="Sounds/Single"]
-stream = ExtResource("24_15m52")
-
-[node name="smash2" type="AudioStreamPlayer" parent="Sounds/Single"]
-stream = ExtResource("25_0br0i")
-
-[node name="smash3" type="AudioStreamPlayer" parent="Sounds/Single"]
-stream = ExtResource("26_a6hcx")
 
 [connection signal="body_entered" from="World/Cashier/Scene Trigger" to="World/Cashier" method="_on_scene_trigger_body_entered"]
 [connection signal="body_entered" from="World/Cashier/Basement Entrance" to="World/Cashier/Basement Entrance" method="_on_body_entered"]

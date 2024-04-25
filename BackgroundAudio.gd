@@ -1,4 +1,4 @@
-extends Area2D
+extends AudioStreamPlayer
 
 
 # Called when the node enters the scene tree for the first time.
@@ -11,6 +11,5 @@ func _process(delta):
 	pass
 
 
-func _on_body_entered(body):
-	if body.is_in_group('player'):
-		$"../Player/Camera2D".position_smoothing_speed = 15
+func _on_finished():
+	play()

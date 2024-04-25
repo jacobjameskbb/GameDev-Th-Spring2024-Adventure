@@ -1,30 +1,37 @@
-[gd_scene load_steps=31 format=3 uid="uid://bfv1xexuduuw5"]
+[gd_scene load_steps=38 format=3 uid="uid://bfv1xexuduuw5"]
 
+[ext_resource type="PackedScene" uid="uid://dmkswt3j12c27" path="res://sound_pool.tscn" id="1_doe62"]
 [ext_resource type="Texture2D" uid="uid://kiegqgxbbks6" path="res://Sprites/fence.png" id="1_qff8o"]
 [ext_resource type="Script" path="res://PanoramaHBox.gd" id="1_sre38"]
+[ext_resource type="AudioStream" uid="uid://bcmi28l6dbnpg" path="res://Sounds/Step.mp3" id="2_0q5rt"]
+[ext_resource type="AudioStream" uid="uid://b8ak21e84hwqt" path="res://Sounds/378008__krucifix444__outside-ambience-2.wav" id="2_takbe"]
+[ext_resource type="AudioStream" uid="uid://ddubengxd61rk" path="res://Sounds/Step2.mp3" id="3_5vmak"]
 [ext_resource type="Texture2D" uid="uid://b0b31r4asfa6a" path="res://Sprites/lamp post.png" id="3_en04p"]
 [ext_resource type="Script" path="res://Entrance.gd" id="4_4o3oj"]
+[ext_resource type="AudioStream" uid="uid://b42kuprndatmo" path="res://Sounds/Step3.mp3" id="4_o1pj0"]
 [ext_resource type="Texture2D" uid="uid://ye4pv8yd4wdo" path="res://Sprites/car miata.png" id="4_xvytn"]
 [ext_resource type="PackedScene" uid="uid://d1f1fk2kiy4ty" path="res://player.tscn" id="5_22a4l"]
+[ext_resource type="AudioStream" uid="uid://laivyxn4dfwb" path="res://Sounds/Step4.mp3" id="5_88a6k"]
 [ext_resource type="Script" path="res://Text.gd" id="5_y4omg"]
 [ext_resource type="Script" path="res://camera.gd" id="6_prsqu"]
 [ext_resource type="FontFile" uid="uid://do5gjoyxrtu6a" path="res://PublicPixel.ttf" id="6_qxxyt"]
+[ext_resource type="AudioStream" uid="uid://bv58gucxinhin" path="res://Sounds/Step5.mp3" id="6_x7moy"]
 [ext_resource type="Texture2D" uid="uid://b1jqq7ker54lu" path="res://Sprites/milk store new.png" id="7_24ptn"]
-[ext_resource type="PackedScene" uid="uid://dmkswt3j12c27" path="res://sound_pool.tscn" id="11_6iw34"]
-[ext_resource type="AudioStream" uid="uid://bcmi28l6dbnpg" path="res://Sounds/Single-footstep-on-concrete-with-sneaker-shoes-2-www.FesliyanStudios.com.mp3" id="12_tbwop"]
-[ext_resource type="AudioStream" uid="uid://ddubengxd61rk" path="res://Sounds/Single-footstep-on-concrete-with-sneaker-shoes-3-www.FesliyanStudios.com.mp3" id="13_cqr2e"]
-[ext_resource type="AudioStream" uid="uid://b42kuprndatmo" path="res://Sounds/Single-footstep-on-concrete-with-sneaker-shoes-4-www.FesliyanStudios.com.mp3" id="14_7j5eo"]
-[ext_resource type="AudioStream" uid="uid://laivyxn4dfwb" path="res://Sounds/Single-footstep-on-concrete-with-sneaker-shoes-5-www.FesliyanStudios.com.mp3" id="15_ebte5"]
-[ext_resource type="AudioStream" uid="uid://bv58gucxinhin" path="res://Sounds/Single-footstep-on-concrete-with-sneaker-shoes-6-www.FesliyanStudios.com.mp3" id="16_w8prd"]
-[ext_resource type="AudioStream" uid="uid://banevehkl42gd" path="res://Sounds/Single-footstep-on-concrete-with-sneaker-shoes-7-www.FesliyanStudios.com.mp3" id="17_0ax8k"]
-[ext_resource type="AudioStream" uid="uid://b8ak21e84hwqt" path="res://Sounds/378008__krucifix444__outside-ambience-2.wav" id="18_d0o7v"]
-[ext_resource type="Script" path="res://Single.gd" id="19_0ow5n"]
-[ext_resource type="AudioStream" uid="uid://dsqei8vbv4hi7" path="res://Sounds/534218__thesoundfxguy_yt__piano-jump-scare-stinger.wav" id="20_3jmai"]
-[ext_resource type="AudioStream" uid="uid://cvwgwnwv3sjqf" path="res://Sounds/411129__malisz99__jump-scare.mp3" id="21_ol22k"]
-[ext_resource type="AudioStream" uid="uid://ccretiryx1jp" path="res://Sounds/348220__tbrook__switch-light-03.wav" id="22_8dkl3"]
-[ext_resource type="AudioStream" uid="uid://dngqhoqek7ikm" path="res://Sounds/31622__srehpog__light_crate_smash1.wav" id="23_8ct61"]
-[ext_resource type="AudioStream" uid="uid://c8snraakikxcc" path="res://Sounds/31623__srehpog__light_crate_smash2.wav" id="24_uqsrv"]
-[ext_resource type="AudioStream" uid="uid://bpjk3a3ntn755" path="res://Sounds/31624__srehpog__light_crate_smash3.wav" id="25_xtl34"]
+[ext_resource type="AudioStream" uid="uid://banevehkl42gd" path="res://Sounds/Step6.mp3" id="7_ykbia"]
+[ext_resource type="AudioStream" uid="uid://xogjcw4iswtk" path="res://Sounds/394417__inspectorj__bamboo-swing-a2.wav" id="8_48obj"]
+[ext_resource type="AudioStream" uid="uid://bx8hjpuupgdl0" path="res://Sounds/394418__inspectorj__bamboo-swing-a14.wav" id="9_jhtfb"]
+[ext_resource type="AudioStream" uid="uid://c885jfn34by0t" path="res://Sounds/394421__inspectorj__bamboo-swing-a4.wav" id="10_8lp7p"]
+[ext_resource type="AudioStream" uid="uid://bhgqr2hy4vdct" path="res://Sounds/394432__inspectorj__bamboo-swing-b16.wav" id="11_mhkjq"]
+[ext_resource type="AudioStream" uid="uid://c4n0wuox5olj4" path="res://Sounds/394439__inspectorj__bamboo-swing-a8.wav" id="12_v8dbo"]
+[ext_resource type="AudioStream" uid="uid://d1ixxvfcykjvu" path="res://Sounds/394443__inspectorj__bamboo-swing-b11.wav" id="13_abyxo"]
+[ext_resource type="AudioStream" uid="uid://dpr3wxvf28q2v" path="res://Sounds/394445__inspectorj__bamboo-swing-b1.wav" id="14_vnk0u"]
+[ext_resource type="Script" path="res://Single.gd" id="15_ocrdt"]
+[ext_resource type="AudioStream" uid="uid://dsqei8vbv4hi7" path="res://Sounds/534218__thesoundfxguy_yt__piano-jump-scare-stinger.wav" id="16_3cf8i"]
+[ext_resource type="AudioStream" uid="uid://cvwgwnwv3sjqf" path="res://Sounds/411129__malisz99__jump-scare.mp3" id="17_1qyda"]
+[ext_resource type="AudioStream" uid="uid://ccretiryx1jp" path="res://Sounds/348220__tbrook__switch-light-03.wav" id="18_d2uns"]
+[ext_resource type="AudioStream" uid="uid://dngqhoqek7ikm" path="res://Sounds/31622__srehpog__light_crate_smash1.wav" id="19_ljiq7"]
+[ext_resource type="AudioStream" uid="uid://c8snraakikxcc" path="res://Sounds/31623__srehpog__light_crate_smash2.wav" id="20_5ffr2"]
+[ext_resource type="AudioStream" uid="uid://bpjk3a3ntn755" path="res://Sounds/31624__srehpog__light_crate_smash3.wav" id="21_x46k2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pgsb5"]
 size = Vector2(4124, 620)
@@ -93,6 +100,92 @@ _data = {
 }
 
 [node name="Node2D" type="Node2D"]
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="Walking" parent="Sounds" instance=ExtResource("1_doe62")]
+delay = 0.3
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Sounds/Walking"]
+stream = ExtResource("2_0q5rt")
+pitch_scale = 0.41
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="Sounds/Walking"]
+stream = ExtResource("3_5vmak")
+pitch_scale = 0.41
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="Sounds/Walking"]
+stream = ExtResource("4_o1pj0")
+pitch_scale = 0.41
+
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="Sounds/Walking"]
+stream = ExtResource("5_88a6k")
+pitch_scale = 0.41
+
+[node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="Sounds/Walking"]
+stream = ExtResource("6_x7moy")
+pitch_scale = 0.41
+
+[node name="AudioStreamPlayer6" type="AudioStreamPlayer" parent="Sounds/Walking"]
+stream = ExtResource("7_ykbia")
+pitch_scale = 0.41
+
+[node name="BatSwing" parent="Sounds" instance=ExtResource("1_doe62")]
+delay = 0.3
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Sounds/BatSwing"]
+stream = ExtResource("8_48obj")
+pitch_scale = 0.7
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="Sounds/BatSwing"]
+stream = ExtResource("9_jhtfb")
+pitch_scale = 0.7
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="Sounds/BatSwing"]
+stream = ExtResource("10_8lp7p")
+pitch_scale = 0.7
+
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="Sounds/BatSwing"]
+stream = ExtResource("11_mhkjq")
+pitch_scale = 0.7
+
+[node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="Sounds/BatSwing"]
+stream = ExtResource("12_v8dbo")
+pitch_scale = 0.7
+
+[node name="AudioStreamPlayer6" type="AudioStreamPlayer" parent="Sounds/BatSwing"]
+stream = ExtResource("13_abyxo")
+pitch_scale = 0.7
+
+[node name="AudioStreamPlayer7" type="AudioStreamPlayer" parent="Sounds/BatSwing"]
+stream = ExtResource("14_vnk0u")
+pitch_scale = 0.7
+
+[node name="Single" type="Node" parent="Sounds"]
+script = ExtResource("15_ocrdt")
+
+[node name="Jumpscare" type="AudioStreamPlayer" parent="Sounds/Single"]
+stream = ExtResource("16_3cf8i")
+
+[node name="Critters" type="AudioStreamPlayer" parent="Sounds/Single"]
+stream = ExtResource("17_1qyda")
+
+[node name="LightSwitch" type="AudioStreamPlayer" parent="Sounds/Single"]
+stream = ExtResource("18_d2uns")
+
+[node name="smash1" type="AudioStreamPlayer" parent="Sounds/Single"]
+stream = ExtResource("19_ljiq7")
+
+[node name="smash2" type="AudioStreamPlayer" parent="Sounds/Single"]
+stream = ExtResource("20_5ffr2")
+
+[node name="smash3" type="AudioStreamPlayer" parent="Sounds/Single"]
+stream = ExtResource("21_x46k2")
+
+[node name="Background2" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("2_takbe")
+volume_db = 8.667
+autoplay = true
 
 [node name="Background" type="Node2D" parent="."]
 position = Vector2(103, -215)
@@ -234,8 +327,10 @@ scale = Vector2(0.5, 0.5)
 script = ExtResource("5_y4omg")
 
 [node name="Label" type="Label" parent="World/MilkStore/Area2D/Text"]
+modulate = Color(1, 1, 1, 0)
+offset_top = 40.0
 offset_right = 144.0
-offset_bottom = 46.0001
+offset_bottom = 86.0001
 theme_override_fonts/font = ExtResource("6_qxxyt")
 text = "Press \"F\""
 
@@ -250,14 +345,15 @@ position = Vector2(-424, -229)
 collision_layer = 3
 collision_mask = 3
 
-[node name="Camera2D" type="Camera2D" parent="World"]
-position = Vector2(-398, 77)
+[node name="Player" parent="World" instance=ExtResource("5_22a4l")]
+position = Vector2(-400, 127)
+
+[node name="Camera2D" type="Camera2D" parent="World/Player"]
+position = Vector2(1, -25)
+scale = Vector2(0.5, 0.5)
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 script = ExtResource("6_prsqu")
-
-[node name="Player" parent="World" instance=ExtResource("5_22a4l")]
-position = Vector2(-400, 127)
 
 [node name="LampPost" type="Sprite2D" parent="."]
 position = Vector2(-220, 116)
@@ -298,66 +394,6 @@ texture = ExtResource("3_en04p")
 position = Vector2(-385, 189)
 scale = Vector2(2, 2)
 texture = ExtResource("4_xvytn")
-
-[node name="Sounds" type="Node" parent="."]
-
-[node name="Walking" parent="Sounds" instance=ExtResource("11_6iw34")]
-delay = 0.3
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Sounds/Walking"]
-stream = ExtResource("12_tbwop")
-volume_db = -22.286
-mix_target = 1
-
-[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="Sounds/Walking"]
-stream = ExtResource("13_cqr2e")
-volume_db = -22.286
-mix_target = 1
-
-[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="Sounds/Walking"]
-stream = ExtResource("14_7j5eo")
-volume_db = -22.286
-mix_target = 1
-
-[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="Sounds/Walking"]
-stream = ExtResource("15_ebte5")
-volume_db = -22.286
-mix_target = 1
-
-[node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="Sounds/Walking"]
-stream = ExtResource("16_w8prd")
-volume_db = -22.286
-mix_target = 1
-
-[node name="AudioStreamPlayer6" type="AudioStreamPlayer" parent="Sounds/Walking"]
-stream = ExtResource("17_0ax8k")
-volume_db = -22.286
-mix_target = 1
-
-[node name="Background" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource("18_d0o7v")
-autoplay = true
-
-[node name="Single" type="Node" parent="Sounds"]
-script = ExtResource("19_0ow5n")
-
-[node name="Jumpscare" type="AudioStreamPlayer" parent="Sounds/Single"]
-stream = ExtResource("20_3jmai")
-
-[node name="Critters" type="AudioStreamPlayer" parent="Sounds/Single"]
-stream = ExtResource("21_ol22k")
-
-[node name="LightSwitch" type="AudioStreamPlayer" parent="Sounds/Single"]
-stream = ExtResource("22_8dkl3")
-
-[node name="smash1" type="AudioStreamPlayer" parent="Sounds/Single"]
-stream = ExtResource("23_8ct61")
-
-[node name="smash2" type="AudioStreamPlayer" parent="Sounds/Single"]
-stream = ExtResource("24_uqsrv")
-
-[node name="smash3" type="AudioStreamPlayer" parent="Sounds/Single"]
-stream = ExtResource("25_xtl34")
 
 [connection signal="body_entered" from="World/MilkStore/Area2D" to="World/MilkStore/Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="World/MilkStore/Area2D" to="World/MilkStore/Area2D" method="_on_body_exited"]

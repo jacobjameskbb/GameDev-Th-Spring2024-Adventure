@@ -1,5 +1,9 @@
 extends CharacterBody2D
 
+@export var on_grass = false
+
+var in_air = false
+
 var interactions = {
 	'pickup_bat' = false,
 	'scene1_enter' = false,
@@ -172,20 +176,41 @@ func _physics_process(delta):
 					direction = 'left'
 		if $Bat.swinging:
 			$AnimatedSprite2D.animation = 'attack bat'
-			$"../../Sounds/Walking".stop()
+			if not in_air:
+				if not on_grass:
+					$"../../Sounds/Walking".stop()
+				else:
+					$"../../Sounds/GrassWalking".stop()
 		else:
+			
 		
 			if pressed_left:
 				$AnimatedSprite2D.animation = 'walking'
-				$"../../Sounds/Walking".start()
+				if not in_air:
+					if not on_grass:
+						$"../../Sounds/Walking".start()
+					else:
+						$"../../Sounds/GrassWalking".start()
 			if pressed_right:
 				$AnimatedSprite2D.animation = 'walking'
-				$"../../Sounds/Walking".start()
+				if not in_air:
+					if not on_grass:
+						$"../../Sounds/Walking".start()
+					else:
+						$"../../Sounds/GrassWalking".start()
 			if not pressed_left and not pressed_right:
 				$AnimatedSprite2D.animation = 'standing'
-				$"../../Sounds/Walking".stop()
+				if not in_air:
+					if not on_grass:
+						$"../../Sounds/Walking".stop()
+					else:
+						$"../../Sounds/GrassWalking".stop()
 			if not is_on_floor():
-				$"../../Sounds/Walking".stop()
+				if not in_air:
+					if not on_grass:
+						$"../../Sounds/Walking".stop()
+					else:
+						$"../../Sounds/GrassWalking".stop()
 	else:
 		$"../../Sounds/Walking".stop()
 

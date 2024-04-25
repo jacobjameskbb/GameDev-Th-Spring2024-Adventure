@@ -9,6 +9,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	self.global_position = $"../Player".global_position - Vector2(0,viewport_size.y/14)
+	self.global_position = $"..".global_position - Vector2(0,viewport_size.y/14)
 
 
