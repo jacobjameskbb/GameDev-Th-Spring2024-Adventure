@@ -4,7 +4,7 @@
 [ext_resource type="SpriteFrames" uid="uid://c5h4lhcy6vmyt" path="res://Nodes/Knight/knight legs.tres" id="2_2rgyo"]
 [ext_resource type="SpriteFrames" uid="uid://byacpr7o72n7u" path="res://Sprites/slug.tres" id="3_32ahi"]
 [ext_resource type="SpriteFrames" uid="uid://bkdbmnuum5jge" path="res://Sprites/mailbox.tres" id="4_knb1i"]
-[ext_resource type="PackedScene" uid="uid://bqq10ifdxte3h" path="res://money_counter.tscn" id="5_jfqu6"]
+[ext_resource type="PackedScene" uid="uid://ddnyn77rc12u8" path="res://money_counter.tscn" id="5_jfqu6"]
 
 [node name="Node2D" type="Node2D"]
 
