@@ -1,8 +1,7 @@
-extends CharacterBody2D
+extends Area2D
 
-var broken = false
 var player_near = false
-@onready var player = $"../Player"
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -11,23 +10,18 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if player_near and broken:
-		player.interactions['scene3_enter'] = true
+	if player_near and $"../Player".player_level >0 and not $"../Window".broken:
 		$Text.fade_in()
 	else:
-		player.interactions['scene3_enter'] = false
 		$Text.fade_out()
 
 
-func _on_area_2d_body_entered(body):
-	if body.is_in_group('bat'):
-		$AnimatedSprite2D.frame += 1
-		broken = true
+func _on_body_entered(body):
 	if body.is_in_group('player'):
 		player_near = true
 		
 
 
-func _on_area_2d_body_exited(body):
+func _on_body_exited(body):
 	if body.is_in_group('player'):
 		player_near = false

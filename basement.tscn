@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dxuola0g4iexh"]
+[gd_scene load_steps=28 format=3 uid="uid://dxuola0g4iexh"]
 
 [ext_resource type="PackedScene" uid="uid://ce2kyubmccdjg" path="res://sounds.tscn" id="1_04cej"]
 [ext_resource type="Texture2D" uid="uid://c1frd32fijkoa" path="res://Sprites/basement wall.png" id="1_a424q"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://Text.gd" id="8_vsifn"]
 [ext_resource type="FontFile" uid="uid://do5gjoyxrtu6a" path="res://PublicPixel.ttf" id="9_27nbt"]
 [ext_resource type="Script" path="res://tv.gd" id="9_wymxy"]
+[ext_resource type="Script" path="res://TutorialBreakWindow.gd" id="14_ouh5n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xqh8e"]
 size = Vector2(514, 320)
@@ -43,29 +44,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j3dcm"]
-size = Vector2(48, 40)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_j43uk"]
-atlas = ExtResource("8_7qp63")
-region = Rect2(0, 0, 64, 40)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_t716d"]
-atlas = ExtResource("8_7qp63")
-region = Rect2(64, 0, 64, 40)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_51vdp"]
-animations = [{
-"frames": [{
-"duration": 8.0,
-"texture": SubResource("AtlasTexture_j43uk")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_t716d")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+size = Vector2(48, 66)
 
 [sub_resource type="Animation" id="Animation_comn3"]
 resource_name = "fade"
@@ -126,6 +105,31 @@ _data = {
 "fade": SubResource("Animation_comn3"),
 "fade out": SubResource("Animation_s7amm")
 }
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j43uk"]
+atlas = ExtResource("8_7qp63")
+region = Rect2(0, 0, 64, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t716d"]
+atlas = ExtResource("8_7qp63")
+region = Rect2(64, 0, 64, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_51vdp"]
+animations = [{
+"frames": [{
+"duration": 8.0,
+"texture": SubResource("AtlasTexture_j43uk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t716d")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o0qnw"]
+size = Vector2(370, 271)
 
 [node name="basement" type="Node2D"]
 
@@ -203,17 +207,35 @@ collision_layer = 5
 collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Window/Area2D"]
+position = Vector2(0, 13)
 shape = SubResource("RectangleShape2D_j3dcm")
 
+[node name="Text" type="Node2D" parent="World/Window"]
+position = Vector2(-63, -51)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("8_vsifn")
+
+[node name="Label" type="Label" parent="World/Window/Text"]
+offset_right = 256.0
+offset_bottom = 46.0001
+theme_override_fonts/font = ExtResource("9_27nbt")
+text = "\"F\" Enter Window"
+
+[node name="Animation" type="AnimationPlayer" parent="World/Window/Text"]
+root_node = NodePath("../Label")
+libraries = {
+"": SubResource("AnimationLibrary_b1sl7")
+}
+
 [node name="Tv" type="AnimatedSprite2D" parent="World"]
-position = Vector2(509, 148)
+position = Vector2(525, 229)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_51vdp")
 frame_progress = 0.425461
 script = ExtResource("9_wymxy")
 
 [node name="Player" parent="World" instance=ExtResource("3_omlen")]
-position = Vector2(511, 164)
+position = Vector2(527, 230)
 
 [node name="Camera2D" type="Camera2D" parent="World/Player"]
 position = Vector2(1, -25)
@@ -230,9 +252,32 @@ script = ExtResource("8_vsifn")
 offset_right = 144.0
 offset_bottom = 46.0001
 theme_override_fonts/font = ExtResource("9_27nbt")
-text = "Press \"F\""
 
 [node name="Animation" type="AnimationPlayer" parent="World/Text"]
+root_node = NodePath("../Label")
+libraries = {
+"": SubResource("AnimationLibrary_b1sl7")
+}
+
+[node name="TutorialBreakWindow" type="Area2D" parent="World"]
+script = ExtResource("14_ouh5n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/TutorialBreakWindow"]
+position = Vector2(381, 235.5)
+shape = SubResource("RectangleShape2D_o0qnw")
+
+[node name="Text" type="Node2D" parent="World/TutorialBreakWindow"]
+position = Vector2(253, 100)
+script = ExtResource("8_vsifn")
+
+[node name="Label" type="Label" parent="World/TutorialBreakWindow/Text"]
+offset_right = 256.0
+offset_bottom = 46.0001
+theme_override_fonts/font = ExtResource("9_27nbt")
+text = "Mouse: Swing bat
+(Break Window)"
+
+[node name="Animation" type="AnimationPlayer" parent="World/TutorialBreakWindow/Text"]
 root_node = NodePath("../Label")
 libraries = {
 "": SubResource("AnimationLibrary_b1sl7")
@@ -242,3 +287,5 @@ libraries = {
 [connection signal="body_exited" from="World/PickupBat/Area2D" to="World/PickupBat" method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="World/Window/Area2D" to="World/Window" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="World/Window/Area2D" to="World/Window" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="World/TutorialBreakWindow" to="World/TutorialBreakWindow" method="_on_body_entered"]
+[connection signal="body_exited" from="World/TutorialBreakWindow" to="World/TutorialBreakWindow" method="_on_body_exited"]

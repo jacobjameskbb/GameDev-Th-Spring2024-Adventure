@@ -184,7 +184,7 @@ stream = ExtResource("21_x46k2")
 
 [node name="Background2" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("2_takbe")
-volume_db = 8.667
+volume_db = 15.0
 autoplay = true
 
 [node name="Background" type="Node2D" parent="."]
@@ -327,10 +327,8 @@ scale = Vector2(0.5, 0.5)
 script = ExtResource("5_y4omg")
 
 [node name="Label" type="Label" parent="World/MilkStore/Area2D/Text"]
-modulate = Color(1, 1, 1, 0)
-offset_top = 40.0
 offset_right = 144.0
-offset_bottom = 86.0001
+offset_bottom = 46.0001
 theme_override_fonts/font = ExtResource("6_qxxyt")
 text = "Press \"F\""
 

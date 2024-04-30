@@ -1,0 +1,308 @@
+[gd_scene load_steps=22 format=3 uid="uid://b1a3fapygsp46"]
+
+[ext_resource type="Script" path="res://Mailbox.gd" id="1_65oug"]
+[ext_resource type="Texture2D" uid="uid://cafquw5yp4fes" path="res://Nodes/Mailbox/maibox bending.png" id="2_rkv73"]
+[ext_resource type="Texture2D" uid="uid://khbb75yik457" path="res://Sprites/mailbox atack 1.png" id="3_3gkxr"]
+[ext_resource type="Texture2D" uid="uid://bvo11txnd1x63" path="res://Nodes/Mailbox/mailbox attack 2.png" id="4_kb0fn"]
+[ext_resource type="Texture2D" uid="uid://brmhj2855nj1h" path="res://Nodes/Mailbox/mailbox attack 3.png" id="5_unq7y"]
+[ext_resource type="Texture2D" uid="uid://c4jt3ye2qvgvs" path="res://Nodes/Mailbox/mailbox attack 4.png" id="6_quagg"]
+[ext_resource type="Texture2D" uid="uid://e8nkfr60ydl4" path="res://Nodes/Mailbox/mailbox.png" id="7_5hrjr"]
+[ext_resource type="Texture2D" uid="uid://lj4yjd6dwoq5" path="res://Nodes/Mailbox/mailbox rising.png" id="8_dm4tx"]
+[ext_resource type="Texture2D" uid="uid://dlmlqxk3rphpk" path="res://Nodes/Mailbox/mailbox rising 2.png" id="9_8jpsl"]
+[ext_resource type="Texture2D" uid="uid://um5rp1s4tyni" path="res://Nodes/Mailbox/mailbox stand 1.png" id="10_i22l3"]
+[ext_resource type="Texture2D" uid="uid://cajip2xvlohgi" path="res://Nodes/Mailbox/mailbox stand 2.png" id="11_rxhnw"]
+[ext_resource type="Texture2D" uid="uid://btpj84om1naw6" path="res://Nodes/Mailbox/mailbox stand 3.png" id="12_q72sq"]
+[ext_resource type="Texture2D" uid="uid://b0qqnp60exo3a" path="res://Nodes/Mailbox/mailbox walk.png" id="13_58nwc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iaqh8"]
+atlas = ExtResource("13_58nwc")
+region = Rect2(0, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ws6i"]
+atlas = ExtResource("13_58nwc")
+region = Rect2(64, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ksnj"]
+atlas = ExtResource("13_58nwc")
+region = Rect2(128, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0n8d4"]
+atlas = ExtResource("13_58nwc")
+region = Rect2(192, 0, 64, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bk1yh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_rkv73")
+}, {
+"duration": 0.5,
+"texture": ExtResource("3_3gkxr")
+}, {
+"duration": 0.5,
+"texture": ExtResource("4_kb0fn")
+}, {
+"duration": 0.5,
+"texture": ExtResource("5_unq7y")
+}, {
+"duration": 0.5,
+"texture": ExtResource("6_quagg")
+}, {
+"duration": 0.5,
+"texture": ExtResource("5_unq7y")
+}, {
+"duration": 0.5,
+"texture": ExtResource("6_quagg")
+}, {
+"duration": 0.5,
+"texture": ExtResource("5_unq7y")
+}, {
+"duration": 0.5,
+"texture": ExtResource("6_quagg")
+}, {
+"duration": 0.5,
+"texture": ExtResource("6_quagg")
+}, {
+"duration": 0.5,
+"texture": ExtResource("6_quagg")
+}, {
+"duration": 0.5,
+"texture": ExtResource("6_quagg")
+}, {
+"duration": 0.5,
+"texture": ExtResource("6_quagg")
+}, {
+"duration": 0.5,
+"texture": ExtResource("6_quagg")
+}, {
+"duration": 0.5,
+"texture": ExtResource("4_kb0fn")
+}, {
+"duration": 0.5,
+"texture": ExtResource("3_3gkxr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_rkv73")
+}],
+"loop": true,
+"name": &"attacking",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_5hrjr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_5hrjr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_5hrjr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_5hrjr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_dm4tx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_8jpsl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_i22l3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_rxhnw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_q72sq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_rxhnw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_i22l3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_rxhnw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_q72sq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_rxhnw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_rkv73")
+}, {
+"duration": 0.5,
+"texture": ExtResource("3_3gkxr")
+}, {
+"duration": 0.5,
+"texture": ExtResource("4_kb0fn")
+}, {
+"duration": 0.5,
+"texture": ExtResource("5_unq7y")
+}, {
+"duration": 0.5,
+"texture": ExtResource("6_quagg")
+}, {
+"duration": 0.5,
+"texture": ExtResource("6_quagg")
+}, {
+"duration": 0.5,
+"texture": ExtResource("5_unq7y")
+}, {
+"duration": 0.5,
+"texture": ExtResource("6_quagg")
+}, {
+"duration": 0.5,
+"texture": ExtResource("5_unq7y")
+}, {
+"duration": 0.5,
+"texture": ExtResource("5_unq7y")
+}, {
+"duration": 0.5,
+"texture": ExtResource("5_unq7y")
+}, {
+"duration": 0.5,
+"texture": ExtResource("5_unq7y")
+}, {
+"duration": 0.5,
+"texture": ExtResource("5_unq7y")
+}, {
+"duration": 0.5,
+"texture": ExtResource("4_kb0fn")
+}, {
+"duration": 0.5,
+"texture": ExtResource("3_3gkxr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_rkv73")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_i22l3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_rxhnw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_q72sq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_rxhnw")
+}],
+"loop": true,
+"name": &"combined",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_5hrjr")
+}],
+"loop": true,
+"name": &"ground",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_dm4tx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_8jpsl")
+}],
+"loop": true,
+"name": &"rising",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_i22l3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_rxhnw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_q72sq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_rxhnw")
+}],
+"loop": true,
+"name": &"standing",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iaqh8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ws6i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ksnj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0n8d4")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ck4yb"]
+size = Vector2(25.25, 72.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uyyft"]
+size = Vector2(25, 61.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5841v"]
+size = Vector2(37.5, 61.25)
+
+[node name="Mailbox" type="CharacterBody2D" groups=["mailbox"]]
+position = Vector2(922, 463)
+scale = Vector2(2, 2)
+collision_layer = 26
+collision_mask = 3
+script = ExtResource("1_65oug")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_bk1yh")
+animation = &"attacking"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.375, 4.125)
+shape = SubResource("RectangleShape2D_ck4yb")
+
+[node name="DetectWallLeft" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectWallLeft"]
+position = Vector2(-6, 0)
+shape = SubResource("RectangleShape2D_uyyft")
+
+[node name="DetectWallRight" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DetectWallRight"]
+position = Vector2(6, 0)
+shape = SubResource("RectangleShape2D_uyyft")
+
+[node name="DetectWallLeftAttack" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectWallLeftAttack"]
+position = Vector2(-40, 0)
+shape = SubResource("RectangleShape2D_5841v")
+
+[node name="DetectWallRightAttack" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DetectWallRightAttack"]
+position = Vector2(40, 0)
+shape = SubResource("RectangleShape2D_5841v")
+
+[connection signal="body_entered" from="DetectWallLeft" to="." method="_on_detect_wall_left_body_entered"]
+[connection signal="body_exited" from="DetectWallLeft" to="." method="_on_detect_wall_left_body_exited"]
+[connection signal="body_entered" from="DetectWallRight" to="." method="_on_detect_wall_right_body_entered"]
+[connection signal="body_exited" from="DetectWallRight" to="." method="_on_detect_wall_right_body_exited"]
+[connection signal="body_entered" from="DetectWallLeftAttack" to="." method="_on_detect_wall_left_attack_body_entered"]
+[connection signal="body_exited" from="DetectWallLeftAttack" to="." method="_on_detect_wall_left_attack_body_exited"]
+[connection signal="body_entered" from="DetectWallRightAttack" to="." method="_on_detect_wall_right_attack_body_entered"]

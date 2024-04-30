@@ -10,7 +10,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	$Text.fade_in()
 	if player_near:
 		$Text.fade_in()
 		player.interactions['scene2_enter'] = true

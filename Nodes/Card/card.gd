@@ -57,6 +57,8 @@ func _on_area_body_entered(body):
 		colliding_with_player = true
 	if body.is_in_group('enemy'):
 		body.attack(damage, 'card')
+	if body.is_in_group('bat'):
+		queue_free()
 
 
 func _on_area_body_exited(body):

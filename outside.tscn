@@ -218,6 +218,7 @@ shape = SubResource("RectangleShape2D_ej6qn")
 [node name="Player" parent="World" instance=ExtResource("4_sq2gi")]
 position = Vector2(467, 522)
 on_grass = true
+player_level = 1
 
 [node name="Camera2D" type="Camera2D" parent="World/Player"]
 position = Vector2(-4.5, -22.5)

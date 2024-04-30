@@ -9,6 +9,7 @@ var interactions = {
 	'scene1_enter' = false,
 	'scene2_enter' = false,
 	'scene3_enter' = false,
+	'pickup_card' = false,
 }
 
 #Player level 0: Cant do attacks
@@ -165,11 +166,14 @@ func _physics_process(delta):
 			get_tree().change_scene_to_file("res://basement.tscn")
 		if interactions['scene3_enter']:
 			get_tree().change_scene_to_file("res://outside.tscn")
+		if interactions['pickup_card']:
+			player_level = 2
 	#-----VISUALS AND SOUNDS-----
 	if not dead and can_move:
 		
 		if (pressed_right and direction == 'left' and not pressed_left) or (pressed_left and direction == 'right' and not pressed_right):
 				scale.x = -2
+				$HealthBar.scale.x *= -1
 				if direction == 'left':
 					direction = 'right'
 				else:
@@ -232,7 +236,7 @@ func death():
 	dead = true
 	
 #Enemies call this function to attack player
-func attack(damage, type):
+func attack(damage, type = 'none'):
 	health -= damage
 
 func collect_coin(value):

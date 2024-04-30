@@ -10,7 +10,7 @@ var fading_out = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	$Label.self_modulate.a =0
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -29,7 +29,6 @@ func set_text(text):
 	
 func fade_in():
 	if not fading_in:
-		print('fade in')
 		fading_in = true
 		break_fade_out = true
 		break_fade_in = false
@@ -43,8 +42,10 @@ func fade_in():
 
 
 func fade_out():
+	print('valled fade out, ', fading_out)
 	fading_in = false
 	if not fading_out:
+		print('fading out')
 		fading_out = true
 		break_fade_out = false
 		break_fade_in = true
@@ -54,3 +55,4 @@ func fade_out():
 			$Label.self_modulate.a -= 0.02
 			$Label.position.y -= 0.3
 		fading_out = false
+

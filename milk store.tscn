@@ -460,17 +460,14 @@ position = Vector2(1.5, -14.5)
 shape = SubResource("RectangleShape2D_imqe1")
 
 [node name="Text" type="Node2D" parent="World/Cashier/Basement Entrance"]
-position = Vector2(-58, -123)
-scale = Vector2(0.5, 0.5)
+position = Vector2(-127, -115)
 script = ExtResource("7_l5nyx")
 
 [node name="Label" type="Label" parent="World/Cashier/Basement Entrance/Text"]
-modulate = Color(1, 1, 1, 0)
-offset_top = 40.0
-offset_right = 288.0
-offset_bottom = 86.0001
+offset_right = 144.0
+offset_bottom = 46.0001
 theme_override_fonts/font = ExtResource("8_s3jhc")
-text = "\"F\" Enter basement"
+text = "\"F\" Enter Basement"
 
 [node name="Animation" type="AnimationPlayer" parent="World/Cashier/Basement Entrance/Text"]
 root_node = NodePath("../Label")
@@ -504,7 +501,7 @@ libraries = {
 }
 
 [node name="Player" parent="World" instance=ExtResource("10_4jgrr")]
-position = Vector2(-373, 620)
+position = Vector2(4791, 537)
 
 [node name="Camera2D" type="Camera2D" parent="World/Player"]
 position = Vector2(1, -25)
