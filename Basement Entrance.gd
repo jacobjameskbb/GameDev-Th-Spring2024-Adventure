@@ -3,13 +3,8 @@ extends Area2D
 var player_near = false
 @onready var player = $"../../Player"
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
-
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if player_near:
 		$Text.fade_in()
 		player.interactions['scene2_enter'] = true

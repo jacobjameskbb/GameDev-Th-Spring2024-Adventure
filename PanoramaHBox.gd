@@ -9,7 +9,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if player.global_position.x - self.global_position.x - size.x + length_of_one() > length_of_one():
 		self.position.x += length_of_one()
 	if player.global_position.x - self.global_position.x - size.x + length_of_one() < length_of_one():
