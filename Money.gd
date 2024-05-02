@@ -11,7 +11,7 @@ var move = Vector2(x_dir*x_mag,-y_mag)
 
 var coin_value = 1
 
-
+var can_pick_up = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -35,6 +35,10 @@ func commit_suicide():
 	self.queue_free()
 
 func _on_player_detect_body_entered(body):
-	if body.is_in_group("player"):
+	if body.is_in_group("player") and can_pick_up:
 		body.collect_coin(coin_value)
 		commit_suicide()
+
+
+func _on_timer_timeout():
+	can_pick_up = true
