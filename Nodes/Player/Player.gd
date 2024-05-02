@@ -124,7 +124,7 @@ func _physics_process(delta):
 		if pressed_left and velocity.x > -SPEED and not $Bat.swinging and direction == 'left':
 			velocity.x -= ACCELERATION
 			if velocity.x < -SPEED:
-				velocity.x = SPEED
+				velocity.x = SPEED*delta*1000
 		elif velocity.x<0:
 			velocity.x += ACCELERATION
 			if velocity.x > 0:
@@ -134,7 +134,7 @@ func _physics_process(delta):
 		if pressed_right and velocity.x < SPEED and not $Bat.swinging and direction == 'right':
 			velocity.x += ACCELERATION
 			if velocity.x > SPEED:
-				velocity.x = SPEED
+				velocity.x = SPEED*delta*1000
 		elif velocity.x>0:
 			velocity.x -= ACCELERATION
 			if velocity.x < 0:
