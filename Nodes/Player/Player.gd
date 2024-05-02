@@ -136,7 +136,7 @@ func _physics_process(delta):
 			if velocity.x > SPEED:
 				velocity.x = SPEED*delta*1000
 		elif velocity.x>0:
-			velocity.x -= ACCELERATION
+			velocity.x -= ACCELERATION*delta*10009
 			if velocity.x < 0:
 				velocity.x = 0
 	elif dead:
