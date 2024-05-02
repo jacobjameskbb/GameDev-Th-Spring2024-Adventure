@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://b1a3fapygsp46"]
+[gd_scene load_steps=23 format=3 uid="uid://b1a3fapygsp46"]
 
 [ext_resource type="Script" path="res://Mailbox.gd" id="1_65oug"]
 [ext_resource type="Texture2D" uid="uid://cafquw5yp4fes" path="res://Nodes/Mailbox/maibox bending.png" id="2_rkv73"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://cajip2xvlohgi" path="res://Nodes/Mailbox/mailbox stand 2.png" id="11_rxhnw"]
 [ext_resource type="Texture2D" uid="uid://btpj84om1naw6" path="res://Nodes/Mailbox/mailbox stand 3.png" id="12_q72sq"]
 [ext_resource type="Texture2D" uid="uid://b0qqnp60exo3a" path="res://Nodes/Mailbox/mailbox walk.png" id="13_58nwc"]
+[ext_resource type="PackedScene" uid="uid://8cclpqryrpk3" path="res://Nodes/HealthBar/health_bar.tscn" id="14_yb7r5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iaqh8"]
 atlas = ExtResource("13_58nwc")
@@ -267,9 +268,9 @@ script = ExtResource("1_65oug")
 
 [node name="Area2D" type="Area2D" parent="."]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["mailbox"]]
 sprite_frames = SubResource("SpriteFrames_bk1yh")
-animation = &"attacking"
+animation = &"rising"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1.375, 4.125)
@@ -299,6 +300,17 @@ shape = SubResource("RectangleShape2D_5841v")
 position = Vector2(40, 0)
 shape = SubResource("RectangleShape2D_5841v")
 
+[node name="MailSpawnLeft" type="Marker2D" parent="."]
+position = Vector2(-24.5, -2.5)
+
+[node name="MailSpawnRight" type="Marker2D" parent="."]
+position = Vector2(24.5, -2.5)
+
+[node name="HealthBar" parent="." instance=ExtResource("14_yb7r5")]
+position = Vector2(0, -74)
+scale = Vector2(0.5, 0.5)
+
+[connection signal="animation_looped" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_looped"]
 [connection signal="body_entered" from="DetectWallLeft" to="." method="_on_detect_wall_left_body_entered"]
 [connection signal="body_exited" from="DetectWallLeft" to="." method="_on_detect_wall_left_body_exited"]
 [connection signal="body_entered" from="DetectWallRight" to="." method="_on_detect_wall_right_body_entered"]

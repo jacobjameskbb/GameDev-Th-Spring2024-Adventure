@@ -290,6 +290,8 @@ offset_bottom = 481.0
 scale = Vector2(0.5, 0.5)
 theme_override_fonts/font = ExtResource("14_twl4c")
 horizontal_alignment = 2
+visible_characters = 0
+visible_ratio = 0.515152
 
 [node name="DialoguePlayer" type="Label" parent="World"]
 offset_left = 3267.0
@@ -299,7 +301,7 @@ offset_bottom = 742.0
 scale = Vector2(0.5, 0.5)
 theme_override_fonts/font = ExtResource("14_twl4c")
 visible_characters = 0
-visible_ratio = 0.0
+visible_ratio = 0.72
 
 [node name="DebtCollectorCutscene" type="AnimationPlayer" parent="World"]
 libraries = {

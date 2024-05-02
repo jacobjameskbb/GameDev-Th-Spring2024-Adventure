@@ -20,7 +20,7 @@ func _ready():
 		coin_value = 1
 		$Sprite.play("coin")
 	elif coin_type <= 15 and coin_type > 10:
-		coin_value = 10
+		coin_value = 5
 		$Sprite.play("dollar")
 	
 	

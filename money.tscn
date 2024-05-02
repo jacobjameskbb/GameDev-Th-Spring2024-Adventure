@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://moh5iudtqd77"]
 
 [ext_resource type="Script" path="res://Money.gd" id="1_fgjyp"]
-[ext_resource type="SpriteFrames" uid="uid://pj55cbost2so" path="res://Sprites/money.tres" id="2_23uyh"]
+[ext_resource type="SpriteFrames" path="res://Sprites/money.tres" id="2_23uyh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jf2ms"]
 radius = 18.0278

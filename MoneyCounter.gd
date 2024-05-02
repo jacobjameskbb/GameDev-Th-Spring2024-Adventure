@@ -151,3 +151,6 @@ func _on_counter_animation_finished(_anim_name):
 		
 		flip_queue['o'] = 0
 
+func _process(delta):
+	if Global.money > value:
+		add(Global.money - value)

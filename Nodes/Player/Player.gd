@@ -241,6 +241,7 @@ func attack(damage, type = 'none'):
 
 func collect_coin(value):
 	emit_signal("coin_collected",value)
+	Global.money += value
 
 #------CONNECTIONS-----------------
 
