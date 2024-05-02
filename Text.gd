@@ -12,12 +12,6 @@ var fading_out = false
 func _ready():
 	$Label.self_modulate.a =0
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
 func play_text(text, time = 0):
 	$Label.text = text
 	$Animation.play('fade')

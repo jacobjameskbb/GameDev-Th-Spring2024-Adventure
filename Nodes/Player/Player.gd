@@ -236,7 +236,7 @@ func death():
 	dead = true
 	
 #Enemies call this function to attack player
-func attack(damage, type = 'none'):
+func attack(damage, _type = 'none'):
 	health -= damage
 
 func collect_coin(value):

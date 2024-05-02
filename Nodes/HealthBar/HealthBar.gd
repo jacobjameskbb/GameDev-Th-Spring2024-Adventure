@@ -18,7 +18,7 @@ func _ready():
 		
 
  
-func _process(delta):
+func _process(_delta):
 	if get_health_from_parent:
 		health = get_parent().health
 		max_health = get_parent().max_health

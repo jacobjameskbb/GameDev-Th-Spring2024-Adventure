@@ -9,7 +9,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if player_near and $"../Player".player_level >0 and not $"../Window".broken:
 		$Text.fade_in()
 	else:

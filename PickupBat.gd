@@ -8,7 +8,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if $"../Player".player_level > 0:
 		$"../Text".fade_out()
 		queue_free()

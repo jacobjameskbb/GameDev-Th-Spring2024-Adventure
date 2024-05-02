@@ -9,12 +9,6 @@ var random = RandomNumberGenerator.new()
 func _ready():
 	step()
 
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 func step():
 	if running:
 		play()
