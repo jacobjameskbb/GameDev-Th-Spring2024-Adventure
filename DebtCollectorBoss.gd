@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 var state = 'jumping'
+var animation_over = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,3 +19,5 @@ func _process(delta):
 func _on_animation_player_animation_finished(anim_name):
 	$Sprite2D.scale.x *= -1
 	$"../AnimationPlayer".play_backwards('jump')
+
+func 

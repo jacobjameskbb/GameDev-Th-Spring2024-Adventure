@@ -501,7 +501,7 @@ libraries = {
 }
 
 [node name="Player" parent="World" instance=ExtResource("10_4jgrr")]
-position = Vector2(4791, 537)
+position = Vector2(-441, 537)
 
 [node name="Camera2D" type="Camera2D" parent="World/Player"]
 position = Vector2(1, -25)
