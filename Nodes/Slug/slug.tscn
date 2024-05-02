@@ -1,11 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://dtuaast8087a5"]
 
-[ext_resource type="Script" path="res://Slug.gd" id="1_3wvdn"]
+[ext_resource type="Script" path="res://Nodes/Slug/Slug.gd" id="1_3wvdn"]
 [ext_resource type="SpriteFrames" uid="uid://byacpr7o72n7u" path="res://Sprites/slug.tres" id="2_wnkfc"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sg4mh"]
-radius = 7.0
-height = 52.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8q4lv"]
+size = Vector2(14.0001, 52)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8qkkp"]
 
@@ -18,13 +17,14 @@ size = Vector2(29, 15)
 [sub_resource type="CircleShape2D" id="CircleShape2D_qmdhe"]
 radius = 170.179
 
-[node name="Slug" type="RigidBody2D"]
+[node name="Slug" type="CharacterBody2D"]
+collision_layer = 8
 script = ExtResource("1_3wvdn")
 
 [node name="HeadShape" type="CollisionShape2D" parent="."]
-position = Vector2(6, 0)
+position = Vector2(5.99999, -6.34114e-05)
 rotation = 1.5708
-shape = SubResource("CapsuleShape2D_sg4mh")
+shape = SubResource("RectangleShape2D_8q4lv")
 
 [node name="BodyShape" type="CollisionShape2D" parent="."]
 position = Vector2(-12, -12)
@@ -33,8 +33,7 @@ shape = SubResource("CircleShape2D_8qkkp")
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(5, -25)
 sprite_frames = ExtResource("2_wnkfc")
-animation = &"move"
-frame_progress = 0.690376
+animation = &"squish"
 
 [node name="SquishDetect" type="Area2D" parent="."]
 
@@ -52,4 +51,6 @@ shape = SubResource("RectangleShape2D_qkwve")
 shape = SubResource("CircleShape2D_qmdhe")
 
 [connection signal="animation_finished" from="Sprite" to="." method="_on_sprite_animation_finished"]
+[connection signal="animation_looped" from="Sprite" to="." method="_on_sprite_animation_looped"]
+[connection signal="body_entered" from="SquishDetect" to="." method="_on_squish_detect_body_entered"]
 [connection signal="body_entered" from="PlayerDetect" to="." method="_on_player_detect_body_entered"]
