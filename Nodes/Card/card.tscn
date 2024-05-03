@@ -35,5 +35,12 @@ collision_mask = 21
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area"]
 shape = SubResource("RectangleShape2D_284k6")
 
+[node name="card collision" type="StaticBody2D" parent="." groups=["card child"]]
+collision_layer = 257
+collision_mask = 257
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="card collision"]
+shape = SubResource("RectangleShape2D_sy3be")
+
 [connection signal="body_entered" from="Area" to="." method="_on_area_body_entered"]
 [connection signal="body_exited" from="Area" to="." method="_on_area_body_exited"]
