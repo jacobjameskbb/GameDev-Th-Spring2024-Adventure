@@ -12,7 +12,7 @@ size = Vector2(14.0001, 52)
 size = Vector2(15, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qkwve"]
-size = Vector2(29, 15)
+size = Vector2(33, 15)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qmdhe"]
 radius = 170.179
@@ -42,7 +42,7 @@ position = Vector2(-8, -14)
 shape = SubResource("RectangleShape2D_bg5me")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="SquishDetect"]
-position = Vector2(12.5, -4.5)
+position = Vector2(14.5, -1)
 shape = SubResource("RectangleShape2D_qkwve")
 
 [node name="PlayerDetect" type="Area2D" parent="."]

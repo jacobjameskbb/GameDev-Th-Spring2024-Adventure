@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://hs7trrkmvc8x"]
+[gd_scene load_steps=30 format=3 uid="uid://hs7trrkmvc8x"]
 
 [ext_resource type="Texture2D" uid="uid://cx0vocrdtktrn" path="res://Sprites/PS_Tileset_06.png" id="1_ykry7"]
 [ext_resource type="Script" path="res://DebtCollectorBoss.gd" id="2_1835h"]
@@ -9,6 +9,10 @@
 [ext_resource type="Script" path="res://Sprites/Camera2DBoss.gd" id="7_vietu"]
 [ext_resource type="PackedScene" uid="uid://ce2kyubmccdjg" path="res://sounds.tscn" id="8_je4cc"]
 [ext_resource type="AudioStream" uid="uid://ca5q15msegdyq" path="res://Sounds/676234__newlocknew__ambdsgn_creepy-otherworldly-industrial-ambience-2_em.wav" id="9_la2e7"]
+[ext_resource type="Script" path="res://Sprites/BossHealth.gd" id="10_y0dwn"]
+[ext_resource type="PackedScene" uid="uid://8cclpqryrpk3" path="res://Nodes/HealthBar/health_bar.tscn" id="11_0s8hj"]
+[ext_resource type="Script" path="res://Pixel fade to black.gd" id="12_tq7jh"]
+[ext_resource type="Texture2D" uid="uid://dons2uhaf4r6k" path="res://Sprites/black pixel.png" id="13_h8wcf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lgut4"]
 texture = ExtResource("1_ykry7")
@@ -962,6 +966,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ni5hy"]
 size = Vector2(54, 1740.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dbwac"]
+size = Vector2(1048, 75)
+
 [sub_resource type="Animation" id="Animation_8c14e"]
 resource_name = "jump"
 length = 2.0
@@ -1024,6 +1031,13 @@ _data = {
 "jump backwards": SubResource("Animation_5iyfc")
 }
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_td8bg"]
+texture = ExtResource("13_h8wcf")
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_5j10i"]
+sources/0 = SubResource("TileSetAtlasSource_td8bg")
+
 [node name="Main" type="Node2D"]
 
 [node name="World" type="Node2D" parent="."]
@@ -1060,13 +1074,37 @@ shape = SubResource("RectangleShape2D_ni5hy")
 position = Vector2(959, 301.25)
 shape = SubResource("RectangleShape2D_ni5hy")
 
+[node name="BulletPositionLeft" type="Marker2D" parent="World/DebtCollectorBoss"]
+position = Vector2(121, 804)
+
+[node name="BulletPositionRight" type="Marker2D" parent="World/DebtCollectorBoss"]
+position = Vector2(835, 804)
+
+[node name="Center" type="Marker2D" parent="World/DebtCollectorBoss"]
+position = Vector2(472, 672)
+
+[node name="LeftEnemySpawn" type="Marker2D" parent="World/DebtCollectorBoss"]
+position = Vector2(153, 807)
+
+[node name="RightEnemySpawn" type="Marker2D" parent="World/DebtCollectorBoss"]
+position = Vector2(805, 813)
+
+[node name="Bat detect" type="Area2D" parent="World/DebtCollectorBoss"]
+collision_layer = 5
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/DebtCollectorBoss/Bat detect"]
+position = Vector2(462, 508)
+shape = SubResource("RectangleShape2D_dbwac")
+debug_color = Color(0.741176, 0, 0, 0.419608)
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="World"]
 libraries = {
 "": SubResource("AnimationLibrary_y2pku")
 }
 
 [node name="Player" parent="World" instance=ExtResource("6_avjyb")]
-position = Vector2(467, 522)
+position = Vector2(469, 855)
 on_grass = true
 player_level = 2
 
@@ -1076,25 +1114,30 @@ scale = Vector2(0.5, 0.5)
 position_smoothing_enabled = true
 script = ExtResource("7_vietu")
 
-[node name="Area2D" type="Area2D" parent="World"]
-collision_layer = 257
-collision_mask = 257
-
-[node name="CollisionShape2DLeft" type="CollisionShape2D" parent="World/Area2D"]
-position = Vector2(9, 301.25)
-shape = SubResource("RectangleShape2D_ni5hy")
-
-[node name="CollisionShape2DRight" type="CollisionShape2D" parent="World/Area2D"]
-position = Vector2(942, 301.25)
-shape = SubResource("RectangleShape2D_ni5hy")
-
 [node name="Sounds" parent="." instance=ExtResource("8_je4cc")]
 
 [node name="Background2" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("9_la2e7")
 autoplay = true
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Health" type="Node2D" parent="CanvasLayer"]
+script = ExtResource("10_y0dwn")
+
+[node name="HealthBar" parent="CanvasLayer/Health" instance=ExtResource("11_0s8hj")]
+position = Vector2(576, 34)
+scale = Vector2(4, 4)
+hide_when_full = false
+
+[node name="FadeOut" type="Node2D" parent="CanvasLayer"]
+script = ExtResource("12_tq7jh")
+
+[node name="TileMap" type="TileMap" parent="CanvasLayer/FadeOut"]
+scale = Vector2(0.5, 0.5)
+tile_set = SubResource("TileSet_5j10i")
+format = 2
+
 [connection signal="animation_finished" from="World/DebtCollectorBoss/AnimatedSprite2D" to="World/DebtCollectorBoss" method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="body_entered" from="World/DebtCollectorBoss/Bat detect" to="World/DebtCollectorBoss" method="_on_bat_detect_body_entered"]
 [connection signal="animation_finished" from="World/AnimationPlayer" to="World/DebtCollectorBoss" method="_on_animation_player_animation_finished"]
-[connection signal="body_entered" from="World/Area2D" to="World/DebtCollectorBoss" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="World/Area2D" to="World/DebtCollectorBoss" method="_on_area_2d_body_exited"]

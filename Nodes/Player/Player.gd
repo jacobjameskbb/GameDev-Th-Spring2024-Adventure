@@ -20,6 +20,7 @@ var interactions = {
 @export var damage_bat = 16
 @export var damage_card = 4
 @export var card_cooldown = 0.4
+@export var card_range = 1.5
 
 @export var max_health = 100
 @onready var health = max_health
@@ -73,11 +74,49 @@ var scene1_can_enter = false
 
 signal coin_collected
 
+var coyote = false
+@export var coyote_delay = 0.5
+var coyote_count = 0
+
+@export var starting_velocity = Vector2(0,0)
+
+var set_velocity = false
+
+var threw_card = false
+var swung_bat = false
+
+var is_anything_just_pressed = false
+var check_anything = false
+
 func _ready():
 	$Bat.damage = damage_bat
 	
 
 func _physics_process(delta):
+	if check_anything:
+		if Input.is_anything_pressed() and not is_anything_just_pressed:
+			is_anything_just_pressed = true
+		else:
+			is_anything_just_pressed = false
+			check_anything = false
+	if not Input.is_anything_pressed():
+		check_anything = true
+	if is_anything_just_pressed and dead:
+		dead = false
+		self.global_position = Global.spawnpoint
+		$AnimatedSprite2D.play('standing')
+		
+	if not set_velocity:
+		velocity = starting_velocity
+		set_velocity = true
+	if not is_on_floor():
+		coyote_count += delta
+		if coyote_count >= coyote_delay:
+			coyote = false
+			coyote_count = 0
+	else:
+		coyote = true
+		coyote_count = 0
 	#------MOVEMENT------
 	
 	#-Set movement/other bool variables-
@@ -118,8 +157,9 @@ func _physics_process(delta):
 	if not on_floor:
 		velocity.y += gravity * delta
 	if not dead and can_move:
-		if on_floor and just_pressed_jump:
+		if (on_floor or coyote) and just_pressed_jump:
 			velocity.y = JUMP_VELOCITY
+			coyote = false
 			
 		if pressed_left and velocity.x > -SPEED and not $Bat.swinging and direction == 'left':
 			velocity.x -= ACCELERATION
@@ -142,6 +182,9 @@ func _physics_process(delta):
 	elif dead:
 		velocity.x = 0
 			
+	if not set_velocity:
+		velocity = starting_velocity
+		set_velocity = true
 	#move
 	move_and_slide()
 	
@@ -150,12 +193,16 @@ func _physics_process(delta):
 		if just_pressed_shoot_left and not cooldown:
 			shoot('left')
 			cooldown = true
+			threw_card = true
 		if just_pressed_shoot_right and not cooldown:
 			shoot('right')
 			cooldown = true
+			threw_card = true
 		
 		if just_pressed_attack_bat:
 			$Bat.swing()
+			if threw_card:
+				swung_bat = true
 			
 	if just_pressed_interact and not dead:
 		if interactions['scene1_enter']:
@@ -189,14 +236,14 @@ func _physics_process(delta):
 			
 		
 			if pressed_left:
-				$AnimatedSprite2D.animation = 'walking'
+				$AnimatedSprite2D.play('walking')
 				if not in_air:
 					if not on_grass:
 						$"../../Sounds/Walking".start()
 					else:
 						$"../../Sounds/GrassWalking".start()
 			if pressed_right:
-				$AnimatedSprite2D.animation = 'walking'
+				$AnimatedSprite2D.play('walking')
 				if not in_air:
 					if not on_grass:
 						$"../../Sounds/Walking".start()
@@ -228,6 +275,11 @@ func shoot(shoot_direction):
 	new_card.global_position = self.global_position + Vector2(0,15)
 	new_card.direction = shoot_direction
 	new_card.damage = damage_card
+	new_card.range = card_range
+	if shoot_direction == 'left':
+		new_card.position.x -= 5
+	else:
+		new_card.position.x += 5
 	await get_tree().create_timer(card_cooldown).timeout
 	cooldown = false
 	

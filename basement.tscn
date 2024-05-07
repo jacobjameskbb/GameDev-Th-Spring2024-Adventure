@@ -46,7 +46,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j3dcm"]
 size = Vector2(48, 66)
 
-[sub_resource type="Animation" id="Animation_comn3"]
+[sub_resource type="Animation" id="Animation_70b5f"]
 resource_name = "fade"
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -73,7 +73,7 @@ tracks/1/keys = {
 "values": [Vector2(0, 40), Vector2(0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_s7amm"]
+[sub_resource type="Animation" id="Animation_24qw2"]
 resource_name = "fade out"
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -100,10 +100,10 @@ tracks/1/keys = {
 "values": [Vector2(0, 0), Vector2(0, -40)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_b1sl7"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vg40s"]
 _data = {
-"fade": SubResource("Animation_comn3"),
-"fade out": SubResource("Animation_s7amm")
+"fade": SubResource("Animation_70b5f"),
+"fade out": SubResource("Animation_24qw2")
 }
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j43uk"]
@@ -224,7 +224,7 @@ text = "\"F\" Enter Window"
 [node name="Animation" type="AnimationPlayer" parent="World/Window/Text"]
 root_node = NodePath("../Label")
 libraries = {
-"": SubResource("AnimationLibrary_b1sl7")
+"": SubResource("AnimationLibrary_vg40s")
 }
 
 [node name="Tv" type="AnimatedSprite2D" parent="World"]
@@ -256,7 +256,7 @@ theme_override_fonts/font = ExtResource("9_27nbt")
 [node name="Animation" type="AnimationPlayer" parent="World/Text"]
 root_node = NodePath("../Label")
 libraries = {
-"": SubResource("AnimationLibrary_b1sl7")
+"": SubResource("AnimationLibrary_vg40s")
 }
 
 [node name="TutorialBreakWindow" type="Area2D" parent="World"]
@@ -280,7 +280,7 @@ text = "Mouse: Swing bat
 [node name="Animation" type="AnimationPlayer" parent="World/TutorialBreakWindow/Text"]
 root_node = NodePath("../Label")
 libraries = {
-"": SubResource("AnimationLibrary_b1sl7")
+"": SubResource("AnimationLibrary_vg40s")
 }
 
 [connection signal="body_entered" from="World/PickupBat/Area2D" to="World/PickupBat" method="_on_area_2d_body_entered"]

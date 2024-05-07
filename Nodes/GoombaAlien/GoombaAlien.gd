@@ -1,9 +1,12 @@
 extends CharacterBody2D
 @onready var player = $"../Player"
 
+var coin = preload("res://money.tscn")
+
 var damaging_player = false
 var damage_cooldown = 1
 var cooldown_seconds_passed_d = 1
+@export var coin_amount = 3
 
 @export var damage = 10
 
@@ -50,6 +53,10 @@ func _physics_process(delta):
 func death():
 	$AnimatedSprite2D.play('death')
 	dead = true
+	for i in range(1,coin_amount):
+		var new_coin = coin.instantiate()
+		new_coin.position = self.position
+		get_parent().call_deferred("add_child",new_coin)
 
 #---------CONNECTIONS-----------------------
 func _on_wall_detect_body_entered(body):

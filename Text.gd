@@ -36,10 +36,8 @@ func fade_in():
 
 
 func fade_out():
-	print('valled fade out, ', fading_out)
 	fading_in = false
 	if not fading_out:
-		print('fading out')
 		fading_out = true
 		break_fade_out = false
 		break_fade_in = true
