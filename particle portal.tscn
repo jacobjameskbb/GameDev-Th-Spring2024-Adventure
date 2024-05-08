@@ -1,0 +1,133 @@
+[gd_scene load_steps=13 format=3 uid="uid://b81mbj18jebcu"]
+
+[ext_resource type="Script" path="res://Next Level.gd" id="1_bvop1"]
+[ext_resource type="Texture2D" uid="uid://c7s28r41giuvb" path="res://Sprites/purple effect.png" id="1_tvdyf"]
+[ext_resource type="Script" path="res://particleportal.gd" id="2_hwibm"]
+[ext_resource type="Script" path="res://Text.gd" id="4_ebul0"]
+[ext_resource type="FontFile" uid="uid://do5gjoyxrtu6a" path="res://PublicPixel.ttf" id="5_tavw1"]
+
+[sub_resource type="Curve" id="Curve_u1ce7"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.125, 0.967033), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_tsxmx"]
+curve = SubResource("Curve_u1ce7")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_a84eu"]
+lifetime_randomness = 1.0
+particle_flag_rotate_y = true
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(75, 75, 0)
+emission_shape = 2
+emission_sphere_radius = 1.0
+angular_velocity_min = 10.0
+angular_velocity_max = 10.0
+orbit_velocity_min = 0.1
+orbit_velocity_max = 0.1
+radial_velocity_min = -10.0
+radial_velocity_max = -10.0
+gravity = Vector3(0, 0, 0)
+radial_accel_min = 1.0
+radial_accel_max = 1.0
+alpha_curve = SubResource("CurveTexture_tsxmx")
+hue_variation_min = -0.29
+hue_variation_max = 0.23
+anim_speed_max = 2.84
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wc3wr"]
+size = Vector2(60, 127)
+
+[sub_resource type="Animation" id="Animation_comn3"]
+resource_name = "fade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 40), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_s7amm"]
+resource_name = "fade out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -40)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b1sl7"]
+_data = {
+"fade": SubResource("Animation_comn3"),
+"fade out": SubResource("Animation_s7amm")
+}
+
+[node name="Next Level" type="Node2D"]
+script = ExtResource("1_bvop1")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 1500
+process_material = SubResource("ParticleProcessMaterial_a84eu")
+texture = ExtResource("1_tvdyf")
+lifetime = 10.0
+collision_base_size = 0.0
+trail_lifetime = 100.0
+script = ExtResource("2_hwibm")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_wc3wr")
+
+[node name="Text" type="Node2D" parent="."]
+visible = false
+position = Vector2(-47.5, -72)
+scale = Vector2(0.25, 0.25)
+script = ExtResource("4_ebul0")
+
+[node name="Label" type="Label" parent="Text"]
+offset_right = 144.0
+offset_bottom = 46.0001
+theme_override_fonts/font = ExtResource("5_tavw1")
+text = "\"F\" Pickup throwing cards"
+
+[node name="Animation" type="AnimationPlayer" parent="Text"]
+root_node = NodePath("../Label")
+libraries = {
+"": SubResource("AnimationLibrary_b1sl7")
+}

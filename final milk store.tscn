@@ -1,0 +1,522 @@
+[gd_scene load_steps=27 format=3 uid="uid://dfd844bqrxemi"]
+
+[ext_resource type="Texture2D" uid="uid://bl386cm1t8ew2" path="res://Sprites/new shelves.png" id="1_gl7vg"]
+[ext_resource type="Texture2D" uid="uid://cj85kup6v7amd" path="res://Sprites/shelves light.png" id="3_7ow56"]
+[ext_resource type="Script" path="res://cashier.gd" id="4_pakp7"]
+[ext_resource type="Texture2D" uid="uid://dt12h7xdxfvef" path="res://Sprites/cashier.png" id="5_1qrbr"]
+[ext_resource type="Script" path="res://Basement Entrance.gd" id="6_hhqx7"]
+[ext_resource type="Script" path="res://Text.gd" id="7_euh50"]
+[ext_resource type="FontFile" uid="uid://do5gjoyxrtu6a" path="res://PublicPixel.ttf" id="8_ess5o"]
+[ext_resource type="PackedScene" uid="uid://d1f1fk2kiy4ty" path="res://player.tscn" id="9_ve45c"]
+[ext_resource type="Script" path="res://camera.gd" id="10_wp67g"]
+[ext_resource type="Texture2D" uid="uid://bvlg1cwparbr" path="res://Sprites/sign.png" id="11_qj8w7"]
+[ext_resource type="PackedScene" uid="uid://ce2kyubmccdjg" path="res://sounds.tscn" id="12_vxy5o"]
+[ext_resource type="AudioStream" uid="uid://ca5q15msegdyq" path="res://Sounds/676234__newlocknew__ambdsgn_creepy-otherworldly-industrial-ambience-2_em.wav" id="13_d8kfw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xawxv"]
+size = Vector2(4124, 620)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bxu3f"]
+size = Vector2(17.5762, 33.9714)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ekq73"]
+atlas = ExtResource("5_1qrbr")
+region = Rect2(0, 0, 157, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_obpyf"]
+atlas = ExtResource("5_1qrbr")
+region = Rect2(157, 0, 157, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2jvaf"]
+atlas = ExtResource("5_1qrbr")
+region = Rect2(314, 0, 157, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_afdt3"]
+atlas = ExtResource("5_1qrbr")
+region = Rect2(471, 0, 157, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i7xeu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ekq73")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_obpyf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2jvaf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_afdt3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_imqe1"]
+size = Vector2(83, 183)
+
+[sub_resource type="Animation" id="Animation_comn3"]
+resource_name = "fade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 40), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_s7amm"]
+resource_name = "fade out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -40)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b1sl7"]
+_data = {
+"fade": SubResource("Animation_comn3"),
+"fade out": SubResource("Animation_s7amm")
+}
+
+[sub_resource type="Animation" id="Animation_1wwap"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cashier/DialoguePlayer:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_u8elv"]
+resource_name = "Scary"
+length = 25.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BlackShade:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 12.5, 14, 15, 15.7, 17.5, 24.5),
+"transitions": PackedFloat32Array(1, 100, 1, 1e+06, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false, true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cashier/AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 14, 15.7, 24.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cashier/DialoguePlayer:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["I want some milk.", "
+"]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Cashier/DialoguePlayer:visible_ratio")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 1.17647]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Cashier/DialogueCashier:text")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(5, 10, 10.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": ["You... You have no money", "", "Gambler."]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Cashier/DialogueCashier:visible_ratio")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(5, 5.5, 7, 8.5, 10, 10.5, 11.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.3, 0.3, 1.0, 1.0, 0.0, 1.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Cashier/DialogueCashier:visible_characters")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Cashier/DialoguePlayer:visible_characters")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Cashier/DialogueCashier:self_modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 10, 10.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0.717647, 0, 0, 1)]
+}
+tracks/9/type = "method"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../Sounds/Single")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(12.5, 14, 15, 15.7, 17.5, 19, 21, 23, 24.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": ["lightswitch"],
+"method": &"play"
+}, {
+"args": ["jumpscare"],
+"method": &"play"
+}, {
+"args": ["lightswitch"],
+"method": &"play"
+}, {
+"args": ["critters"],
+"method": &"play"
+}, {
+"args": ["lightswitch"],
+"method": &"play"
+}, {
+"args": ["smash1"],
+"method": &"play"
+}, {
+"args": ["smash2"],
+"method": &"play"
+}, {
+"args": ["smash3"],
+"method": &"play"
+}, {
+"args": ["lightswitch"],
+"method": &"play"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_20tth"]
+_data = {
+"RESET": SubResource("Animation_1wwap"),
+"Scary": SubResource("Animation_u8elv")
+}
+
+[node name="Node2D" type="Node2D"]
+
+[node name="background" type="Node2D" parent="."]
+
+[node name="World" type="Node2D" parent="."]
+position = Vector2(1, -5)
+
+[node name="Tiled Sprites" type="HBoxContainer" parent="World"]
+clip_contents = true
+layout_direction = 2
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 3000.0
+offset_top = 215.0
+offset_right = 4344.0
+offset_bottom = 503.0
+grow_horizontal = 2
+scale = Vector2(2, 2)
+pivot_offset = Vector2(1, 0)
+theme_override_constants/separation = 0
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="World/Tiled Sprites"]
+layout_mode = 2
+texture = ExtResource("1_gl7vg")
+
+[node name="TextureRect2" type="TextureRect" parent="World/Tiled Sprites"]
+layout_mode = 2
+texture = ExtResource("1_gl7vg")
+
+[node name="TextureRect3" type="TextureRect" parent="World/Tiled Sprites"]
+layout_mode = 2
+texture = ExtResource("1_gl7vg")
+
+[node name="TextureRect4" type="TextureRect" parent="World/Tiled Sprites"]
+layout_mode = 2
+texture = ExtResource("1_gl7vg")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="World/Tiled Sprites"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Tiled Sprites/StaticBody2D"]
+position = Vector2(707.5, 334)
+scale = Vector2(0.25, 0.25)
+shape = SubResource("RectangleShape2D_xawxv")
+
+[node name="Tiled Sprites2" type="HBoxContainer" parent="World"]
+clip_contents = true
+layout_direction = 2
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_top = 215.0
+offset_right = 1344.0
+offset_bottom = 471.0
+grow_horizontal = 2
+scale = Vector2(2, 2)
+pivot_offset = Vector2(1, 0)
+theme_override_constants/separation = 0
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="World/Tiled Sprites2"]
+layout_mode = 2
+texture = ExtResource("3_7ow56")
+
+[node name="TextureRect2" type="TextureRect" parent="World/Tiled Sprites2"]
+layout_mode = 2
+texture = ExtResource("3_7ow56")
+
+[node name="TextureRect12" type="TextureRect" parent="World/Tiled Sprites2"]
+layout_mode = 2
+texture = ExtResource("3_7ow56")
+
+[node name="TextureRect13" type="TextureRect" parent="World/Tiled Sprites2"]
+layout_mode = 2
+texture = ExtResource("3_7ow56")
+
+[node name="TextureRect14" type="TextureRect" parent="World/Tiled Sprites2"]
+layout_mode = 2
+texture = ExtResource("3_7ow56")
+
+[node name="TextureRect15" type="TextureRect" parent="World/Tiled Sprites2"]
+layout_mode = 2
+texture = ExtResource("3_7ow56")
+
+[node name="TextureRect16" type="TextureRect" parent="World/Tiled Sprites2"]
+layout_mode = 2
+texture = ExtResource("3_7ow56")
+
+[node name="TextureRect17" type="TextureRect" parent="World/Tiled Sprites2"]
+layout_mode = 2
+texture = ExtResource("3_7ow56")
+
+[node name="TextureRect3" type="TextureRect" parent="World/Tiled Sprites2"]
+layout_mode = 2
+texture = ExtResource("3_7ow56")
+
+[node name="TextureRect4" type="TextureRect" parent="World/Tiled Sprites2"]
+layout_mode = 2
+texture = ExtResource("3_7ow56")
+
+[node name="TextureRect5" type="TextureRect" parent="World/Tiled Sprites2"]
+layout_mode = 2
+texture = ExtResource("3_7ow56")
+
+[node name="TextureRect6" type="TextureRect" parent="World/Tiled Sprites2"]
+layout_mode = 2
+texture = ExtResource("3_7ow56")
+
+[node name="TextureRect7" type="TextureRect" parent="World/Tiled Sprites2"]
+layout_mode = 2
+texture = ExtResource("3_7ow56")
+
+[node name="TextureRect8" type="TextureRect" parent="World/Tiled Sprites2"]
+layout_mode = 2
+texture = ExtResource("3_7ow56")
+
+[node name="TextureRect9" type="TextureRect" parent="World/Tiled Sprites2"]
+layout_mode = 2
+texture = ExtResource("3_7ow56")
+
+[node name="TextureRect10" type="TextureRect" parent="World/Tiled Sprites2"]
+layout_mode = 2
+texture = ExtResource("3_7ow56")
+
+[node name="TextureRect11" type="TextureRect" parent="World/Tiled Sprites2"]
+layout_mode = 2
+texture = ExtResource("3_7ow56")
+
+[node name="Cashier" type="CharacterBody2D" parent="World"]
+position = Vector2(0, 8)
+script = ExtResource("4_pakp7")
+
+[node name="Scene Trigger" type="Area2D" parent="World/Cashier"]
+position = Vector2(4325, 620)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Cashier/Scene Trigger"]
+position = Vector2(20.1216, -97)
+scale = Vector2(5.67572, -13.973)
+shape = SubResource("RectangleShape2D_bxu3f")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="World/Cashier"]
+position = Vector2(4521, 594)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_i7xeu")
+
+[node name="Basement Entrance" type="Area2D" parent="World/Cashier"]
+position = Vector2(4542, 671)
+script = ExtResource("6_hhqx7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Cashier/Basement Entrance"]
+position = Vector2(1.5, -14.5)
+shape = SubResource("RectangleShape2D_imqe1")
+
+[node name="Text" type="Node2D" parent="World/Cashier/Basement Entrance"]
+position = Vector2(-127, -115)
+script = ExtResource("7_euh50")
+
+[node name="Label" type="Label" parent="World/Cashier/Basement Entrance/Text"]
+offset_right = 144.0
+offset_bottom = 46.0001
+theme_override_fonts/font = ExtResource("8_ess5o")
+text = "\"F\" Enter Basement"
+
+[node name="Animation" type="AnimationPlayer" parent="World/Cashier/Basement Entrance/Text"]
+root_node = NodePath("../Label")
+libraries = {
+"": SubResource("AnimationLibrary_b1sl7")
+}
+
+[node name="DialogueCashier" type="Label" parent="World/Cashier"]
+offset_left = 4182.0
+offset_top = 528.0
+offset_right = 4718.0
+offset_bottom = 574.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("8_ess5o")
+text = "Gambler."
+horizontal_alignment = 2
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="DialoguePlayer" type="Label" parent="World/Cashier"]
+offset_left = 4199.0
+offset_top = 592.0
+offset_right = 4629.0
+offset_bottom = 738.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("8_ess5o")
+
+[node name="CashierCutscene" type="AnimationPlayer" parent="World"]
+libraries = {
+"": SubResource("AnimationLibrary_20tth")
+}
+
+[node name="Player" parent="World" instance=ExtResource("9_ve45c")]
+position = Vector2(-441, 537)
+
+[node name="Camera2D" type="Camera2D" parent="World/Player"]
+position = Vector2(1, -25)
+scale = Vector2(0.5, 0.5)
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+script = ExtResource("10_wp67g")
+
+[node name="Sign" type="Sprite2D" parent="World"]
+position = Vector2(-237, 720)
+scale = Vector2(2, 2)
+texture = ExtResource("11_qj8w7")
+
+[node name="BlackShade" type="ColorRect" parent="World"]
+visible = false
+offset_left = 3240.0
+offset_top = 125.0
+offset_right = 5198.0
+offset_bottom = 923.0
+color = Color(0, 0, 0, 1)
+
+[node name="Sounds" parent="." instance=ExtResource("12_vxy5o")]
+
+[node name="Background2" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("13_d8kfw")
+autoplay = true
+
+[connection signal="body_entered" from="World/Cashier/Scene Trigger" to="World/Cashier" method="_on_scene_trigger_body_entered"]
+[connection signal="body_entered" from="World/Cashier/Basement Entrance" to="World/Cashier/Basement Entrance" method="_on_body_entered"]
+[connection signal="body_exited" from="World/Cashier/Basement Entrance" to="World/Cashier/Basement Entrance" method="_on_body_exited"]
+[connection signal="animation_finished" from="World/CashierCutscene" to="World/Cashier" method="_on_cashier_cutscene_animation_finished"]
