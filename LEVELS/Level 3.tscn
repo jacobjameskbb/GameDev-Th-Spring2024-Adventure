@@ -1,0 +1,71 @@
+[gd_scene load_steps=10 format=3 uid="uid://ck33cosptyres"]
+
+[ext_resource type="TileSet" uid="uid://cmjou2j22usyr" path="res://Tilemap source.tres" id="1_d23bx"]
+[ext_resource type="TileSet" uid="uid://dhpp7a8b1ufn" path="res://Tilemap card source.tres" id="2_swxk5"]
+[ext_resource type="PackedScene" uid="uid://d1f1fk2kiy4ty" path="res://player.tscn" id="3_goseu"]
+[ext_resource type="Script" path="res://camera.gd" id="4_a6dnb"]
+[ext_resource type="PackedScene" uid="uid://b81mbj18jebcu" path="res://particle portal.tscn" id="5_3fqxb"]
+[ext_resource type="Script" path="res://Checkpoint.gd" id="6_tydv1"]
+[ext_resource type="PackedScene" uid="uid://ce2kyubmccdjg" path="res://sounds.tscn" id="7_81ji5"]
+[ext_resource type="AudioStream" uid="uid://ca5q15msegdyq" path="res://Sounds/676234__newlocknew__ambdsgn_creepy-otherworldly-industrial-ambience-2_em.wav" id="8_53ofl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iikel"]
+size = Vector2(20, 95)
+
+[node name="Main" type="Node2D"]
+
+[node name="World" type="Node2D" parent="."]
+position = Vector2(-1, 0)
+
+[node name="TileMap" type="TileMap" parent="World" groups=["wall enemy"]]
+modulate = Color(0.643137, 0.643137, 0.643137, 1)
+scale = Vector2(2, 2)
+tile_set = ExtResource("1_d23bx")
+collision_visibility_mode = 1
+format = 2
+layer_0/tile_data = PackedInt32Array(1245212, 524288, 0, 1245211, 458752, 0, 1245210, 458752, 0, 1245209, 458752, 0, 1245208, 458752, 0, 1245207, 458752, 0, 1245206, 458752, 0, 1245205, 458752, 0, 1245204, 458752, 0, 1245203, 458752, 0, 1245202, 458752, 0, 1245201, 458752, 0, 1245200, 458752, 0, 1245199, 458752, 0, 1245198, 458752, 0, 1245197, 458752, 0, 1245196, 458752, 0, 1245195, 458752, 0, 1245194, 458752, 0, 1245193, 458752, 0, 1245192, 458752, 0, 1245191, 393216, 0)
+
+[node name="TileMapCard" type="TileMap" parent="World" groups=["wall", "wall enemy"]]
+scale = Vector2(2, 2)
+tile_set = ExtResource("2_swxk5")
+collision_visibility_mode = 1
+format = 2
+
+[node name="Player" parent="World" instance=ExtResource("3_goseu")]
+position = Vector2(557, 500)
+player_level = 1
+coyote_delay = 0.3
+starting_velocity = Vector2(0, 300)
+
+[node name="Camera2D" type="Camera2D" parent="World/Player"]
+position = Vector2(-4.5, -22.5)
+scale = Vector2(0.5, 0.5)
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+position_smoothing_speed = 15.0
+script = ExtResource("4_a6dnb")
+
+[node name="Next Level" parent="World" instance=ExtResource("5_3fqxb")]
+position = Vector2(7065, 308)
+
+[node name="Checkpoints" type="Node2D" parent="World"]
+
+[node name="Checkpoint" type="Node2D" parent="World/Checkpoints"]
+position = Vector2(2815, -76)
+script = ExtResource("6_tydv1")
+
+[node name="Area2D" type="Area2D" parent="World/Checkpoints/Checkpoint"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Checkpoints/Checkpoint/Area2D"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_iikel")
+
+[node name="Spawn" type="Marker2D" parent="World/Checkpoints/Checkpoint"]
+
+[node name="Sounds" parent="." instance=ExtResource("7_81ji5")]
+
+[node name="Background2" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("8_53ofl")
+autoplay = true
+
+[connection signal="body_entered" from="World/Checkpoints/Checkpoint/Area2D" to="World/Checkpoints/Checkpoint" method="_on_area_2d_body_entered"]

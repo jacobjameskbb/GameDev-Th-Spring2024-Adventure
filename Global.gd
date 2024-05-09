@@ -2,7 +2,7 @@ extends Node
 
 var money = 0
 var spawnpoint = Vector2(0,0)
-var currect_level = 0
+var current_level = 0
 
 var next_level = {
 	0: "res://LEVELS/Level 1 (test).tscn",
@@ -17,4 +17,5 @@ var next_level = {
 }
 
 func get_next_level():
-	return next_level[currect_level]
+	return next_level[current_level]
+	current_level += 1

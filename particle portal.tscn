@@ -115,8 +115,7 @@ script = ExtResource("2_hwibm")
 shape = SubResource("RectangleShape2D_wc3wr")
 
 [node name="Text" type="Node2D" parent="."]
-visible = false
-position = Vector2(-47.5, -72)
+position = Vector2(-29, -78)
 scale = Vector2(0.25, 0.25)
 script = ExtResource("4_ebul0")
 
@@ -124,10 +123,13 @@ script = ExtResource("4_ebul0")
 offset_right = 144.0
 offset_bottom = 46.0001
 theme_override_fonts/font = ExtResource("5_tavw1")
-text = "\"F\" Pickup throwing cards"
+text = "\"F\" Next level"
 
 [node name="Animation" type="AnimationPlayer" parent="Text"]
 root_node = NodePath("../Label")
 libraries = {
 "": SubResource("AnimationLibrary_b1sl7")
 }
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

@@ -10,6 +10,7 @@ var interactions = {
 	'scene2_enter' = false,
 	'scene3_enter' = false,
 	'pickup_card' = false,
+	'next_level' = false,
 }
 
 #Player level 0: Cant do attacks
@@ -215,6 +216,8 @@ func _physics_process(delta):
 			get_tree().change_scene_to_file("res://outside.tscn")
 		if interactions['pickup_card']:
 			player_level = 2
+		if interactions['next_level']:
+			get_tree().change_scene_to_file(Global.get_next_level())
 	#-----VISUALS AND SOUNDS-----
 	if not dead and can_move:
 		
@@ -302,3 +305,7 @@ func _on_animated_sprite_2d_animation_looped():
 		$AnimatedSprite2D.speed_scale = 0
 		$AnimatedSprite2D.frame = 4
 
+
+
+func _on_ko_detect_body_entered(body):
+	health -= 100

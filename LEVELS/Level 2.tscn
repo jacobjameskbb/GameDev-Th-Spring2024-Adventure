@@ -1,0 +1,72 @@
+[gd_scene load_steps=10 format=3 uid="uid://7qy81iprrcrx"]
+
+[ext_resource type="TileSet" uid="uid://cmjou2j22usyr" path="res://Tilemap source.tres" id="1_q5exq"]
+[ext_resource type="TileSet" uid="uid://dhpp7a8b1ufn" path="res://Tilemap card source.tres" id="2_nurwd"]
+[ext_resource type="PackedScene" uid="uid://d1f1fk2kiy4ty" path="res://player.tscn" id="3_700bb"]
+[ext_resource type="Script" path="res://camera.gd" id="4_tbrhj"]
+[ext_resource type="PackedScene" uid="uid://b81mbj18jebcu" path="res://particle portal.tscn" id="5_jj7i7"]
+[ext_resource type="Script" path="res://Checkpoint.gd" id="6_nfqgp"]
+[ext_resource type="PackedScene" uid="uid://ce2kyubmccdjg" path="res://sounds.tscn" id="7_ce81u"]
+[ext_resource type="AudioStream" uid="uid://ca5q15msegdyq" path="res://Sounds/676234__newlocknew__ambdsgn_creepy-otherworldly-industrial-ambience-2_em.wav" id="8_yd1tb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iikel"]
+size = Vector2(20, 95)
+
+[node name="Main" type="Node2D"]
+
+[node name="World" type="Node2D" parent="."]
+position = Vector2(-1, 0)
+
+[node name="TileMap" type="TileMap" parent="World" groups=["wall enemy"]]
+modulate = Color(0.643137, 0.643137, 0.643137, 1)
+scale = Vector2(2, 2)
+tile_set = ExtResource("1_q5exq")
+format = 2
+layer_0/tile_data = PackedInt32Array(1245212, 262144, 1, 1245211, 131072, 0, 1245210, 131072, 0, 1245209, 131072, 0, 1245208, 131072, 0, 1245207, 131072, 0, 1245206, 131072, 0, 1245205, 131072, 0, 1245204, 131072, 0, 1245203, 131072, 0, 1245202, 131072, 0, 1245201, 131072, 0, 1245200, 131072, 0, 1245199, 131072, 0, 1245198, 131072, 0, 1245197, 131072, 0, 1245196, 131072, 0, 1245195, 131072, 0, 1245194, 131072, 0, 1245193, 131072, 0, 1245192, 196608, 1, 1245191, 0, 2, 1179656, 262144, 2, 1114120, 262144, 2, 1048584, 262144, 2, 983048, 262144, 2, 917512, 262144, 2, 851976, 262144, 2, 786440, 196608, 0, 1179655, 0, 2, 1114119, 0, 2, 1048583, 0, 2, 983047, 0, 2, 917511, 0, 2, 851975, 0, 2, 786439, 0, 1, 1310748, 196608, 4, 1310747, 131072, 4, 1310746, 131072, 4, 1310745, 131072, 4, 1310744, 131072, 4, 1310743, 131072, 4, 1310742, 131072, 4, 1310741, 131072, 4, 1310740, 131072, 4, 1310739, 131072, 4, 1310738, 131072, 4, 1310737, 131072, 4, 1310736, 131072, 4, 1310735, 131072, 4, 1310734, 131072, 4, 1310733, 131072, 4, 1310732, 131072, 4, 1310731, 131072, 4, 1310730, 131072, 4, 1310729, 131072, 4, 1310728, 131072, 4, 1310727, 0, 3, 851996, 262144, 3, 786460, 262144, 2, 720924, 262144, 2, 655388, 262144, 2, 589852, 196608, 0, 851995, 0, 3, 786459, 0, 2, 720923, 0, 2, 655387, 0, 2, 589851, 0, 1, 524315, 1, 0, 524316, 1, 0)
+
+[node name="TileMapCard" type="TileMap" parent="World" groups=["wall", "wall enemy"]]
+scale = Vector2(2, 2)
+tile_set = ExtResource("2_nurwd")
+format = 2
+layer_0/tile_data = PackedInt32Array(1179676, 196608, 4, 1114140, 262144, 2, 1048604, 262144, 2, 983068, 262144, 2, 917532, 262144, 1, 1179675, 65536, 4, 1114139, 0, 2, 1048603, 0, 2, 983067, 0, 2, 917531, 65536, 0, 851990, 524288, 0, 720918, 524288, 0, 851989, 393216, 0, 720917, 393216, 0, 589846, 524288, 0, 589845, 393216, 0)
+
+[node name="Player" parent="World" instance=ExtResource("3_700bb")]
+position = Vector2(557, 500)
+player_level = 3
+coyote_delay = 0.3
+starting_velocity = Vector2(0, 300)
+
+[node name="Camera2D" type="Camera2D" parent="World/Player"]
+position = Vector2(-4.5, -22.5)
+scale = Vector2(0.5, 0.5)
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+position_smoothing_speed = 15.0
+script = ExtResource("4_tbrhj")
+
+[node name="Next Level" parent="World" instance=ExtResource("5_jj7i7")]
+position = Vector2(7065, 308)
+
+[node name="Checkpoints" type="Node2D" parent="World"]
+
+[node name="Checkpoint" type="Node2D" parent="World/Checkpoints"]
+position = Vector2(2815, -76)
+script = ExtResource("6_nfqgp")
+start_spawn = true
+
+[node name="Area2D" type="Area2D" parent="World/Checkpoints/Checkpoint"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Checkpoints/Checkpoint/Area2D"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_iikel")
+
+[node name="Spawn" type="Marker2D" parent="World/Checkpoints/Checkpoint"]
+position = Vector2(-2261, 581)
+
+[node name="Sounds" parent="." instance=ExtResource("7_ce81u")]
+
+[node name="Background2" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("8_yd1tb")
+autoplay = true
+
+[connection signal="body_entered" from="World/Checkpoints/Checkpoint/Area2D" to="World/Checkpoints/Checkpoint" method="_on_area_2d_body_entered"]
