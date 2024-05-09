@@ -1,0 +1,291 @@
+[gd_scene load_steps=28 format=3 uid="uid://dxuola0g4iexh"]
+
+[ext_resource type="PackedScene" uid="uid://ce2kyubmccdjg" path="res://sounds.tscn" id="1_04cej"]
+[ext_resource type="Texture2D" uid="uid://c1frd32fijkoa" path="res://Sprites/basement wall.png" id="1_a424q"]
+[ext_resource type="Texture2D" uid="uid://dhutros10p6o" path="res://Sprites/wall of items.png" id="2_h2r4i"]
+[ext_resource type="Script" path="res://camera.gd" id="2_rvrdv"]
+[ext_resource type="Script" path="res://PickupBat.gd" id="3_nhivt"]
+[ext_resource type="PackedScene" uid="uid://d1f1fk2kiy4ty" path="res://player.tscn" id="3_omlen"]
+[ext_resource type="Texture2D" uid="uid://c7lfhp72ydvmn" path="res://Sprites/basic_bat.png" id="4_475mq"]
+[ext_resource type="Texture2D" uid="uid://beahb02ed12d7" path="res://Sprites/window.png" id="5_1yi5o"]
+[ext_resource type="Script" path="res://Window.gd" id="7_83s63"]
+[ext_resource type="Texture2D" uid="uid://1qit0i4daahu" path="res://Sprites/tv.png" id="8_7qp63"]
+[ext_resource type="Script" path="res://Text.gd" id="8_vsifn"]
+[ext_resource type="FontFile" uid="uid://do5gjoyxrtu6a" path="res://PublicPixel.ttf" id="9_27nbt"]
+[ext_resource type="Script" path="res://tv.gd" id="9_wymxy"]
+[ext_resource type="Script" path="res://TutorialBreakWindow.gd" id="14_ouh5n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xqh8e"]
+size = Vector2(514, 320)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p7q72"]
+size = Vector2(68.9695, 28.499)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jg7n1"]
+atlas = ExtResource("5_1yi5o")
+region = Rect2(0, 0, 48, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dms4x"]
+atlas = ExtResource("5_1yi5o")
+region = Rect2(48, 0, 48, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_psutq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jg7n1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dms4x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j3dcm"]
+size = Vector2(48, 66)
+
+[sub_resource type="Animation" id="Animation_70b5f"]
+resource_name = "fade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 40), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_24qw2"]
+resource_name = "fade out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -40)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vg40s"]
+_data = {
+"fade": SubResource("Animation_70b5f"),
+"fade out": SubResource("Animation_24qw2")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j43uk"]
+atlas = ExtResource("8_7qp63")
+region = Rect2(0, 0, 64, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t716d"]
+atlas = ExtResource("8_7qp63")
+region = Rect2(64, 0, 64, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_51vdp"]
+animations = [{
+"frames": [{
+"duration": 8.0,
+"texture": SubResource("AtlasTexture_j43uk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t716d")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o0qnw"]
+size = Vector2(370, 271)
+
+[node name="basement" type="Node2D"]
+
+[node name="Sounds" parent="." instance=ExtResource("1_04cej")]
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="BasementWall" type="Sprite2D" parent="World"]
+position = Vector2(570, 199)
+scale = Vector2(2, 2)
+texture = ExtResource("1_a424q")
+
+[node name="BasementWall3" type="Sprite2D" parent="World"]
+position = Vector2(-350, 199)
+scale = Vector2(2, 2)
+texture = ExtResource("1_a424q")
+
+[node name="BasementWall2" type="Sprite2D" parent="World"]
+position = Vector2(1490, 199)
+scale = Vector2(2, 2)
+texture = ExtResource("1_a424q")
+
+[node name="WallOfItems" type="Sprite2D" parent="World"]
+position = Vector2(1083, 142)
+scale = Vector2(2, 2)
+texture = ExtResource("2_h2r4i")
+
+[node name="WallOfItems2" type="Sprite2D" parent="World"]
+position = Vector2(57, 142)
+scale = Vector2(2, 2)
+texture = ExtResource("2_h2r4i")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="World"]
+position = Vector2(558, 394)
+scale = Vector2(2, 2)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="World/StaticBody2D"]
+position = Vector2(493, -108)
+shape = SubResource("RectangleShape2D_xqh8e")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="World/StaticBody2D"]
+position = Vector2(-481, -113)
+shape = SubResource("RectangleShape2D_xqh8e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/StaticBody2D"]
+position = Vector2(0, 152)
+shape = SubResource("RectangleShape2D_xqh8e")
+
+[node name="PickupBat" type="CharacterBody2D" parent="World"]
+position = Vector2(891, 348)
+rotation = 1.23604
+scale = Vector2(2, 2)
+script = ExtResource("3_nhivt")
+
+[node name="Sprite2D" type="Sprite2D" parent="World/PickupBat"]
+texture = ExtResource("4_475mq")
+
+[node name="Area2D" type="Area2D" parent="World/PickupBat"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/PickupBat/Area2D"]
+position = Vector2(-23.0461, -8.28131)
+rotation = 0.326594
+shape = SubResource("RectangleShape2D_p7q72")
+
+[node name="Window" type="CharacterBody2D" parent="World"]
+position = Vector2(367, 222)
+scale = Vector2(2, 2)
+script = ExtResource("7_83s63")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="World/Window"]
+sprite_frames = SubResource("SpriteFrames_psutq")
+
+[node name="Area2D" type="Area2D" parent="World/Window"]
+collision_layer = 5
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Window/Area2D"]
+position = Vector2(0, 13)
+shape = SubResource("RectangleShape2D_j3dcm")
+
+[node name="Text" type="Node2D" parent="World/Window"]
+position = Vector2(-63, -51)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("8_vsifn")
+
+[node name="Label" type="Label" parent="World/Window/Text"]
+offset_right = 256.0
+offset_bottom = 46.0001
+theme_override_fonts/font = ExtResource("9_27nbt")
+text = "\"F\" Enter Window"
+
+[node name="Animation" type="AnimationPlayer" parent="World/Window/Text"]
+root_node = NodePath("../Label")
+libraries = {
+"": SubResource("AnimationLibrary_vg40s")
+}
+
+[node name="Tv" type="AnimatedSprite2D" parent="World"]
+position = Vector2(525, 229)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_51vdp")
+frame_progress = 0.425461
+script = ExtResource("9_wymxy")
+
+[node name="Player" parent="World" instance=ExtResource("3_omlen")]
+position = Vector2(527, 230)
+
+[node name="Camera2D" type="Camera2D" parent="World/Player"]
+position = Vector2(1, -25)
+scale = Vector2(0.5, 0.5)
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+script = ExtResource("2_rvrdv")
+
+[node name="Text" type="Node2D" parent="World"]
+position = Vector2(836, 206)
+script = ExtResource("8_vsifn")
+
+[node name="Label" type="Label" parent="World/Text"]
+offset_right = 144.0
+offset_bottom = 46.0001
+theme_override_fonts/font = ExtResource("9_27nbt")
+
+[node name="Animation" type="AnimationPlayer" parent="World/Text"]
+root_node = NodePath("../Label")
+libraries = {
+"": SubResource("AnimationLibrary_vg40s")
+}
+
+[node name="TutorialBreakWindow" type="Area2D" parent="World"]
+script = ExtResource("14_ouh5n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/TutorialBreakWindow"]
+position = Vector2(381, 235.5)
+shape = SubResource("RectangleShape2D_o0qnw")
+
+[node name="Text" type="Node2D" parent="World/TutorialBreakWindow"]
+position = Vector2(253, 100)
+script = ExtResource("8_vsifn")
+
+[node name="Label" type="Label" parent="World/TutorialBreakWindow/Text"]
+offset_right = 256.0
+offset_bottom = 46.0001
+theme_override_fonts/font = ExtResource("9_27nbt")
+text = "Mouse: Swing bat
+(Break Window)"
+
+[node name="Animation" type="AnimationPlayer" parent="World/TutorialBreakWindow/Text"]
+root_node = NodePath("../Label")
+libraries = {
+"": SubResource("AnimationLibrary_vg40s")
+}
+
+[connection signal="body_entered" from="World/PickupBat/Area2D" to="World/PickupBat" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="World/PickupBat/Area2D" to="World/PickupBat" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="World/Window/Area2D" to="World/Window" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="World/Window/Area2D" to="World/Window" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="World/TutorialBreakWindow" to="World/TutorialBreakWindow" method="_on_body_entered"]
+[connection signal="body_exited" from="World/TutorialBreakWindow" to="World/TutorialBreakWindow" method="_on_body_exited"]

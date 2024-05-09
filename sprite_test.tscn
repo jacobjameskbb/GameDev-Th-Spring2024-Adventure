@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://b0t0anb3nn23g"]
+[gd_scene load_steps=6 format=3 uid="uid://b0t0anb3nn23g"]
 
 [ext_resource type="SpriteFrames" uid="uid://dbof0c3ryxlme" path="res://Nodes/Knight/knight body.tres" id="1_6pgrx"]
 [ext_resource type="SpriteFrames" uid="uid://c5h4lhcy6vmyt" path="res://Nodes/Knight/knight legs.tres" id="2_2rgyo"]
 [ext_resource type="SpriteFrames" uid="uid://byacpr7o72n7u" path="res://Sprites/slug.tres" id="3_32ahi"]
 [ext_resource type="SpriteFrames" uid="uid://bkdbmnuum5jge" path="res://Sprites/mailbox.tres" id="4_knb1i"]
+[ext_resource type="PackedScene" uid="uid://ddnyn77rc12u8" path="res://money_counter.tscn" id="5_jfqu6"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -29,3 +30,6 @@ frame_progress = 0.3737
 sprite_frames = ExtResource("4_knb1i")
 animation = &"standing"
 frame_progress = 0.772155
+
+[node name="MoneyCounter" parent="." instance=ExtResource("5_jfqu6")]
+position = Vector2(978, 89)

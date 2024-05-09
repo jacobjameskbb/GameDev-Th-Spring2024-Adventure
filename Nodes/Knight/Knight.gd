@@ -6,6 +6,8 @@ extends CharacterBody2D
 
 @export var damage = 30
 
+@export var coin_amount = 20
+
 const SPEED = 60.0
 const ATTACKING_SPEED = 200
 const JUMP_VELOCITY = -400.0
@@ -44,6 +46,9 @@ var player_close_range = false
 var previous_position = null
 @onready var position_countdown = RESET_POSITION_COUNTDOWN
 const RESET_POSITION_COUNTDOWN = 5
+
+@onready var coin = load("res://money.tscn")
+
 
 #-----BASE FUNCTIONS-------
 func _ready():
@@ -182,10 +187,15 @@ func update_walls(walls):
 		else:
 			touching_walls['attack'] = true
 
-func attack(amount, type):
+func attack(amount, type = 'none'):
 	health -= amount
 	
 func death():
+	for i in range(1,coin_amount):
+		var new_coin = coin.instantiate()
+		new_coin.position = self.position
+		get_parent().call_deferred("add_child",new_coin)
+	
 	queue_free()
 #--------CONNECTIONS--------
 func _on_detect_wall_left_body_entered(body):

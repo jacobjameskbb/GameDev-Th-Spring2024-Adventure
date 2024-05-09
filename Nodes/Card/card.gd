@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
 var damage = 4
+var range = 0
+var range_counter = 0
 
 const MOVEMENT_SPEED = 300
 const ROTATION_SPEED = 20
@@ -20,6 +22,10 @@ func _ready():
 	
 
 func _physics_process(delta):
+	if not collided_with_wall:
+		range_counter += delta
+		if range_counter >= range:
+			queue_free()
 	
 	if not collided_with_wall:
 		move(delta)
@@ -57,8 +63,15 @@ func _on_area_body_entered(body):
 		colliding_with_player = true
 	if body.is_in_group('enemy'):
 		body.attack(damage, 'card')
+	if body.is_in_group('bat') or body.is_in_group('card kill'):
+		queue_free()
 
 
 func _on_area_body_exited(body):
 	if body.is_in_group('player'):
 		colliding_with_player = false
+
+
+func die_if_placed():
+	if collided_with_wall:
+		queue_free()

@@ -1,0 +1,397 @@
+[gd_scene load_steps=38 format=3 uid="uid://bfv1xexuduuw5"]
+
+[ext_resource type="PackedScene" uid="uid://dmkswt3j12c27" path="res://sound_pool.tscn" id="1_doe62"]
+[ext_resource type="Texture2D" uid="uid://kiegqgxbbks6" path="res://Sprites/fence.png" id="1_qff8o"]
+[ext_resource type="Script" path="res://PanoramaHBox.gd" id="1_sre38"]
+[ext_resource type="AudioStream" uid="uid://bcmi28l6dbnpg" path="res://Sounds/Step.mp3" id="2_0q5rt"]
+[ext_resource type="AudioStream" uid="uid://b8ak21e84hwqt" path="res://Sounds/378008__krucifix444__outside-ambience-2.wav" id="2_takbe"]
+[ext_resource type="AudioStream" uid="uid://ddubengxd61rk" path="res://Sounds/Step2.mp3" id="3_5vmak"]
+[ext_resource type="Texture2D" uid="uid://b0b31r4asfa6a" path="res://Sprites/lamp post.png" id="3_en04p"]
+[ext_resource type="Script" path="res://Entrance.gd" id="4_4o3oj"]
+[ext_resource type="AudioStream" uid="uid://b42kuprndatmo" path="res://Sounds/Step3.mp3" id="4_o1pj0"]
+[ext_resource type="Texture2D" uid="uid://ye4pv8yd4wdo" path="res://Sprites/car miata.png" id="4_xvytn"]
+[ext_resource type="PackedScene" uid="uid://d1f1fk2kiy4ty" path="res://player.tscn" id="5_22a4l"]
+[ext_resource type="AudioStream" uid="uid://laivyxn4dfwb" path="res://Sounds/Step4.mp3" id="5_88a6k"]
+[ext_resource type="Script" path="res://Text.gd" id="5_y4omg"]
+[ext_resource type="Script" path="res://camera.gd" id="6_prsqu"]
+[ext_resource type="FontFile" uid="uid://do5gjoyxrtu6a" path="res://PublicPixel.ttf" id="6_qxxyt"]
+[ext_resource type="AudioStream" uid="uid://bv58gucxinhin" path="res://Sounds/Step5.mp3" id="6_x7moy"]
+[ext_resource type="Texture2D" uid="uid://b1jqq7ker54lu" path="res://Sprites/milk store new.png" id="7_24ptn"]
+[ext_resource type="AudioStream" uid="uid://banevehkl42gd" path="res://Sounds/Step6.mp3" id="7_ykbia"]
+[ext_resource type="AudioStream" uid="uid://xogjcw4iswtk" path="res://Sounds/394417__inspectorj__bamboo-swing-a2.wav" id="8_48obj"]
+[ext_resource type="AudioStream" uid="uid://bx8hjpuupgdl0" path="res://Sounds/394418__inspectorj__bamboo-swing-a14.wav" id="9_jhtfb"]
+[ext_resource type="AudioStream" uid="uid://c885jfn34by0t" path="res://Sounds/394421__inspectorj__bamboo-swing-a4.wav" id="10_8lp7p"]
+[ext_resource type="AudioStream" uid="uid://bhgqr2hy4vdct" path="res://Sounds/394432__inspectorj__bamboo-swing-b16.wav" id="11_mhkjq"]
+[ext_resource type="AudioStream" uid="uid://c4n0wuox5olj4" path="res://Sounds/394439__inspectorj__bamboo-swing-a8.wav" id="12_v8dbo"]
+[ext_resource type="AudioStream" uid="uid://d1ixxvfcykjvu" path="res://Sounds/394443__inspectorj__bamboo-swing-b11.wav" id="13_abyxo"]
+[ext_resource type="AudioStream" uid="uid://dpr3wxvf28q2v" path="res://Sounds/394445__inspectorj__bamboo-swing-b1.wav" id="14_vnk0u"]
+[ext_resource type="Script" path="res://Single.gd" id="15_ocrdt"]
+[ext_resource type="AudioStream" uid="uid://dsqei8vbv4hi7" path="res://Sounds/534218__thesoundfxguy_yt__piano-jump-scare-stinger.wav" id="16_3cf8i"]
+[ext_resource type="AudioStream" uid="uid://cvwgwnwv3sjqf" path="res://Sounds/411129__malisz99__jump-scare.mp3" id="17_1qyda"]
+[ext_resource type="AudioStream" uid="uid://ccretiryx1jp" path="res://Sounds/348220__tbrook__switch-light-03.wav" id="18_d2uns"]
+[ext_resource type="AudioStream" uid="uid://dngqhoqek7ikm" path="res://Sounds/31622__srehpog__light_crate_smash1.wav" id="19_ljiq7"]
+[ext_resource type="AudioStream" uid="uid://c8snraakikxcc" path="res://Sounds/31623__srehpog__light_crate_smash2.wav" id="20_5ffr2"]
+[ext_resource type="AudioStream" uid="uid://bpjk3a3ntn755" path="res://Sounds/31624__srehpog__light_crate_smash3.wav" id="21_x46k2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pgsb5"]
+size = Vector2(4124, 620)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1php0"]
+size = Vector2(48, 63)
+
+[sub_resource type="Animation" id="Animation_comn3"]
+resource_name = "fade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 40), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_s7amm"]
+resource_name = "fade out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -40)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b1sl7"]
+_data = {
+"fade": SubResource("Animation_comn3"),
+"fade out": SubResource("Animation_s7amm")
+}
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="Walking" parent="Sounds" instance=ExtResource("1_doe62")]
+delay = 0.3
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Sounds/Walking"]
+stream = ExtResource("2_0q5rt")
+pitch_scale = 0.41
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="Sounds/Walking"]
+stream = ExtResource("3_5vmak")
+pitch_scale = 0.41
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="Sounds/Walking"]
+stream = ExtResource("4_o1pj0")
+pitch_scale = 0.41
+
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="Sounds/Walking"]
+stream = ExtResource("5_88a6k")
+pitch_scale = 0.41
+
+[node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="Sounds/Walking"]
+stream = ExtResource("6_x7moy")
+pitch_scale = 0.41
+
+[node name="AudioStreamPlayer6" type="AudioStreamPlayer" parent="Sounds/Walking"]
+stream = ExtResource("7_ykbia")
+pitch_scale = 0.41
+
+[node name="BatSwing" parent="Sounds" instance=ExtResource("1_doe62")]
+delay = 0.3
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Sounds/BatSwing"]
+stream = ExtResource("8_48obj")
+pitch_scale = 0.7
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="Sounds/BatSwing"]
+stream = ExtResource("9_jhtfb")
+pitch_scale = 0.7
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="Sounds/BatSwing"]
+stream = ExtResource("10_8lp7p")
+pitch_scale = 0.7
+
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="Sounds/BatSwing"]
+stream = ExtResource("11_mhkjq")
+pitch_scale = 0.7
+
+[node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="Sounds/BatSwing"]
+stream = ExtResource("12_v8dbo")
+pitch_scale = 0.7
+
+[node name="AudioStreamPlayer6" type="AudioStreamPlayer" parent="Sounds/BatSwing"]
+stream = ExtResource("13_abyxo")
+pitch_scale = 0.7
+
+[node name="AudioStreamPlayer7" type="AudioStreamPlayer" parent="Sounds/BatSwing"]
+stream = ExtResource("14_vnk0u")
+pitch_scale = 0.7
+
+[node name="Single" type="Node" parent="Sounds"]
+script = ExtResource("15_ocrdt")
+
+[node name="Jumpscare" type="AudioStreamPlayer" parent="Sounds/Single"]
+stream = ExtResource("16_3cf8i")
+
+[node name="Critters" type="AudioStreamPlayer" parent="Sounds/Single"]
+stream = ExtResource("17_1qyda")
+
+[node name="LightSwitch" type="AudioStreamPlayer" parent="Sounds/Single"]
+stream = ExtResource("18_d2uns")
+
+[node name="smash1" type="AudioStreamPlayer" parent="Sounds/Single"]
+stream = ExtResource("19_ljiq7")
+
+[node name="smash2" type="AudioStreamPlayer" parent="Sounds/Single"]
+stream = ExtResource("20_5ffr2")
+
+[node name="smash3" type="AudioStreamPlayer" parent="Sounds/Single"]
+stream = ExtResource("21_x46k2")
+
+[node name="Background2" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("2_takbe")
+volume_db = 15.0
+autoplay = true
+
+[node name="Background" type="Node2D" parent="."]
+position = Vector2(103, -215)
+scale = Vector2(2, 2)
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="Tiled Sprites" type="HBoxContainer" parent="World"]
+clip_contents = true
+layout_direction = 2
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -2176.0
+offset_top = -23.0
+offset_right = -1120.0
+offset_bottom = 68.0
+grow_horizontal = 2
+scale = Vector2(4, 4)
+pivot_offset = Vector2(1, 0)
+theme_override_constants/separation = 0
+alignment = 1
+script = ExtResource("1_sre38")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="World/Tiled Sprites"]
+layout_mode = 2
+texture = ExtResource("1_qff8o")
+expand_mode = 3
+
+[node name="TextureRect2" type="TextureRect" parent="World/Tiled Sprites"]
+layout_mode = 2
+texture = ExtResource("1_qff8o")
+expand_mode = 3
+
+[node name="TextureRect3" type="TextureRect" parent="World/Tiled Sprites"]
+layout_mode = 2
+texture = ExtResource("1_qff8o")
+expand_mode = 3
+
+[node name="TextureRect4" type="TextureRect" parent="World/Tiled Sprites"]
+layout_mode = 2
+texture = ExtResource("1_qff8o")
+expand_mode = 3
+
+[node name="TextureRect8" type="TextureRect" parent="World/Tiled Sprites"]
+layout_mode = 2
+texture = ExtResource("1_qff8o")
+expand_mode = 3
+
+[node name="TextureRect9" type="TextureRect" parent="World/Tiled Sprites"]
+layout_mode = 2
+texture = ExtResource("1_qff8o")
+expand_mode = 3
+
+[node name="TextureRect10" type="TextureRect" parent="World/Tiled Sprites"]
+layout_mode = 2
+texture = ExtResource("1_qff8o")
+expand_mode = 3
+
+[node name="TextureRect11" type="TextureRect" parent="World/Tiled Sprites"]
+layout_mode = 2
+texture = ExtResource("1_qff8o")
+expand_mode = 3
+
+[node name="TextureRect12" type="TextureRect" parent="World/Tiled Sprites"]
+layout_mode = 2
+texture = ExtResource("1_qff8o")
+expand_mode = 3
+
+[node name="TextureRect13" type="TextureRect" parent="World/Tiled Sprites"]
+layout_mode = 2
+texture = ExtResource("1_qff8o")
+expand_mode = 3
+
+[node name="TextureRect14" type="TextureRect" parent="World/Tiled Sprites"]
+layout_mode = 2
+texture = ExtResource("1_qff8o")
+expand_mode = 3
+
+[node name="TextureRect15" type="TextureRect" parent="World/Tiled Sprites"]
+layout_mode = 2
+texture = ExtResource("1_qff8o")
+expand_mode = 3
+
+[node name="TextureRect16" type="TextureRect" parent="World/Tiled Sprites"]
+layout_mode = 2
+texture = ExtResource("1_qff8o")
+expand_mode = 3
+
+[node name="TextureRect17" type="TextureRect" parent="World/Tiled Sprites"]
+layout_mode = 2
+texture = ExtResource("1_qff8o")
+expand_mode = 3
+
+[node name="TextureRect18" type="TextureRect" parent="World/Tiled Sprites"]
+layout_mode = 2
+texture = ExtResource("1_qff8o")
+expand_mode = 3
+
+[node name="TextureRect5" type="TextureRect" parent="World/Tiled Sprites"]
+layout_mode = 2
+texture = ExtResource("1_qff8o")
+expand_mode = 3
+
+[node name="TextureRect6" type="TextureRect" parent="World/Tiled Sprites"]
+layout_mode = 2
+texture = ExtResource("1_qff8o")
+expand_mode = 3
+
+[node name="TextureRect7" type="TextureRect" parent="World/Tiled Sprites"]
+layout_mode = 2
+texture = ExtResource("1_qff8o")
+expand_mode = 3
+
+[node name="StaticBody2D" type="StaticBody2D" parent="World/Tiled Sprites"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Tiled Sprites/StaticBody2D"]
+position = Vector2(702, 133.5)
+scale = Vector2(0.25, 0.25)
+shape = SubResource("RectangleShape2D_pgsb5")
+
+[node name="MilkStore" type="Sprite2D" parent="World"]
+position = Vector2(1185, -302)
+scale = Vector2(2, 2)
+texture = ExtResource("7_24ptn")
+
+[node name="Area2D" type="Area2D" parent="World/MilkStore"]
+position = Vector2(4, 207.5)
+script = ExtResource("4_4o3oj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/MilkStore/Area2D"]
+position = Vector2(4.5, 11)
+shape = SubResource("RectangleShape2D_1php0")
+
+[node name="Text" type="Node2D" parent="World/MilkStore/Area2D"]
+position = Vector2(-28, -50.5)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("5_y4omg")
+
+[node name="Label" type="Label" parent="World/MilkStore/Area2D/Text"]
+offset_right = 144.0
+offset_bottom = 46.0001
+theme_override_fonts/font = ExtResource("6_qxxyt")
+text = "Press \"F\""
+
+[node name="Animation" type="AnimationPlayer" parent="World/MilkStore/Area2D/Text"]
+root_node = NodePath("../Label")
+libraries = {
+"": SubResource("AnimationLibrary_b1sl7")
+}
+
+[node name="walls" type="StaticBody2D" parent="World"]
+position = Vector2(-424, -229)
+collision_layer = 3
+collision_mask = 3
+
+[node name="Player" parent="World" instance=ExtResource("5_22a4l")]
+position = Vector2(-400, 127)
+
+[node name="Camera2D" type="Camera2D" parent="World/Player"]
+position = Vector2(1, -25)
+scale = Vector2(0.5, 0.5)
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+script = ExtResource("6_prsqu")
+
+[node name="LampPost" type="Sprite2D" parent="."]
+position = Vector2(-220, 116)
+scale = Vector2(2, 2)
+texture = ExtResource("3_en04p")
+
+[node name="LampPost7" type="Sprite2D" parent="."]
+position = Vector2(-620, 116)
+scale = Vector2(2, 2)
+texture = ExtResource("3_en04p")
+
+[node name="LampPost2" type="Sprite2D" parent="."]
+position = Vector2(180, 116)
+scale = Vector2(2, 2)
+texture = ExtResource("3_en04p")
+
+[node name="LampPost3" type="Sprite2D" parent="."]
+position = Vector2(580, 116)
+scale = Vector2(2, 2)
+texture = ExtResource("3_en04p")
+
+[node name="LampPost4" type="Sprite2D" parent="."]
+position = Vector2(980, 116)
+scale = Vector2(2, 2)
+texture = ExtResource("3_en04p")
+
+[node name="LampPost5" type="Sprite2D" parent="."]
+position = Vector2(1380, 116)
+scale = Vector2(2, 2)
+texture = ExtResource("3_en04p")
+
+[node name="LampPost6" type="Sprite2D" parent="."]
+position = Vector2(1780, 116)
+scale = Vector2(2, 2)
+texture = ExtResource("3_en04p")
+
+[node name="CarMiata" type="Sprite2D" parent="."]
+position = Vector2(-385, 189)
+scale = Vector2(2, 2)
+texture = ExtResource("4_xvytn")
+
+[connection signal="body_entered" from="World/MilkStore/Area2D" to="World/MilkStore/Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="World/MilkStore/Area2D" to="World/MilkStore/Area2D" method="_on_body_exited"]

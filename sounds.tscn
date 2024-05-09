@@ -1,0 +1,127 @@
+[gd_scene load_steps=26 format=3 uid="uid://ce2kyubmccdjg"]
+
+[ext_resource type="PackedScene" uid="uid://dmkswt3j12c27" path="res://sound_pool.tscn" id="1_t6vnt"]
+[ext_resource type="AudioStream" uid="uid://bcmi28l6dbnpg" path="res://Sounds/Step.mp3" id="2_covg4"]
+[ext_resource type="AudioStream" uid="uid://ddubengxd61rk" path="res://Sounds/Step2.mp3" id="3_4layf"]
+[ext_resource type="AudioStream" uid="uid://b42kuprndatmo" path="res://Sounds/Step3.mp3" id="4_feev7"]
+[ext_resource type="AudioStream" uid="uid://laivyxn4dfwb" path="res://Sounds/Step4.mp3" id="5_lojko"]
+[ext_resource type="AudioStream" uid="uid://bv58gucxinhin" path="res://Sounds/Step5.mp3" id="6_cm2fp"]
+[ext_resource type="AudioStream" uid="uid://banevehkl42gd" path="res://Sounds/Step6.mp3" id="7_5h12u"]
+[ext_resource type="AudioStream" uid="uid://ofn0a2atfny7" path="res://Sounds/grass step1.wav" id="8_cig5r"]
+[ext_resource type="AudioStream" uid="uid://xogjcw4iswtk" path="res://Sounds/394417__inspectorj__bamboo-swing-a2.wav" id="8_hau2b"]
+[ext_resource type="AudioStream" uid="uid://ctq636usd44d0" path="res://Sounds/grass step2.wav" id="9_fkqqa"]
+[ext_resource type="AudioStream" uid="uid://bx8hjpuupgdl0" path="res://Sounds/394418__inspectorj__bamboo-swing-a14.wav" id="9_n0jy2"]
+[ext_resource type="AudioStream" uid="uid://c885jfn34by0t" path="res://Sounds/394421__inspectorj__bamboo-swing-a4.wav" id="10_5eet0"]
+[ext_resource type="AudioStream" uid="uid://c3o25y66ypt5v" path="res://Sounds/grass step3.wav" id="10_ilqwk"]
+[ext_resource type="AudioStream" uid="uid://bhgqr2hy4vdct" path="res://Sounds/394432__inspectorj__bamboo-swing-b16.wav" id="11_gyig3"]
+[ext_resource type="AudioStream" uid="uid://bd8e30iarisml" path="res://Sounds/grass step4.wav" id="11_s3jtg"]
+[ext_resource type="AudioStream" uid="uid://c4n0wuox5olj4" path="res://Sounds/394439__inspectorj__bamboo-swing-a8.wav" id="12_nfrey"]
+[ext_resource type="AudioStream" uid="uid://d1ixxvfcykjvu" path="res://Sounds/394443__inspectorj__bamboo-swing-b11.wav" id="13_tyk7y"]
+[ext_resource type="AudioStream" uid="uid://dpr3wxvf28q2v" path="res://Sounds/394445__inspectorj__bamboo-swing-b1.wav" id="14_xrtvv"]
+[ext_resource type="Script" path="res://Single.gd" id="16_upaey"]
+[ext_resource type="AudioStream" uid="uid://dsqei8vbv4hi7" path="res://Sounds/534218__thesoundfxguy_yt__piano-jump-scare-stinger.wav" id="17_1nbpk"]
+[ext_resource type="AudioStream" uid="uid://cvwgwnwv3sjqf" path="res://Sounds/411129__malisz99__jump-scare.mp3" id="18_n64qi"]
+[ext_resource type="AudioStream" uid="uid://ccretiryx1jp" path="res://Sounds/348220__tbrook__switch-light-03.wav" id="19_wpfop"]
+[ext_resource type="AudioStream" uid="uid://dngqhoqek7ikm" path="res://Sounds/31622__srehpog__light_crate_smash1.wav" id="20_bbacw"]
+[ext_resource type="AudioStream" uid="uid://c8snraakikxcc" path="res://Sounds/31623__srehpog__light_crate_smash2.wav" id="21_853eq"]
+[ext_resource type="AudioStream" uid="uid://bpjk3a3ntn755" path="res://Sounds/31624__srehpog__light_crate_smash3.wav" id="22_s2xyb"]
+
+[node name="Sounds" type="Node"]
+
+[node name="Walking" parent="." instance=ExtResource("1_t6vnt")]
+delay = 0.3
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Walking"]
+stream = ExtResource("2_covg4")
+pitch_scale = 0.7
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="Walking"]
+stream = ExtResource("3_4layf")
+pitch_scale = 0.7
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="Walking"]
+stream = ExtResource("4_feev7")
+pitch_scale = 0.7
+
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="Walking"]
+stream = ExtResource("5_lojko")
+pitch_scale = 0.7
+
+[node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="Walking"]
+stream = ExtResource("6_cm2fp")
+pitch_scale = 0.7
+
+[node name="AudioStreamPlayer6" type="AudioStreamPlayer" parent="Walking"]
+stream = ExtResource("7_5h12u")
+pitch_scale = 0.7
+
+[node name="GrassWalking" parent="." instance=ExtResource("1_t6vnt")]
+delay = 0.3
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="GrassWalking"]
+stream = ExtResource("8_cig5r")
+pitch_scale = 0.7
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="GrassWalking"]
+stream = ExtResource("9_fkqqa")
+pitch_scale = 0.7
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="GrassWalking"]
+stream = ExtResource("10_ilqwk")
+pitch_scale = 0.7
+
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="GrassWalking"]
+stream = ExtResource("11_s3jtg")
+pitch_scale = 0.7
+
+[node name="BatSwing" parent="." instance=ExtResource("1_t6vnt")]
+delay = 0.3
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="BatSwing"]
+stream = ExtResource("8_hau2b")
+pitch_scale = 0.7
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="BatSwing"]
+stream = ExtResource("9_n0jy2")
+pitch_scale = 0.7
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="BatSwing"]
+stream = ExtResource("10_5eet0")
+pitch_scale = 0.7
+
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="BatSwing"]
+stream = ExtResource("11_gyig3")
+pitch_scale = 0.7
+
+[node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="BatSwing"]
+stream = ExtResource("12_nfrey")
+pitch_scale = 0.7
+
+[node name="AudioStreamPlayer6" type="AudioStreamPlayer" parent="BatSwing"]
+stream = ExtResource("13_tyk7y")
+pitch_scale = 0.7
+
+[node name="AudioStreamPlayer7" type="AudioStreamPlayer" parent="BatSwing"]
+stream = ExtResource("14_xrtvv")
+pitch_scale = 0.7
+
+[node name="Single" type="Node" parent="."]
+script = ExtResource("16_upaey")
+
+[node name="Jumpscare" type="AudioStreamPlayer" parent="Single"]
+stream = ExtResource("17_1nbpk")
+
+[node name="Critters" type="AudioStreamPlayer" parent="Single"]
+stream = ExtResource("18_n64qi")
+
+[node name="LightSwitch" type="AudioStreamPlayer" parent="Single"]
+stream = ExtResource("19_wpfop")
+
+[node name="smash1" type="AudioStreamPlayer" parent="Single"]
+stream = ExtResource("20_bbacw")
+
+[node name="smash2" type="AudioStreamPlayer" parent="Single"]
+stream = ExtResource("21_853eq")
+
+[node name="smash3" type="AudioStreamPlayer" parent="Single"]
+stream = ExtResource("22_s2xyb")

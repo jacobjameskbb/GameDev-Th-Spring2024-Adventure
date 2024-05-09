@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://moh5iudtqd77"]
+
+[ext_resource type="Script" path="res://Money.gd" id="1_fgjyp"]
+[ext_resource type="SpriteFrames" uid="uid://pj55cbost2so" path="res://Sprites/money.tres" id="2_23uyh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jf2ms"]
+radius = 18.0278
+
+[node name="Money" type="Node2D"]
+z_index = 5
+script = ExtResource("1_fgjyp")
+
+[node name="PlayerDetect" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetect"]
+shape = SubResource("CircleShape2D_jf2ms")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_23uyh")
+animation = &"coin"
+frame_progress = 0.686839
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+autostart = true
+
+[connection signal="body_entered" from="PlayerDetect" to="." method="_on_player_detect_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

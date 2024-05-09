@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://dtuaast8087a5"]
+
+[ext_resource type="Script" path="res://Nodes/Slug/Slug.gd" id="1_3wvdn"]
+[ext_resource type="SpriteFrames" uid="uid://byacpr7o72n7u" path="res://Sprites/slug.tres" id="2_wnkfc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8q4lv"]
+size = Vector2(14.0001, 52)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8qkkp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bg5me"]
+size = Vector2(15, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qkwve"]
+size = Vector2(33, 15)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qmdhe"]
+radius = 170.179
+
+[node name="Slug" type="CharacterBody2D"]
+collision_layer = 8
+script = ExtResource("1_3wvdn")
+
+[node name="HeadShape" type="CollisionShape2D" parent="."]
+position = Vector2(5.99999, -6.34114e-05)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_8q4lv")
+
+[node name="BodyShape" type="CollisionShape2D" parent="."]
+position = Vector2(-12, -12)
+shape = SubResource("CircleShape2D_8qkkp")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(5, -25)
+sprite_frames = ExtResource("2_wnkfc")
+animation = &"squish"
+
+[node name="SquishDetect" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SquishDetect"]
+position = Vector2(-8, -14)
+shape = SubResource("RectangleShape2D_bg5me")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="SquishDetect"]
+position = Vector2(14.5, -1)
+shape = SubResource("RectangleShape2D_qkwve")
+
+[node name="PlayerDetect" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetect"]
+shape = SubResource("CircleShape2D_qmdhe")
+
+[connection signal="animation_finished" from="Sprite" to="." method="_on_sprite_animation_finished"]
+[connection signal="animation_looped" from="Sprite" to="." method="_on_sprite_animation_looped"]
+[connection signal="body_entered" from="SquishDetect" to="." method="_on_squish_detect_body_entered"]
+[connection signal="body_entered" from="PlayerDetect" to="." method="_on_player_detect_body_entered"]
