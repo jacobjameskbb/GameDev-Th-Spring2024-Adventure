@@ -1,46 +1,45 @@
-[gd_scene load_steps=26 format=3 uid="uid://d1f1fk2kiy4ty"]
+[gd_scene load_steps=25 format=3 uid="uid://d1f1fk2kiy4ty"]
 
 [ext_resource type="Script" path="res://Nodes/Player/Player.gd" id="1_bn4lc"]
 [ext_resource type="PackedScene" uid="uid://8cclpqryrpk3" path="res://Nodes/HealthBar/health_bar.tscn" id="2_k76x2"]
-[ext_resource type="Texture2D" uid="uid://bktjho4qkypv7" path="res://Sprites/Jethro's Dad.png" id="3_5aroe"]
 [ext_resource type="Texture2D" uid="uid://bbg8rd0povgv2" path="res://Nodes/Player/Jethro's Dad.png" id="4_3bulj"]
 [ext_resource type="Script" path="res://Bat.gd" id="5_7wirm"]
 [ext_resource type="Texture2D" uid="uid://c7lfhp72ydvmn" path="res://Sprites/basic_bat.png" id="6_inpl7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_takya"]
-atlas = ExtResource("3_5aroe")
+atlas = ExtResource("4_3bulj")
 region = Rect2(192, 0, 48, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hxm4d"]
-atlas = ExtResource("3_5aroe")
+atlas = ExtResource("4_3bulj")
 region = Rect2(240, 0, 48, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4rk3w"]
-atlas = ExtResource("3_5aroe")
+atlas = ExtResource("4_3bulj")
 region = Rect2(288, 0, 48, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3ohso"]
-atlas = ExtResource("3_5aroe")
+atlas = ExtResource("4_3bulj")
 region = Rect2(336, 0, 48, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5tbri"]
-atlas = ExtResource("3_5aroe")
+atlas = ExtResource("4_3bulj")
 region = Rect2(384, 0, 48, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hxjee"]
-atlas = ExtResource("3_5aroe")
+atlas = ExtResource("4_3bulj")
 region = Rect2(384, 0, 48, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f5dyn"]
-atlas = ExtResource("3_5aroe")
+atlas = ExtResource("4_3bulj")
 region = Rect2(384, 0, 48, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hjbs0"]
-atlas = ExtResource("3_5aroe")
+atlas = ExtResource("4_3bulj")
 region = Rect2(384, 0, 48, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mpti1"]
-atlas = ExtResource("3_5aroe")
+atlas = ExtResource("4_3bulj")
 region = Rect2(0, 0, 48, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ay8d3"]
