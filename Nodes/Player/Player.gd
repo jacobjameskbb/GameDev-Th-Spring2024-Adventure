@@ -105,7 +105,10 @@ func _physics_process(delta):
 	if is_anything_just_pressed and dead:
 		dead = false
 		self.global_position = Global.spawnpoint
+		health = max_health
+		$AnimatedSprite2D.speed_scale = 1
 		$AnimatedSprite2D.play('standing')
+		$HealthBar.dead = false
 		
 	if not set_velocity:
 		velocity = starting_velocity
@@ -218,6 +221,7 @@ func _physics_process(delta):
 			player_level = 2
 		if interactions['next_level']:
 			get_tree().change_scene_to_file(Global.get_next_level())
+			
 	#-----VISUALS AND SOUNDS-----
 	if not dead and can_move:
 		
