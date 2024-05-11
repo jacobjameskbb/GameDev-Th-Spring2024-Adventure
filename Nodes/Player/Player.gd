@@ -12,6 +12,7 @@ var interactions = {
 	'pickup_card' = false,
 	'next_level' = false,
 	'scene_store_exit' = false,
+	'go_home' = false,
 }
 
 #Player level 0: Cant do attacks
@@ -224,6 +225,8 @@ func _physics_process(delta):
 			get_tree().change_scene_to_file(Global.get_next_level())
 		if interactions['scene_store_exit']:
 			get_tree().change_scene_to_file('res://the end.tscn')
+		if interactions['go_home']:
+			$"../../CanvasLayer/Node2D".fade()
 			
 	#-----VISUALS AND SOUNDS-----
 	if not dead and can_move:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://7otsqpx686hx"]
+[gd_scene load_steps=47 format=3 uid="uid://7otsqpx686hx"]
 
 [ext_resource type="PackedScene" uid="uid://dmkswt3j12c27" path="res://sound_pool.tscn" id="1_t5ogl"]
 [ext_resource type="AudioStream" uid="uid://bcmi28l6dbnpg" path="res://Sounds/Step.mp3" id="2_dylo5"]
@@ -34,6 +34,8 @@
 [ext_resource type="Script" path="res://Cutscene.gd" id="31_kemsu"]
 [ext_resource type="Texture2D" uid="uid://ye4pv8yd4wdo" path="res://Sprites/car miata.png" id="32_erw7r"]
 [ext_resource type="Texture2D" uid="uid://e8e77jgeraag" path="res://Sprites/jethro-idle 1.png" id="32_wsqdb"]
+[ext_resource type="Script" path="res://Pixel fade to black.gd" id="35_dmmpd"]
+[ext_resource type="Texture2D" uid="uid://dons2uhaf4r6k" path="res://Sprites/black pixel.png" id="36_7ahku"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n32ky"]
 size = Vector2(4124, 620)
@@ -160,6 +162,13 @@ _data = {
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t7xhp"]
 size = Vector2(135, 257)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tiq6x"]
+texture = ExtResource("36_7ahku")
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_t5by2"]
+sources/0 = SubResource("TileSetAtlasSource_tiq6x")
 
 [node name="TheEnd" type="Node2D"]
 
@@ -397,7 +406,7 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="Player" parent="World" instance=ExtResource("29_eylnn")]
-position = Vector2(1190, 111)
+position = Vector2(1202, 119)
 
 [node name="Camera2D" type="Camera2D" parent="World/Player"]
 position = Vector2(1, -25)
@@ -491,6 +500,17 @@ texture = ExtResource("32_wsqdb")
 position = Vector2(-385, 189)
 scale = Vector2(2, 2)
 texture = ExtResource("32_erw7r")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Node2D" type="Node2D" parent="CanvasLayer"]
+script = ExtResource("35_dmmpd")
+
+[node name="TileMap" type="TileMap" parent="CanvasLayer/Node2D"]
+scale = Vector2(0.5, 0.5)
+tile_set = SubResource("TileSet_t5by2")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 2, 0, 5243023, 2, 0)
 
 [connection signal="body_entered" from="World/MilkStore/Area2D" to="World/MilkStore/Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="World/MilkStore/Area2D" to="World/MilkStore/Area2D" method="_on_body_exited"]
