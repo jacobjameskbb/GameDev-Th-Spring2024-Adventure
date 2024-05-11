@@ -1142,3 +1142,4 @@ format = 2
 [connection signal="animation_finished" from="World/DebtCollectorBoss/AnimatedSprite2D" to="World/DebtCollectorBoss" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="World/DebtCollectorBoss/Bat detect" to="World/DebtCollectorBoss" method="_on_bat_detect_body_entered"]
 [connection signal="animation_finished" from="World/AnimationPlayer" to="World/DebtCollectorBoss" method="_on_animation_player_animation_finished"]
+[connection signal="finished_fade" from="CanvasLayer/FadeOut" to="World/DebtCollectorBoss" method="_on_fade_out_finished_fade"]

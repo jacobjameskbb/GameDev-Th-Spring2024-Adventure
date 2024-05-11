@@ -133,3 +133,8 @@ func death():
 	await get_tree().create_timer(1).timeout
 	$"../../CanvasLayer/FadeOut".fade()
 	
+
+
+func _on_fade_out_finished_fade():
+	await get_tree().create_timer(1).timeout
+	get_tree().change_scene_to_file('res://final milk store.tscn')

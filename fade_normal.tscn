@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhi1fnkeqkgr3"]
+
+[ext_resource type="Script" path="res://fade normal.gd" id="1_35ojt"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="FadeNormal" type="Node2D" parent="."]
+script = ExtResource("1_35ojt")
+
+[node name="ColorRect" type="ColorRect" parent="FadeNormal"]
+offset_right = 1165.0
+offset_bottom = 685.0
+color = Color(0, 0, 0, 1)

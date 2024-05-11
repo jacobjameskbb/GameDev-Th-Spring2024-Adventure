@@ -1,4 +1,5 @@
 extends Node2D 
+signal finished_fade
 
 var last_pixel = Vector2(143, 80)
 var random = RandomNumberGenerator.new()
@@ -26,3 +27,4 @@ func fade():
 				$TileMap.set_cell(0, Vector2(new_position), 0, Vector2i(0,0), 0)
 				all_positions.erase(new_position)
 		await get_tree().create_timer(0.01).timeout
+	emit_signal("finished_fade")
