@@ -320,3 +320,13 @@ func _on_animated_sprite_2d_animation_looped():
 
 func _on_ko_detect_body_entered(body):
 	health -= 100
+
+
+
+
+func _on_detect_dark_body_entered(body):
+	$"../../ParallaxBackground/Background".show()
+
+
+func _on_detect_dark_body_exited(body):
+	$"../../ParallaxBackground/Background".hide()

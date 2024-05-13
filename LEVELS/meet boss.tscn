@@ -1,35 +1,35 @@
 [gd_scene load_steps=35 format=3 uid="uid://78nvaadnkvqc"]
 
-[ext_resource type="PackedScene" uid="uid://dmkswt3j12c27" path="res://sound_pool.tscn" id="1_7araa"]
-[ext_resource type="AudioStream" uid="uid://bcmi28l6dbnpg" path="res://Sounds/Step.mp3" id="2_di2ro"]
-[ext_resource type="AudioStream" uid="uid://ddubengxd61rk" path="res://Sounds/Step2.mp3" id="3_iaej8"]
-[ext_resource type="AudioStream" uid="uid://b42kuprndatmo" path="res://Sounds/Step3.mp3" id="4_ywfww"]
-[ext_resource type="AudioStream" uid="uid://laivyxn4dfwb" path="res://Sounds/Step4.mp3" id="5_7xj7t"]
-[ext_resource type="AudioStream" uid="uid://bv58gucxinhin" path="res://Sounds/Step5.mp3" id="6_abasn"]
-[ext_resource type="AudioStream" uid="uid://banevehkl42gd" path="res://Sounds/Step6.mp3" id="7_3af26"]
-[ext_resource type="AudioStream" uid="uid://xogjcw4iswtk" path="res://Sounds/394417__inspectorj__bamboo-swing-a2.wav" id="8_tctfy"]
-[ext_resource type="AudioStream" uid="uid://bx8hjpuupgdl0" path="res://Sounds/394418__inspectorj__bamboo-swing-a14.wav" id="9_6aqhe"]
-[ext_resource type="AudioStream" uid="uid://c885jfn34by0t" path="res://Sounds/394421__inspectorj__bamboo-swing-a4.wav" id="10_vh0gq"]
-[ext_resource type="AudioStream" uid="uid://bhgqr2hy4vdct" path="res://Sounds/394432__inspectorj__bamboo-swing-b16.wav" id="11_hx6uq"]
-[ext_resource type="AudioStream" uid="uid://c4n0wuox5olj4" path="res://Sounds/394439__inspectorj__bamboo-swing-a8.wav" id="12_3yeym"]
-[ext_resource type="AudioStream" uid="uid://d1ixxvfcykjvu" path="res://Sounds/394443__inspectorj__bamboo-swing-b11.wav" id="13_n8bio"]
-[ext_resource type="AudioStream" uid="uid://dpr3wxvf28q2v" path="res://Sounds/394445__inspectorj__bamboo-swing-b1.wav" id="14_j0wrf"]
-[ext_resource type="Script" path="res://Single.gd" id="15_1o1h1"]
-[ext_resource type="AudioStream" uid="uid://dsqei8vbv4hi7" path="res://Sounds/534218__thesoundfxguy_yt__piano-jump-scare-stinger.wav" id="16_g00ry"]
-[ext_resource type="AudioStream" uid="uid://cvwgwnwv3sjqf" path="res://Sounds/411129__malisz99__jump-scare.mp3" id="17_aehp6"]
-[ext_resource type="AudioStream" uid="uid://ccretiryx1jp" path="res://Sounds/348220__tbrook__switch-light-03.wav" id="18_r2gmc"]
-[ext_resource type="AudioStream" uid="uid://dngqhoqek7ikm" path="res://Sounds/31622__srehpog__light_crate_smash1.wav" id="19_tpm2s"]
-[ext_resource type="AudioStream" uid="uid://c8snraakikxcc" path="res://Sounds/31623__srehpog__light_crate_smash2.wav" id="20_4j5jc"]
-[ext_resource type="AudioStream" uid="uid://bpjk3a3ntn755" path="res://Sounds/31624__srehpog__light_crate_smash3.wav" id="21_05qho"]
-[ext_resource type="AudioStream" uid="uid://b8ak21e84hwqt" path="res://Sounds/378008__krucifix444__outside-ambience-2.wav" id="22_py5vi"]
-[ext_resource type="PackedScene" uid="uid://d1f1fk2kiy4ty" path="res://player.tscn" id="23_etr67"]
-[ext_resource type="Script" path="res://camera.gd" id="24_arckh"]
-[ext_resource type="Script" path="res://Cutscene.gd" id="25_sh3w7"]
-[ext_resource type="FontFile" uid="uid://do5gjoyxrtu6a" path="res://PublicPixel.ttf" id="26_8inw0"]
-[ext_resource type="Texture2D" uid="uid://d1lf1hodgpquv" path="res://Sprites/the debt collector2.png" id="27_xl2es"]
-[ext_resource type="Texture2D" uid="uid://dvv0fwigvyygm" path="res://Sprites/the debt collector1.png" id="28_p3nug"]
-[ext_resource type="TileSet" uid="uid://cmjou2j22usyr" path="res://Tilemap source.tres" id="29_o2lfo"]
-[ext_resource type="TileSet" uid="uid://dhpp7a8b1ufn" path="res://Tilemap card source.tres" id="30_d4epv"]
+[ext_resource type="PackedScene" uid="uid://dmkswt3j12c27" path="res://sound_pool.tscn" id="1_x0n5v"]
+[ext_resource type="AudioStream" uid="uid://bcmi28l6dbnpg" path="res://Sounds/Step.mp3" id="2_m242e"]
+[ext_resource type="AudioStream" uid="uid://ddubengxd61rk" path="res://Sounds/Step2.mp3" id="3_7d2g7"]
+[ext_resource type="AudioStream" uid="uid://b42kuprndatmo" path="res://Sounds/Step3.mp3" id="4_4pheb"]
+[ext_resource type="AudioStream" uid="uid://laivyxn4dfwb" path="res://Sounds/Step4.mp3" id="5_0w77l"]
+[ext_resource type="AudioStream" uid="uid://bv58gucxinhin" path="res://Sounds/Step5.mp3" id="6_5d22e"]
+[ext_resource type="AudioStream" uid="uid://banevehkl42gd" path="res://Sounds/Step6.mp3" id="7_gbluj"]
+[ext_resource type="AudioStream" uid="uid://xogjcw4iswtk" path="res://Sounds/394417__inspectorj__bamboo-swing-a2.wav" id="8_b83cy"]
+[ext_resource type="AudioStream" uid="uid://bx8hjpuupgdl0" path="res://Sounds/394418__inspectorj__bamboo-swing-a14.wav" id="9_ljp13"]
+[ext_resource type="AudioStream" uid="uid://c885jfn34by0t" path="res://Sounds/394421__inspectorj__bamboo-swing-a4.wav" id="10_m0j1u"]
+[ext_resource type="AudioStream" uid="uid://bhgqr2hy4vdct" path="res://Sounds/394432__inspectorj__bamboo-swing-b16.wav" id="11_i1ida"]
+[ext_resource type="AudioStream" uid="uid://c4n0wuox5olj4" path="res://Sounds/394439__inspectorj__bamboo-swing-a8.wav" id="12_q2kr1"]
+[ext_resource type="AudioStream" uid="uid://d1ixxvfcykjvu" path="res://Sounds/394443__inspectorj__bamboo-swing-b11.wav" id="13_so6h3"]
+[ext_resource type="AudioStream" uid="uid://dpr3wxvf28q2v" path="res://Sounds/394445__inspectorj__bamboo-swing-b1.wav" id="14_lwcet"]
+[ext_resource type="Script" path="res://Single.gd" id="15_ra862"]
+[ext_resource type="AudioStream" uid="uid://dsqei8vbv4hi7" path="res://Sounds/534218__thesoundfxguy_yt__piano-jump-scare-stinger.wav" id="16_28ctp"]
+[ext_resource type="AudioStream" uid="uid://cvwgwnwv3sjqf" path="res://Sounds/411129__malisz99__jump-scare.mp3" id="17_h7h5t"]
+[ext_resource type="AudioStream" uid="uid://ccretiryx1jp" path="res://Sounds/348220__tbrook__switch-light-03.wav" id="18_lo4wn"]
+[ext_resource type="AudioStream" uid="uid://dngqhoqek7ikm" path="res://Sounds/31622__srehpog__light_crate_smash1.wav" id="19_8socq"]
+[ext_resource type="AudioStream" uid="uid://c8snraakikxcc" path="res://Sounds/31623__srehpog__light_crate_smash2.wav" id="20_dfitd"]
+[ext_resource type="AudioStream" uid="uid://bpjk3a3ntn755" path="res://Sounds/31624__srehpog__light_crate_smash3.wav" id="21_4ngaq"]
+[ext_resource type="AudioStream" uid="uid://b8ak21e84hwqt" path="res://Sounds/378008__krucifix444__outside-ambience-2.wav" id="22_eql88"]
+[ext_resource type="PackedScene" uid="uid://d1f1fk2kiy4ty" path="res://player.tscn" id="23_23idy"]
+[ext_resource type="Script" path="res://camera.gd" id="24_1618o"]
+[ext_resource type="Script" path="res://Cutscene.gd" id="25_t31jg"]
+[ext_resource type="FontFile" uid="uid://do5gjoyxrtu6a" path="res://PublicPixel.ttf" id="26_s6hk3"]
+[ext_resource type="Texture2D" uid="uid://d1lf1hodgpquv" path="res://Sprites/the debt collector2.png" id="27_monnc"]
+[ext_resource type="Texture2D" uid="uid://dvv0fwigvyygm" path="res://Sprites/the debt collector1.png" id="28_78fyr"]
+[ext_resource type="TileSet" uid="uid://cmjou2j22usyr" path="res://Tilemap source.tres" id="29_rgpox"]
+[ext_resource type="TileSet" uid="uid://dhpp7a8b1ufn" path="res://Tilemap card source.tres" id="30_sjj7u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_14rlk"]
 size = Vector2(135, 257)
@@ -123,7 +123,7 @@ _data = {
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("27_xl2es")
+"texture": ExtResource("27_monnc")
 }],
 "loop": true,
 "name": &"gun",
@@ -131,7 +131,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("28_p3nug")
+"texture": ExtResource("28_78fyr")
 }],
 "loop": true,
 "name": &"new_animation",
@@ -142,87 +142,87 @@ animations = [{
 
 [node name="Sounds" type="Node" parent="."]
 
-[node name="Walking" parent="Sounds" instance=ExtResource("1_7araa")]
+[node name="Walking" parent="Sounds" instance=ExtResource("1_x0n5v")]
 delay = 0.3
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Sounds/Walking"]
-stream = ExtResource("2_di2ro")
+stream = ExtResource("2_m242e")
 pitch_scale = 0.41
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="Sounds/Walking"]
-stream = ExtResource("3_iaej8")
+stream = ExtResource("3_7d2g7")
 pitch_scale = 0.41
 
 [node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="Sounds/Walking"]
-stream = ExtResource("4_ywfww")
+stream = ExtResource("4_4pheb")
 pitch_scale = 0.41
 
 [node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="Sounds/Walking"]
-stream = ExtResource("5_7xj7t")
+stream = ExtResource("5_0w77l")
 pitch_scale = 0.41
 
 [node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="Sounds/Walking"]
-stream = ExtResource("6_abasn")
+stream = ExtResource("6_5d22e")
 pitch_scale = 0.41
 
 [node name="AudioStreamPlayer6" type="AudioStreamPlayer" parent="Sounds/Walking"]
-stream = ExtResource("7_3af26")
+stream = ExtResource("7_gbluj")
 pitch_scale = 0.41
 
-[node name="BatSwing" parent="Sounds" instance=ExtResource("1_7araa")]
+[node name="BatSwing" parent="Sounds" instance=ExtResource("1_x0n5v")]
 delay = 0.3
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Sounds/BatSwing"]
-stream = ExtResource("8_tctfy")
+stream = ExtResource("8_b83cy")
 pitch_scale = 0.7
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="Sounds/BatSwing"]
-stream = ExtResource("9_6aqhe")
+stream = ExtResource("9_ljp13")
 pitch_scale = 0.7
 
 [node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="Sounds/BatSwing"]
-stream = ExtResource("10_vh0gq")
+stream = ExtResource("10_m0j1u")
 pitch_scale = 0.7
 
 [node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="Sounds/BatSwing"]
-stream = ExtResource("11_hx6uq")
+stream = ExtResource("11_i1ida")
 pitch_scale = 0.7
 
 [node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="Sounds/BatSwing"]
-stream = ExtResource("12_3yeym")
+stream = ExtResource("12_q2kr1")
 pitch_scale = 0.7
 
 [node name="AudioStreamPlayer6" type="AudioStreamPlayer" parent="Sounds/BatSwing"]
-stream = ExtResource("13_n8bio")
+stream = ExtResource("13_so6h3")
 pitch_scale = 0.7
 
 [node name="AudioStreamPlayer7" type="AudioStreamPlayer" parent="Sounds/BatSwing"]
-stream = ExtResource("14_j0wrf")
+stream = ExtResource("14_lwcet")
 pitch_scale = 0.7
 
 [node name="Single" type="Node" parent="Sounds"]
-script = ExtResource("15_1o1h1")
+script = ExtResource("15_ra862")
 
 [node name="Jumpscare" type="AudioStreamPlayer" parent="Sounds/Single"]
-stream = ExtResource("16_g00ry")
+stream = ExtResource("16_28ctp")
 
 [node name="Critters" type="AudioStreamPlayer" parent="Sounds/Single"]
-stream = ExtResource("17_aehp6")
+stream = ExtResource("17_h7h5t")
 
 [node name="LightSwitch" type="AudioStreamPlayer" parent="Sounds/Single"]
-stream = ExtResource("18_r2gmc")
+stream = ExtResource("18_lo4wn")
 
 [node name="smash1" type="AudioStreamPlayer" parent="Sounds/Single"]
-stream = ExtResource("19_tpm2s")
+stream = ExtResource("19_8socq")
 
 [node name="smash2" type="AudioStreamPlayer" parent="Sounds/Single"]
-stream = ExtResource("20_4j5jc")
+stream = ExtResource("20_dfitd")
 
 [node name="smash3" type="AudioStreamPlayer" parent="Sounds/Single"]
-stream = ExtResource("21_05qho")
+stream = ExtResource("21_4ngaq")
 
 [node name="Background2" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource("22_py5vi")
+stream = ExtResource("22_eql88")
 volume_db = 15.0
 autoplay = true
 
@@ -237,7 +237,7 @@ position = Vector2(-424, -229)
 collision_layer = 3
 collision_mask = 3
 
-[node name="Player" parent="World" instance=ExtResource("23_etr67")]
+[node name="Player" parent="World" instance=ExtResource("23_23idy")]
 position = Vector2(1190, 111)
 
 [node name="Camera2D" type="Camera2D" parent="World/Player"]
@@ -245,11 +245,11 @@ position = Vector2(1, -25)
 scale = Vector2(0.5, 0.5)
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true
-script = ExtResource("24_arckh")
+script = ExtResource("24_1618o")
 
 [node name="Cutscene" type="Node2D" parent="World"]
 z_index = 1
-script = ExtResource("25_sh3w7")
+script = ExtResource("25_t31jg")
 
 [node name="DialogueDebtCollector" type="Label" parent="World/Cutscene"]
 z_index = 1
@@ -257,7 +257,7 @@ offset_left = 2556.0
 offset_top = 38.0
 offset_right = 2908.0
 offset_bottom = 61.0
-theme_override_fonts/font = ExtResource("26_8inw0")
+theme_override_fonts/font = ExtResource("26_s6hk3")
 
 [node name="DialoguePlayer" type="Label" parent="World/Cutscene"]
 z_index = 1
@@ -266,7 +266,7 @@ offset_top = 78.0
 offset_right = 2774.0
 offset_bottom = 101.0
 scale = Vector2(0.8, 0.8)
-theme_override_fonts/font = ExtResource("26_8inw0")
+theme_override_fonts/font = ExtResource("26_s6hk3")
 text = "
 "
 
@@ -291,12 +291,12 @@ animation = &"new_animation"
 [node name="TileMap" type="TileMap" parent="World" groups=["wall enemy"]]
 modulate = Color(0.643137, 0.643137, 0.643137, 1)
 scale = Vector2(2, 2)
-tile_set = ExtResource("29_o2lfo")
+tile_set = ExtResource("29_rgpox")
 format = 2
 
 [node name="TileMapCard" type="TileMap" parent="World" groups=["wall", "wall enemy"]]
 scale = Vector2(2, 2)
-tile_set = ExtResource("30_d4epv")
+tile_set = ExtResource("30_sjj7u")
 format = 2
 layer_0/tile_data = PackedInt32Array(34, 196608, 3, 65570, 262144, 2, 131106, 262144, 2, 196642, 262144, 2, 262178, 262144, 2, 327714, 262144, 2, 393250, 262144, 2, 458786, 196608, 1, 458785, 131072, 2, 393249, 131072, 2, 327713, 131072, 2, 262177, 131072, 2, 196641, 131072, 2, 131105, 131072, 2, 33, 131072, 2, 65569, 131072, 2, 458787, 131072, 0, 458788, 131072, 0, 458789, 131072, 0, 458790, 131072, 0, 458792, 131072, 0, 458791, 131072, 0, 458793, 131072, 0, 458794, 131072, 0, 458795, 131072, 0, 524330, 131072, 2, 524329, 131072, 2, 524328, 131072, 2, 524327, 131072, 2, 524326, 131072, 2, 524325, 131072, 2, 524324, 131072, 2, 524323, 131072, 2, 524322, 131072, 2, 524321, 131072, 2, 524331, 131072, 2, 524332, 131072, 2, 458796, 131072, 0, 524333, 131072, 2, 458797, 131072, 0, -65501, 131072, 2, 35, 131072, 4, 36, 131072, 4, 37, 131072, 4, 38, 131072, 4, 39, 131072, 4, 40, 131072, 4, 41, 131072, 4, 42, 131072, 4, 43, 131072, 4, -65492, 131072, 2, -65491, 131072, 2, -65490, 131072, 2, -65489, 131072, 2, -65493, 131072, 2, -65494, 131072, 2, -65495, 131072, 2, -65496, 131072, 2, -65497, 131072, 2, -65498, 131072, 2, -65499, 131072, 2, -65500, 131072, 2, -65502, 131072, 2, -65503, 131072, 2, 44, 131072, 4, 45, 131072, 4, 46, 131072, 4, 47, 131072, 4, 458798, 131072, 0, 458799, 131072, 0, 458800, 131072, 0, 458801, 131072, 0, 458802, 131072, 0, 458803, 131072, 0, 458804, 131072, 0, 458805, 131072, 0, 524338, 131072, 2, 524337, 131072, 2, 524336, 131072, 2, 524335, 131072, 2, 524334, 131072, 2, 524339, 131072, 2, 524340, 131072, 2, 524341, 131072, 2, -131039, 131072, 0, 524320, 131072, 2, 458784, 131072, 2, 393248, 131072, 2, 327712, 131072, 2, 262176, 131072, 2, 196640, 131072, 2, 131104, 131072, 2, 65568, 131072, 2, 32, 131072, 2, -65504, 131072, 2, -131040, 131072, 0, 524319, 131072, 2, 458783, 131072, 2, 393247, 131072, 2, 327711, 131072, 2, 262175, 131072, 2, 196639, 131072, 2, 131103, 131072, 2, 65567, 131072, 2, 31, 131072, 2, -65505, 131072, 2, -131041, 131072, 0, 524318, 131072, 2, 458782, 131072, 2, 393246, 131072, 2, 327710, 131072, 2, 262174, 131072, 2, 196638, 131072, 2, 131102, 131072, 2, 65566, 131072, 2, 30, 131072, 2, -65506, 131072, 2, -131042, 131072, 0, 524317, 131072, 2, 458781, 131072, 2, 393245, 131072, 2, 327709, 131072, 2, 262173, 131072, 2, 196637, 131072, 2, 131101, 131072, 2, 65565, 131072, 2, 29, 131072, 2, -65507, 131072, 2, -131043, 131072, 0, 524316, 131072, 2, 458780, 131072, 2, 393244, 131072, 2, 327708, 131072, 2, 262172, 131072, 2, 196636, 131072, 2, 131100, 131072, 2, 65564, 131072, 2, 28, 131072, 2, -65508, 131072, 2, -131044, 131072, 0, 524315, 131072, 2, 458779, 131072, 2, 393243, 131072, 2, 327707, 131072, 2, 262171, 131072, 2, 196635, 131072, 2, 131099, 131072, 2, 65563, 131072, 2, 27, 131072, 2, -65509, 131072, 2, -131045, 131072, 0, 524314, 131072, 2, 458778, 131072, 2, 393242, 131072, 2, 327706, 131072, 2, 262170, 131072, 2, 196634, 131072, 2, 131098, 131072, 2, 65562, 131072, 2, 26, 131072, 2, -65510, 131072, 2, -131046, 131072, 0, 524313, 0, 2, 458777, 0, 2, 393241, 0, 2, 327705, 0, 2, 262169, 0, 2, 196633, 0, 2, 131097, 0, 2, 65561, 0, 2, 25, 0, 2, -65511, 0, 2, -131047, 65536, 0, -131021, 131072, 0, -131022, 131072, 0, -131023, 131072, 0, -131024, 131072, 0, -131025, 131072, 0, -131026, 131072, 0, -131027, 131072, 0, -131028, 131072, 0, -131029, 131072, 0, -131030, 131072, 0, -131031, 131072, 0, -131032, 131072, 0, -131033, 131072, 0, -131034, 131072, 0, -131035, 131072, 0, -131036, 131072, 0, -131037, 131072, 0, -131038, 131072, 0, 720986, 131072, 4, 655450, 131072, 2, 589914, 131072, 2, 524378, 131072, 2, 458842, 131072, 0, 720985, 131072, 4, 655449, 131072, 2, 589913, 131072, 2, 524377, 131072, 2, 458841, 131072, 0, 720984, 131072, 4, 655448, 131072, 2, 589912, 131072, 2, 524376, 131072, 2, 458840, 131072, 0, 720983, 131072, 4, 655447, 131072, 2, 589911, 131072, 2, 524375, 131072, 2, 458839, 131072, 0, 720982, 131072, 4, 655446, 131072, 2, 589910, 131072, 2, 524374, 131072, 2, 458838, 131072, 0, 720981, 131072, 4, 655445, 131072, 2, 589909, 131072, 2, 524373, 131072, 2, 458837, 131072, 0, 720980, 131072, 4, 655444, 131072, 2, 589908, 131072, 2, 524372, 131072, 2, 458836, 131072, 0, 720979, 131072, 4, 655443, 131072, 2, 589907, 131072, 2, 524371, 131072, 2, 458835, 131072, 0, 720978, 131072, 4, 655442, 131072, 2, 589906, 131072, 2, 524370, 131072, 2, 458834, 131072, 0, 720977, 131072, 4, 655441, 131072, 2, 589905, 131072, 2, 524369, 131072, 2, 458833, 131072, 0, 720976, 131072, 4, 655440, 131072, 2, 589904, 131072, 2, 524368, 131072, 2, 458832, 131072, 0, 720975, 131072, 4, 655439, 131072, 2, 589903, 131072, 2, 524367, 131072, 2, 458831, 131072, 0, 720974, 131072, 4, 655438, 131072, 2, 589902, 131072, 2, 524366, 131072, 2, 458830, 131072, 0, 720973, 131072, 4, 655437, 131072, 2, 589901, 131072, 2, 524365, 131072, 2, 458829, 131072, 0, 720972, 131072, 4, 655436, 131072, 2, 589900, 131072, 2, 524364, 131072, 2, 458828, 131072, 0, 720971, 131072, 4, 655435, 131072, 2, 589899, 131072, 2, 524363, 131072, 2, 458827, 131072, 0, 720970, 131072, 4, 655434, 131072, 2, 589898, 131072, 2, 524362, 131072, 2, 458826, 131072, 0, 720969, 131072, 4, 655433, 131072, 2, 589897, 131072, 2, 524361, 131072, 2, 458825, 131072, 0, 720968, 131072, 4, 655432, 131072, 2, 589896, 131072, 2, 524360, 131072, 2, 458824, 131072, 0, 720967, 131072, 4, 655431, 131072, 2, 589895, 131072, 2, 524359, 131072, 2, 458823, 131072, 0, 720966, 131072, 4, 655430, 131072, 2, 589894, 131072, 2, 524358, 131072, 2, 458822, 131072, 0, 720965, 131072, 4, 655429, 131072, 2, 589893, 131072, 2, 524357, 131072, 2, 458821, 131072, 0, 720964, 131072, 4, 655428, 131072, 2, 589892, 131072, 2, 524356, 131072, 2, 458820, 131072, 0, 720963, 131072, 4, 655427, 131072, 2, 589891, 131072, 2, 524355, 131072, 2, 458819, 131072, 0, 720962, 131072, 4, 655426, 131072, 2, 589890, 131072, 2, 524354, 131072, 2, 458818, 131072, 0, 720961, 131072, 4, 655425, 131072, 2, 589889, 131072, 2, 524353, 131072, 2, 458817, 131072, 0, 720960, 131072, 4, 655424, 131072, 2, 589888, 131072, 2, 524352, 131072, 2, 458816, 131072, 0, 720959, 131072, 4, 655423, 131072, 2, 589887, 131072, 2, 524351, 131072, 2, 458815, 131072, 0, 720958, 131072, 4, 655422, 131072, 2, 589886, 131072, 2, 524350, 131072, 2, 458814, 131072, 0, 720957, 131072, 4, 655421, 131072, 2, 589885, 131072, 2, 524349, 131072, 2, 458813, 131072, 0, 720956, 131072, 4, 655420, 131072, 2, 589884, 131072, 2, 524348, 131072, 2, 458812, 131072, 0, 720955, 131072, 4, 655419, 131072, 2, 589883, 131072, 2, 524347, 131072, 2, 458811, 131072, 0, 720954, 131072, 4, 655418, 131072, 2, 589882, 131072, 2, 524346, 131072, 2, 458810, 131072, 0, 720953, 131072, 4, 655417, 131072, 2, 589881, 131072, 2, 524345, 131072, 2, 458809, 131072, 0, 720952, 131072, 4, 655416, 131072, 2, 589880, 131072, 2, 524344, 131072, 2, 458808, 131072, 0, 720951, 131072, 4, 655415, 131072, 2, 589879, 131072, 2, 524343, 131072, 2, 458807, 131072, 0, 720950, 131072, 4, 655414, 131072, 2, 589878, 131072, 2, 524342, 131072, 2, 458806, 131072, 0, 720949, 131072, 4, 655413, 131072, 2, 589877, 131072, 2, 720948, 131072, 4, 655412, 131072, 2, 589876, 131072, 2, 720947, 131072, 4, 655411, 131072, 2, 589875, 131072, 2, 720946, 131072, 4, 655410, 131072, 2, 589874, 131072, 2, 720945, 131072, 4, 655409, 131072, 2, 589873, 131072, 2, 720944, 131072, 4, 655408, 131072, 2, 589872, 131072, 2, 720943, 131072, 4, 655407, 131072, 2, 589871, 131072, 2, 720942, 131072, 4, 655406, 131072, 2, 589870, 131072, 2, 720941, 131072, 4, 655405, 131072, 2, 589869, 131072, 2, 720940, 131072, 4, 655404, 131072, 2, 589868, 131072, 2, 720939, 131072, 4, 655403, 131072, 2, 589867, 131072, 2, 720938, 131072, 4, 655402, 131072, 2, 589866, 131072, 2, 720937, 131072, 4, 655401, 131072, 2, 589865, 131072, 2, 720936, 131072, 4, 655400, 131072, 2, 589864, 131072, 2, 720935, 131072, 4, 655399, 131072, 2, 589863, 131072, 2, 720934, 131072, 4, 655398, 131072, 2, 589862, 131072, 2, 720933, 131072, 4, 655397, 131072, 2, 589861, 131072, 2, 720932, 131072, 4, 655396, 131072, 2, 589860, 131072, 2, 720931, 131072, 4, 655395, 131072, 2, 589859, 131072, 2, 720930, 131072, 4, 655394, 131072, 2, 589858, 131072, 2, 720929, 131072, 4, 655393, 131072, 2, 589857, 131072, 2, 720928, 131072, 4, 655392, 131072, 2, 589856, 131072, 2, 720927, 131072, 4, 655391, 131072, 2, 589855, 131072, 2, 720926, 131072, 4, 655390, 131072, 2, 589854, 131072, 2, 720925, 131072, 4, 655389, 131072, 2, 589853, 131072, 2, 720924, 131072, 4, 655388, 131072, 2, 589852, 131072, 2, 720923, 131072, 4, 655387, 131072, 2, 589851, 131072, 2, 720922, 131072, 4, 655386, 131072, 2, 589850, 131072, 2, 720921, 0, 3, 655385, 0, 2, 589849, 0, 2, 90, 131072, 4, -65446, 131072, 2, -130982, 131072, 0, 89, 131072, 4, -65447, 131072, 2, -130983, 131072, 0, 88, 131072, 4, -65448, 131072, 2, -130984, 131072, 0, 87, 131072, 4, -65449, 131072, 2, -130985, 131072, 0, 86, 131072, 4, -65450, 131072, 2, -130986, 131072, 0, 85, 131072, 4, -65451, 131072, 2, -130987, 131072, 0, 84, 131072, 4, -65452, 131072, 2, -130988, 131072, 0, 83, 131072, 4, -65453, 131072, 2, -130989, 131072, 0, 82, 131072, 4, -65454, 131072, 2, -130990, 131072, 0, 81, 131072, 4, -65455, 131072, 2, -130991, 131072, 0, 80, 131072, 4, -65456, 131072, 2, -130992, 131072, 0, 79, 131072, 4, -65457, 131072, 2, -130993, 131072, 0, 78, 131072, 4, -65458, 131072, 2, -130994, 131072, 0, 77, 131072, 4, -65459, 131072, 2, -130995, 131072, 0, 76, 131072, 4, -65460, 131072, 2, -130996, 131072, 0, 75, 131072, 4, -65461, 131072, 2, -130997, 131072, 0, 74, 131072, 4, -65462, 131072, 2, -130998, 131072, 0, 73, 131072, 4, -65463, 131072, 2, -130999, 131072, 0, 72, 131072, 4, -65464, 131072, 2, -131000, 131072, 0, 71, 131072, 4, -65465, 131072, 2, -131001, 131072, 0, 70, 131072, 4, -65466, 131072, 2, -131002, 131072, 0, 69, 131072, 4, -65467, 131072, 2, -131003, 131072, 0, 68, 131072, 4, -65468, 131072, 2, -131004, 131072, 0, 67, 131072, 4, -65469, 131072, 2, -131005, 131072, 0, 66, 131072, 4, -65470, 131072, 2, -131006, 131072, 0, 65, 131072, 4, -65471, 131072, 2, -131007, 131072, 0, 64, 131072, 4, -65472, 131072, 2, -131008, 131072, 0, 63, 131072, 4, -65473, 131072, 2, -131009, 131072, 0, 62, 131072, 4, -65474, 131072, 2, -131010, 131072, 0, 61, 131072, 4, -65475, 131072, 2, -131011, 131072, 0, 60, 131072, 4, -65476, 131072, 2, -131012, 131072, 0, 59, 131072, 4, -65477, 131072, 2, -131013, 131072, 0, 58, 131072, 4, -65478, 131072, 2, -131014, 131072, 0, 57, 131072, 4, -65479, 131072, 2, -131015, 131072, 0, 56, 131072, 4, -65480, 131072, 2, -131016, 131072, 0, 55, 131072, 4, -65481, 131072, 2, -131017, 131072, 0, 54, 131072, 4, -65482, 131072, 2, -131018, 131072, 0, 53, 131072, 4, -65483, 131072, 2, -131019, 131072, 0, 52, 131072, 4, -65484, 131072, 2, -131020, 131072, 0, 51, 131072, 4, -65485, 131072, 2, 50, 131072, 4, -65486, 131072, 2, 49, 131072, 4, -65487, 131072, 2, 48, 131072, 4, -65488, 131072, 2, 720991, 196608, 4, 655455, 262144, 2, 589919, 262144, 2, 524383, 262144, 2, 458847, 262144, 2, 393311, 262144, 2, 327775, 262144, 2, 262239, 262144, 2, 196703, 262144, 2, 131167, 262144, 2, 65631, 262144, 2, 95, 262144, 2, -65441, 262144, 2, -130977, 196608, 0, 720990, 131072, 4, 655454, 131072, 2, 589918, 131072, 2, 524382, 131072, 2, 458846, 131072, 2, 393310, 131072, 2, 327774, 131072, 2, 262238, 131072, 2, 196702, 131072, 2, 131166, 131072, 2, 65630, 131072, 2, 94, 131072, 2, -65442, 131072, 2, -130978, 131072, 0, 720989, 131072, 4, 655453, 131072, 2, 589917, 131072, 2, 524381, 131072, 2, 458845, 131072, 2, 393309, 131072, 2, 327773, 131072, 2, 262237, 131072, 2, 196701, 131072, 2, 131165, 131072, 2, 65629, 131072, 2, 93, 131072, 2, -65443, 131072, 2, -130979, 131072, 0, 720988, 131072, 4, 655452, 131072, 2, 589916, 131072, 2, 524380, 131072, 2, 458844, 131072, 2, 393308, 131072, 2, 327772, 131072, 2, 262236, 131072, 2, 196700, 131072, 2, 131164, 131072, 2, 65628, 131072, 2, 92, 131072, 2, -65444, 131072, 2, -130980, 131072, 0, 720987, 131072, 4, 655451, 131072, 2, 589915, 131072, 2, 524379, 131072, 2, 458843, 65536, 1, 393307, 0, 2, 327771, 0, 2, 262235, 0, 2, 196699, 0, 2, 131163, 0, 2, 65627, 0, 2, 91, 65536, 3, -65445, 131072, 2, -130981, 131072, 0)
 

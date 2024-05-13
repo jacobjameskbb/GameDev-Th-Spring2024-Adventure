@@ -217,6 +217,14 @@ collision_mask = 1024
 position = Vector2(0.5, 4)
 shape = SubResource("CapsuleShape2D_11bl0")
 
+[node name="DetectDark" type="Area2D" parent="."]
+collision_layer = 2048
+collision_mask = 2048
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectDark"]
+position = Vector2(0.399994, 3.80001)
+shape = SubResource("CapsuleShape2D_clevp")
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="animation_looped" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_looped"]
 [connection signal="animation_finished" from="Bat/AnimationPlayer" to="Bat" method="_on_animation_player_animation_finished"]
@@ -224,3 +232,5 @@ shape = SubResource("CapsuleShape2D_11bl0")
 [connection signal="body_entered" from="DamageDetectLeft" to="." method="_on_damage_detect_left_body_entered"]
 [connection signal="body_entered" from="DamageDetectRight" to="." method="_on_damage_detect_right_body_entered"]
 [connection signal="body_entered" from="KODetect" to="." method="_on_ko_detect_body_entered"]
+[connection signal="body_entered" from="DetectDark" to="." method="_on_detect_dark_body_entered"]
+[connection signal="body_exited" from="DetectDark" to="." method="_on_detect_dark_body_exited"]
