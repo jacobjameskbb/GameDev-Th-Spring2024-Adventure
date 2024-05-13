@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dfd844bqrxemi"]
+[gd_scene load_steps=25 format=3 uid="uid://dfd844bqrxemi"]
 
 [ext_resource type="Texture2D" uid="uid://bl386cm1t8ew2" path="res://Sprites/new shelves.png" id="1_gl7vg"]
 [ext_resource type="Script" path="res://milk final.gd" id="1_mt7po"]
@@ -15,6 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://ca5q15msegdyq" path="res://Sounds/676234__newlocknew__ambdsgn_creepy-otherworldly-industrial-ambience-2_em.wav" id="13_d8kfw"]
 [ext_resource type="Texture2D" uid="uid://tw33nvdv4uv3" path="res://Sprites/doors.png" id="14_ve80t"]
 [ext_resource type="Script" path="res://fade normal.gd" id="15_i11km"]
+[ext_resource type="PackedScene" uid="uid://c0rqscpwx8ycc" path="res://Pause menu.tscn" id="16_u42cv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xawxv"]
 size = Vector2(4692, 620)
@@ -427,6 +428,9 @@ script = ExtResource("15_i11km")
 offset_right = 1165.0
 offset_bottom = 685.0
 color = Color(0, 0, 0, 1)
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("16_u42cv")]
+visible = false
 
 [connection signal="body_entered" from="World/Cashier/Basement Entrance" to="World/Cashier/Basement Entrance" method="_on_body_entered"]
 [connection signal="body_exited" from="World/Cashier/Basement Entrance" to="World/Cashier/Basement Entrance" method="_on_body_exited"]

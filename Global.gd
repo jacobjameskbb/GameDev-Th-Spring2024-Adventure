@@ -1,5 +1,6 @@
 extends Node
 
+var volume = 10
 var money = 0
 var spawnpoint = Vector2(0,0)
 var current_level = 0

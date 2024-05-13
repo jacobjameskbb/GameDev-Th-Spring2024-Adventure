@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://c50w6lyesi3jq"]
+[gd_scene load_steps=53 format=3 uid="uid://c50w6lyesi3jq"]
 
 [ext_resource type="Texture2D" uid="uid://bm0n088ubf6fs" path="res://Sprites/trees background.png" id="1_l4y8o"]
 [ext_resource type="Texture2D" uid="uid://brkrk8hld82nw" path="res://Sprites/grass.png" id="2_cjiq6"]
@@ -38,6 +38,7 @@
 [ext_resource type="AudioStream" uid="uid://ctq636usd44d0" path="res://Sounds/grass step2.wav" id="27_nkjll"]
 [ext_resource type="AudioStream" uid="uid://c3o25y66ypt5v" path="res://Sounds/grass step3.wav" id="28_oajgb"]
 [ext_resource type="AudioStream" uid="uid://bd8e30iarisml" path="res://Sounds/grass step4.wav" id="29_88gog"]
+[ext_resource type="PackedScene" uid="uid://c0rqscpwx8ycc" path="res://Pause menu.tscn" id="39_y5jmy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3c4c1"]
 size = Vector2(1571.75, 361)
@@ -436,6 +437,11 @@ pitch_scale = 0.7
 [node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="Sounds/GrassWalking"]
 stream = ExtResource("29_88gog")
 pitch_scale = 0.7
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("39_y5jmy")]
+visible = false
 
 [connection signal="body_entered" from="World/CameraSpeedup" to="World/CameraSpeedup" method="_on_body_entered"]
 [connection signal="body_entered" from="World/InAir" to="World/InAir" method="_on_body_entered"]

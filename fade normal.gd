@@ -2,10 +2,14 @@ extends Node2D
 
 signal finished_fade
 @export var speed = 0.1
+@export var fade_out_at_start = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	fade_out()
+	if fade_out_at_start:
+		fade_out()
+	
+		
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

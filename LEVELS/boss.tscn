@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://hs7trrkmvc8x"]
+[gd_scene load_steps=31 format=3 uid="uid://hs7trrkmvc8x"]
 
 [ext_resource type="Texture2D" uid="uid://cx0vocrdtktrn" path="res://Sprites/PS_Tileset_06.png" id="1_ykry7"]
 [ext_resource type="Script" path="res://DebtCollectorBoss.gd" id="2_1835h"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://8cclpqryrpk3" path="res://Nodes/HealthBar/health_bar.tscn" id="11_0s8hj"]
 [ext_resource type="Script" path="res://Pixel fade to black.gd" id="12_tq7jh"]
 [ext_resource type="Texture2D" uid="uid://dons2uhaf4r6k" path="res://Sprites/black pixel.png" id="13_h8wcf"]
+[ext_resource type="PackedScene" uid="uid://c0rqscpwx8ycc" path="res://Pause menu.tscn" id="14_xriq3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lgut4"]
 texture = ExtResource("1_ykry7")
@@ -1138,6 +1139,9 @@ script = ExtResource("12_tq7jh")
 scale = Vector2(0.5, 0.5)
 tile_set = SubResource("TileSet_5j10i")
 format = 2
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("14_xriq3")]
+visible = false
 
 [connection signal="animation_finished" from="World/DebtCollectorBoss/AnimatedSprite2D" to="World/DebtCollectorBoss" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="World/DebtCollectorBoss/Bat detect" to="World/DebtCollectorBoss" method="_on_bat_detect_body_entered"]

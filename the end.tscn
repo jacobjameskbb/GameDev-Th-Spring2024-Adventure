@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://7otsqpx686hx"]
+[gd_scene load_steps=48 format=3 uid="uid://7otsqpx686hx"]
 
 [ext_resource type="PackedScene" uid="uid://dmkswt3j12c27" path="res://sound_pool.tscn" id="1_t5ogl"]
 [ext_resource type="AudioStream" uid="uid://bcmi28l6dbnpg" path="res://Sounds/Step.mp3" id="2_dylo5"]
@@ -36,6 +36,7 @@
 [ext_resource type="Texture2D" uid="uid://e8e77jgeraag" path="res://Sprites/jethro-idle 1.png" id="32_wsqdb"]
 [ext_resource type="Script" path="res://Pixel fade to black.gd" id="35_dmmpd"]
 [ext_resource type="Texture2D" uid="uid://dons2uhaf4r6k" path="res://Sprites/black pixel.png" id="36_7ahku"]
+[ext_resource type="PackedScene" uid="uid://c0rqscpwx8ycc" path="res://Pause menu.tscn" id="37_nm32v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n32ky"]
 size = Vector2(4124, 620)
@@ -512,7 +513,11 @@ tile_set = SubResource("TileSet_t5by2")
 format = 2
 layer_0/tile_data = PackedInt32Array(0, 2, 0, 5243023, 2, 0)
 
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("37_nm32v")]
+visible = false
+
 [connection signal="body_entered" from="World/MilkStore/Area2D" to="World/MilkStore/Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="World/MilkStore/Area2D" to="World/MilkStore/Area2D" method="_on_body_exited"]
 [connection signal="animation_finished" from="World/Cutscene/AnimationPlayer" to="World/Cutscene" method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="World/Cutscene/Area2D" to="World/Cutscene" method="_on_area_2d_body_entered"]
+[connection signal="finished_fade" from="CanvasLayer/Node2D" to="World/Cutscene" method="_on_node_2d_finished_fade"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://brf6dbwgeopuy"]
+[gd_scene load_steps=28 format=3 uid="uid://brf6dbwgeopuy"]
 
 [ext_resource type="PackedScene" uid="uid://d1f1fk2kiy4ty" path="res://player.tscn" id="1_j7sys"]
 [ext_resource type="Script" path="res://camera.gd" id="2_xy8eq"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://b81mbj18jebcu" path="res://particle portal.tscn" id="13_chgru"]
 [ext_resource type="PackedScene" uid="uid://dyrysltj3wt0q" path="res://Nodes/Knight/knight.tscn" id="13_yvxj0"]
 [ext_resource type="PackedScene" uid="uid://dtuaast8087a5" path="res://Nodes/Slug/slug.tscn" id="14_ncvrv"]
+[ext_resource type="PackedScene" uid="uid://c0rqscpwx8ycc" path="res://Pause menu.tscn" id="17_4bb42"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1sud6"]
 size = Vector2(68.9695, 28.499)
@@ -361,6 +362,9 @@ autoplay = true
 
 [node name="MoneyCounter" parent="CanvasLayer" instance=ExtResource("12_rlnoq")]
 position = Vector2(992, 57)
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("17_4bb42")]
+visible = false
 
 [node name="Slug" parent="." instance=ExtResource("14_ncvrv")]
 position = Vector2(1428, 356)

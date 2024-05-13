@@ -96,6 +96,7 @@ func _ready():
 	
 
 func _physics_process(delta):
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear_to_db(Global.volume))
 	if check_anything:
 		if Input.is_anything_pressed() and not is_anything_just_pressed:
 			is_anything_just_pressed = true

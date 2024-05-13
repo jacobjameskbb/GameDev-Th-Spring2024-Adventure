@@ -1,0 +1,172 @@
+[gd_scene load_steps=4 format=3 uid="uid://ibuq4e2ibtj2"]
+
+[ext_resource type="Script" path="res://Scrolling Credits.gd" id="1_rln45"]
+[ext_resource type="FontFile" uid="uid://do5gjoyxrtu6a" path="res://PublicPixel.ttf" id="2_s8x8d"]
+[ext_resource type="Script" path="res://fade normal.gd" id="3_xnga0"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Scrolling Credits" type="Control" parent="."]
+anchors_preset = 0
+offset_top = 700.0
+offset_right = 1152.0
+offset_bottom = 2157.0
+script = ExtResource("1_rln45")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Scrolling Credits"]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 1135.0
+
+[node name="Label" type="Label" parent="Scrolling Credits/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_s8x8d")
+theme_override_font_sizes/font_size = 50
+text = "Thank you for playing!"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Scrolling Credits/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_s8x8d")
+theme_override_font_sizes/font_size = 40
+text = "
+
+
+
+
+
+
+
+
+
+
+
+Biznes 5: Bankrupcy"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="Scrolling Credits/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_s8x8d")
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="Scrolling Credits/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_s8x8d")
+theme_override_font_sizes/font_size = 30
+text = "
+
+
+
+
+
+This game was made over the period of
+ 
+a semester, and we are very proud
+
+of it. This is the 5th game in the
+
+biznes franchize, so feel free to
+
+play the other *3 games.
+
+
+
+
+
+
+Contributers:
+
+Jacob James, Albert Chosenko, 
+Alfred Samodarov, _ _ _
+
+
+
+
+Project Manager: Jacob James
+
+Lead Programmer: Albert Chosenko
+
+Art: Albert Chosenko,
+_
+_
+_
+
+Level Design: Alfred Samodarov, 
+_ 
+_
+_
+
+
+
+
+ 
+
+
+
+
+
+
+Play Again?
+"
+horizontal_alignment = 1
+
+[node name="Label6" type="Label" parent="Scrolling Credits/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_s8x8d")
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Scrolling Credits/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Quit" type="Button" parent="Scrolling Credits/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "     Quit     "
+
+[node name="Label2" type="Label" parent="Scrolling Credits/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_s8x8d")
+theme_override_font_sizes/font_size = 40
+text = "  "
+horizontal_alignment = 1
+
+[node name="PlayAgain" type="Button" parent="Scrolling Credits/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Play Again"
+
+[node name="Label3" type="Label" parent="Scrolling Credits/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_s8x8d")
+theme_override_font_sizes/font_size = 40
+text = "  "
+horizontal_alignment = 1
+
+[node name="MainMenu" type="Button" parent="Scrolling Credits/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Main Menu"
+
+[node name="Label5" type="Label" parent="Scrolling Credits/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_s8x8d")
+theme_override_font_sizes/font_size = 40
+text = "  "
+horizontal_alignment = 1
+
+[node name="FadeNormal" type="Node2D" parent="."]
+script = ExtResource("3_xnga0")
+
+[node name="ColorRect" type="ColorRect" parent="FadeNormal"]
+offset_right = 1165.0
+offset_bottom = 685.0
+color = Color(0, 0, 0, 1)

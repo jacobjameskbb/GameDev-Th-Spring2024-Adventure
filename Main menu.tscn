@@ -1,0 +1,93 @@
+[gd_scene load_steps=4 format=3 uid="uid://db7jh8lt0nhrt"]
+
+[ext_resource type="Script" path="res://Main menu.gd" id="1_1257w"]
+[ext_resource type="FontFile" uid="uid://do5gjoyxrtu6a" path="res://PublicPixel.ttf" id="1_ew5oc"]
+[ext_resource type="Texture2D" uid="uid://bm0n088ubf6fs" path="res://Sprites/trees background.png" id="2_xcyop"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1257w")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 170.0
+offset_top = 45.0
+offset_right = 942.0
+offset_bottom = 194.0
+theme_override_fonts/font = ExtResource("1_ew5oc")
+theme_override_font_sizes/font_size = 40
+text = "Biznes 5: Bankrupcy"
+
+[node name="Settings" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Settings"]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 342.0
+offset_right = 206.0
+offset_bottom = 608.0
+
+[node name="Label2" type="Label" parent="Settings/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ew5oc")
+text = "Volume
+"
+
+[node name="Volume" type="HSlider" parent="Settings/VBoxContainer"]
+layout_mode = 2
+max_value = 20.0
+step = 0.5
+value = 1.0
+
+[node name="Label" type="Label" parent="Settings/VBoxContainer"]
+layout_mode = 2
+
+[node name="Back" type="Button" parent="Settings/VBoxContainer"]
+layout_mode = 2
+text = "Back
+"
+
+[node name="Main" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Main"]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 342.0
+offset_right = 206.0
+offset_bottom = 608.0
+
+[node name="Play" type="Button" parent="Main/VBoxContainer"]
+layout_mode = 2
+text = "Play
+"
+
+[node name="Label" type="Label" parent="Main/VBoxContainer"]
+layout_mode = 2
+
+[node name="Settings" type="Button" parent="Main/VBoxContainer"]
+layout_mode = 2
+text = "Settings
+"
+
+[node name="TreesBackground" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-479, 76)
+scale = Vector2(5, 5)
+texture = ExtResource("2_xcyop")
+
+[connection signal="value_changed" from="Settings/VBoxContainer/Volume" to="." method="_on_volume_value_changed"]
+[connection signal="pressed" from="Settings/VBoxContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Main/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Main/VBoxContainer/Settings" to="." method="_on_settings_pressed"]

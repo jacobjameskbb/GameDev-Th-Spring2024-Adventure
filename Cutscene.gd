@@ -25,3 +25,7 @@ func _on_animation_player_animation_finished(anim_name):
 	player.can_move = true
 	if get_parent().get_parent().name == 'meet':
 		get_tree().change_scene_to_file('res://LEVELS/boss.tscn')
+
+
+func _on_node_2d_finished_fade():
+	get_tree().change_scene_to_file('res://credits.tscn')

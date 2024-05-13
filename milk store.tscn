@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cfwqbab6wkmxp"]
+[gd_scene load_steps=29 format=3 uid="uid://cfwqbab6wkmxp"]
 
 [ext_resource type="Script" path="res://PanoramaHBox.gd" id="1_fy0xt"]
 [ext_resource type="Texture2D" uid="uid://ly3wjbw48q30" path="res://Sprites/shelves.png" id="2_rpc2d"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bvlg1cwparbr" path="res://Sprites/sign.png" id="11_ii4sx"]
 [ext_resource type="PackedScene" uid="uid://ce2kyubmccdjg" path="res://sounds.tscn" id="12_npnvo"]
 [ext_resource type="AudioStream" uid="uid://ca5q15msegdyq" path="res://Sounds/676234__newlocknew__ambdsgn_creepy-otherworldly-industrial-ambience-2_em.wav" id="13_6amlp"]
+[ext_resource type="PackedScene" uid="uid://c0rqscpwx8ycc" path="res://Pause menu.tscn" id="14_aqpsp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xawxv"]
 size = Vector2(4124, 620)
@@ -528,6 +529,11 @@ color = Color(0, 0, 0, 1)
 [node name="Background2" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("13_6amlp")
 autoplay = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("14_aqpsp")]
+visible = false
 
 [connection signal="body_entered" from="World/Cashier/Scene Trigger" to="World/Cashier" method="_on_scene_trigger_body_entered"]
 [connection signal="body_entered" from="World/Cashier/Basement Entrance" to="World/Cashier/Basement Entrance" method="_on_body_entered"]

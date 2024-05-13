@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dxuola0g4iexh"]
+[gd_scene load_steps=29 format=3 uid="uid://dxuola0g4iexh"]
 
 [ext_resource type="PackedScene" uid="uid://ce2kyubmccdjg" path="res://sounds.tscn" id="1_04cej"]
 [ext_resource type="Texture2D" uid="uid://c1frd32fijkoa" path="res://Sprites/basement wall.png" id="1_a424q"]
@@ -14,6 +14,7 @@
 [ext_resource type="FontFile" uid="uid://do5gjoyxrtu6a" path="res://PublicPixel.ttf" id="9_27nbt"]
 [ext_resource type="Script" path="res://tv.gd" id="9_wymxy"]
 [ext_resource type="Script" path="res://TutorialBreakWindow.gd" id="14_ouh5n"]
+[ext_resource type="PackedScene" uid="uid://c0rqscpwx8ycc" path="res://Pause menu.tscn" id="15_y4pkp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xqh8e"]
 size = Vector2(514, 320)
@@ -282,6 +283,11 @@ root_node = NodePath("../Label")
 libraries = {
 "": SubResource("AnimationLibrary_vg40s")
 }
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("15_y4pkp")]
+visible = false
 
 [connection signal="body_entered" from="World/PickupBat/Area2D" to="World/PickupBat" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="World/PickupBat/Area2D" to="World/PickupBat" method="_on_area_2d_body_exited"]
