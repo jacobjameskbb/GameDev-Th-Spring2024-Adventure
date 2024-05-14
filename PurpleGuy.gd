@@ -1,5 +1,8 @@
 extends Node2D
 
+@onready var coin = load("res://money.tscn")
+@onready var projectile = load("res://purple_projectile.tscn")
+
 var angle_sum = 0
 
 @export var wander_range = 200
@@ -10,7 +13,12 @@ var target_position = self.global_position
 
 var starting_position = self.global_position
 
+var shoot_target = self
+
 var state = "idle"
+
+var health = 10
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -63,6 +71,14 @@ func set_state(new_state):
 
 	state = new_state
 
+func death():
+	#for i in range(1,coin_amount):
+	#	var new_coin = coin.instantiate()
+	#	new_coin.position = self.position
+	#	get_parent().call_deferred("add_child",new_coin)
+	
+	queue_free()
+
 func get_new_target():
 	var random_angle = randf_range(0,(2*PI))
 	
@@ -76,3 +92,27 @@ func adjust_angle_sum(delta):
 	
 	if angle_sum >= 2*PI:
 		angle_sum = 0
+
+func shoot():
+	var new_projectile = projectile.instantiate()
+	new_projectile.direction = Vector2(1,0).rotated((shoot_target.position - self.position).angle())
+	new_projectile.position = self.position + 20 * new_projectile.direction
+	new_projectile.rotation = new_projectile.direction.angle()
+	get_parent().call_deferred("add_child",new_projectile)
+
+func _on_player_detect_body_entered(body):
+	if body.is_in_group("player"):
+		shoot_target = body
+		set_state("attack")
+		
+		$Sprite.scale.x = 2 * (body.position.x - self.position.x) / abs(body.position.x - self.position.x)
+		
+		shoot()
+
+func _on_attack_timer_timeout():
+	if state == "attack":
+		shoot()
+
+
+func _on_player_detect_body_exited(body):
+	set_state("wander")

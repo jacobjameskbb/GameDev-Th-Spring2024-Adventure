@@ -1,23 +1,24 @@
-[gd_scene load_steps=6 format=3 uid="uid://b0t0anb3nn23g"]
+[gd_scene load_steps=7 format=3 uid="uid://b0t0anb3nn23g"]
 
 [ext_resource type="SpriteFrames" uid="uid://dbof0c3ryxlme" path="res://Nodes/Knight/knight body.tres" id="1_6pgrx"]
 [ext_resource type="SpriteFrames" uid="uid://c5h4lhcy6vmyt" path="res://Nodes/Knight/knight legs.tres" id="2_2rgyo"]
 [ext_resource type="SpriteFrames" uid="uid://byacpr7o72n7u" path="res://Sprites/slug.tres" id="3_32ahi"]
 [ext_resource type="SpriteFrames" uid="uid://bkdbmnuum5jge" path="res://Sprites/mailbox.tres" id="4_knb1i"]
 [ext_resource type="PackedScene" uid="uid://ddnyn77rc12u8" path="res://money_counter.tscn" id="5_jfqu6"]
+[ext_resource type="PackedScene" uid="uid://b44wi20jjx5xx" path="res://purple_guy.tscn" id="6_1iivl"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 visible = false
 sprite_frames = ExtResource("1_6pgrx")
-animation = &"attacking"
-frame_progress = 0.931595
+animation = &"standing"
+frame_progress = 0.621272
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
 visible = false
 sprite_frames = ExtResource("2_2rgyo")
-frame_progress = 0.940024
+frame_progress = 0.647352
 speed_scale = 2.0
 
 [node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="."]
@@ -27,9 +28,28 @@ animation = &"move"
 frame_progress = 0.3737
 
 [node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="."]
+visible = false
 sprite_frames = ExtResource("4_knb1i")
 animation = &"standing"
 frame_progress = 0.772155
 
 [node name="MoneyCounter" parent="." instance=ExtResource("5_jfqu6")]
 position = Vector2(978, 89)
+
+[node name="PurpleGuy" parent="." instance=ExtResource("6_1iivl")]
+position = Vector2(371, 178)
+
+[node name="PurpleGuy2" parent="." instance=ExtResource("6_1iivl")]
+position = Vector2(371, 178)
+
+[node name="PurpleGuy3" parent="." instance=ExtResource("6_1iivl")]
+position = Vector2(371, 178)
+
+[node name="PurpleGuy4" parent="." instance=ExtResource("6_1iivl")]
+position = Vector2(371, 178)
+
+[node name="PurpleGuy5" parent="." instance=ExtResource("6_1iivl")]
+position = Vector2(371, 178)
+
+[node name="PurpleGuy6" parent="." instance=ExtResource("6_1iivl")]
+position = Vector2(371, 178)

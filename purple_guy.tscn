@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://b44wi20jjx5xx"]
+[gd_scene load_steps=5 format=3 uid="uid://b44wi20jjx5xx"]
 
 [ext_resource type="Script" path="res://PurpleGuy.gd" id="1_c1q15"]
 [ext_resource type="SpriteFrames" uid="uid://byn2ldb0khuph" path="res://Sprites/purple guy.tres" id="2_h60py"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fobrq"]
+radius = 19.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n0m8e"]
+radius = 200.0
 
 [node name="PurpleGuy" type="Node2D"]
 script = ExtResource("1_c1q15")
@@ -10,5 +16,24 @@ script = ExtResource("1_c1q15")
 scale = Vector2(2, 2)
 sprite_frames = ExtResource("2_h60py")
 animation = &"fly"
-frame_progress = 0.54495
+frame_progress = 0.073699
 speed_scale = 5.0
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(-4, 8)
+shape = SubResource("CircleShape2D_fobrq")
+
+[node name="PlayerDetect" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetect"]
+shape = SubResource("CircleShape2D_n0m8e")
+
+[node name="AttackTimer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[connection signal="body_entered" from="PlayerDetect" to="." method="_on_player_detect_body_entered"]
+[connection signal="body_exited" from="PlayerDetect" to="." method="_on_player_detect_body_exited"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
