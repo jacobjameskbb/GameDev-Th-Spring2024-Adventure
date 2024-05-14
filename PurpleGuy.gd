@@ -17,8 +17,9 @@ var shoot_target = self
 
 var state = "idle"
 
-var health = 10
+var health = 16
 
+var coin_amount = 4
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -72,10 +73,10 @@ func set_state(new_state):
 	state = new_state
 
 func death():
-	#for i in range(1,coin_amount):
-	#	var new_coin = coin.instantiate()
-	#	new_coin.position = self.position
-	#	get_parent().call_deferred("add_child",new_coin)
+	for i in range(1,coin_amount):
+		var new_coin = coin.instantiate()
+		new_coin.position = self.position
+		get_parent().call_deferred("add_child",new_coin)
 	
 	queue_free()
 
@@ -100,6 +101,11 @@ func shoot():
 	new_projectile.rotation = new_projectile.direction.angle()
 	get_parent().call_deferred("add_child",new_projectile)
 
+func take_damage(damage):
+	health -= damage
+	if health <= 0:
+		death()
+
 func _on_player_detect_body_entered(body):
 	if body.is_in_group("player"):
 		shoot_target = body
@@ -116,3 +122,9 @@ func _on_attack_timer_timeout():
 
 func _on_player_detect_body_exited(body):
 	set_state("wander")
+
+
+func _on_hitbox_body_entered(body):
+	if body.is_in_group("bat"):
+		print('Hit!')
+		take_damage(body.get_parent().damage_bat)
