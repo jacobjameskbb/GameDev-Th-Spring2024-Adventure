@@ -1125,7 +1125,6 @@ autoplay = true
 
 [node name="Health" type="Node2D" parent="CanvasLayer"]
 script = ExtResource("10_y0dwn")
-max_health = 1
 
 [node name="HealthBar" parent="CanvasLayer/Health" instance=ExtResource("11_0s8hj")]
 position = Vector2(576, 34)

@@ -16,6 +16,12 @@ var dead = false
 
 @onready var player = $"../Player"
 
+@onready var knight = preload('res://Nodes/Knight/knight.tscn')
+@onready var purple = preload('res://purple_guy.tscn')
+@onready var mailbox = preload('res://mailbox.tscn')
+@onready var green = preload('res://Nodes/GoombaAlien/goomba_alien.tscn')
+@onready var slug = preload('res://Nodes/Slug/slug.tscn')
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -101,15 +107,19 @@ func spawn_enemy():
 		spawn_position = $RightEnemySpawn.global_position
 		
 	if health == 5:
-		pass
+		spawn(slug, spawn_position)
+		spawn(slug, spawn_position + Vector2(20,20))
 	elif health == 4:
-		pass
+		spawn(green, spawn_position)
+		spawn(green, spawn_position + Vector2(20,20))
 	elif health == 3:
-		pass
+		spawn(mailbox, spawn_position)
 	elif health == 2:
-		pass
+		spawn(purple, spawn_position)
+		spawn(green, spawn_position + Vector2(20,20))
+		spawn(green, spawn_position + Vector2(40,40))
 	elif health == 1:
-		pass
+		spawn(knight, spawn_position)
 
 
 
@@ -133,8 +143,13 @@ func death():
 	await get_tree().create_timer(1).timeout
 	$"../../CanvasLayer/FadeOut".fade()
 	
+func spawn(enemy, given_position):
+	var new_enemy = enemy.instantiate()
+	new_enemy.position = given_position
+	get_parent().add_child(new_enemy)
 
 
 func _on_fade_out_finished_fade():
 	await get_tree().create_timer(1).timeout
 	get_tree().change_scene_to_file('res://final milk store.tscn')
+

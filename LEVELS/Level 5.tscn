@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cle4hk5h4m3gs"]
+[gd_scene load_steps=15 format=3 uid="uid://cle4hk5h4m3gs"]
 
 [ext_resource type="TileSet" uid="uid://cmjou2j22usyr" path="res://Tilemap source.tres" id="1_bo4dy"]
 [ext_resource type="TileSet" uid="uid://dhpp7a8b1ufn" path="res://Tilemap card source.tres" id="2_24lai"]
@@ -7,11 +7,16 @@
 [ext_resource type="PackedScene" uid="uid://b81mbj18jebcu" path="res://particle portal.tscn" id="5_nyvq3"]
 [ext_resource type="Script" path="res://Checkpoint.gd" id="6_5gfjg"]
 [ext_resource type="PackedScene" uid="uid://ce2kyubmccdjg" path="res://sounds.tscn" id="7_8kfn4"]
+[ext_resource type="PackedScene" uid="uid://b44wi20jjx5xx" path="res://purple_guy.tscn" id="7_b5qwg"]
+[ext_resource type="PackedScene" uid="uid://dyrysltj3wt0q" path="res://Nodes/Knight/knight.tscn" id="8_3c8do"]
 [ext_resource type="AudioStream" uid="uid://ca5q15msegdyq" path="res://Sounds/676234__newlocknew__ambdsgn_creepy-otherworldly-industrial-ambience-2_em.wav" id="8_xrmkd"]
+[ext_resource type="PackedScene" uid="uid://0yhtecd3nn4a" path="res://Nodes/GoombaAlien/goomba_alien.tscn" id="9_dtm5s"]
 [ext_resource type="PackedScene" uid="uid://c0rqscpwx8ycc" path="res://Pause menu.tscn" id="9_smn3h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iikel"]
 size = Vector2(20, 95)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6jnl7"]
 
 [node name="Main" type="Node2D"]
 
@@ -86,6 +91,26 @@ position = Vector2(3, 1)
 shape = SubResource("RectangleShape2D_iikel")
 
 [node name="Spawn" type="Marker2D" parent="World/Checkpoints/Checkpoint3"]
+
+[node name="PurpleGuy9" parent="World" instance=ExtResource("7_b5qwg")]
+position = Vector2(901, 345)
+
+[node name="PurpleGuy10" parent="World" instance=ExtResource("7_b5qwg")]
+position = Vector2(1798, -285)
+
+[node name="Knight" parent="World" instance=ExtResource("8_3c8do")]
+position = Vector2(1002, -98)
+
+[node name="GoombaAlien" parent="World" instance=ExtResource("9_dtm5s")]
+position = Vector2(1737, -248)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="World" groups=["wall enemy"]]
+position = Vector2(2005, -237)
+collision_layer = 524288
+collision_mask = 524288
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/StaticBody2D"]
+shape = SubResource("RectangleShape2D_6jnl7")
 
 [node name="Sounds" parent="." instance=ExtResource("7_8kfn4")]
 

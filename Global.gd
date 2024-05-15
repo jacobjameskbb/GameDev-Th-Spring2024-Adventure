@@ -11,10 +11,7 @@ var next_level = {
 	2: "res://LEVELS/Level 3.tscn",
 	3: "res://LEVELS/Level 4.tscn",
 	4: "res://LEVELS/Level 5.tscn",
-	5: "res://LEVELS/Level 6.tscn",
-	6: "res://LEVELS/Level 7.tscn",
-	7: "res://LEVELS/Level 8.tscn",
-	8: "res://LEVELS/meet boss.tscn",
+	5: "res://LEVELS/meet boss.tscn",
 }
 
 func get_next_level():

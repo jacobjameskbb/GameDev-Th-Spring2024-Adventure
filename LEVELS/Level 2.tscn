@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://7qy81iprrcrx"]
+[gd_scene load_steps=15 format=3 uid="uid://7qy81iprrcrx"]
 
 [ext_resource type="TileSet" uid="uid://cmjou2j22usyr" path="res://Tilemap source.tres" id="1_q5exq"]
 [ext_resource type="TileSet" uid="uid://dhpp7a8b1ufn" path="res://Tilemap card source.tres" id="2_nurwd"]
@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://ca5q15msegdyq" path="res://Sounds/676234__newlocknew__ambdsgn_creepy-otherworldly-industrial-ambience-2_em.wav" id="8_yd1tb"]
 [ext_resource type="PackedScene" uid="uid://dyrysltj3wt0q" path="res://Nodes/Knight/knight.tscn" id="9_1bp52"]
 [ext_resource type="PackedScene" uid="uid://c0rqscpwx8ycc" path="res://Pause menu.tscn" id="9_lmb1e"]
+[ext_resource type="PackedScene" uid="uid://0yhtecd3nn4a" path="res://Nodes/GoombaAlien/goomba_alien.tscn" id="10_3x6hr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iikel"]
 size = Vector2(20, 95)
@@ -106,6 +107,18 @@ position = Vector2(2451, -979)
 
 [node name="Knight" parent="World" instance=ExtResource("9_1bp52")]
 position = Vector2(2848, -232)
+
+[node name="GoombaAlien" parent="World" instance=ExtResource("10_3x6hr")]
+position = Vector2(1440, 684)
+
+[node name="GoombaAlien2" parent="World" instance=ExtResource("10_3x6hr")]
+position = Vector2(2224, -157)
+
+[node name="GoombaAlien3" parent="World" instance=ExtResource("10_3x6hr")]
+position = Vector2(3600, -157)
+
+[node name="GoombaAlien4" parent="World" instance=ExtResource("10_3x6hr")]
+position = Vector2(3847, -172)
 
 [node name="Sounds" parent="." instance=ExtResource("7_ce81u")]
 
