@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Mailbox.gd" id="1_65oug"]
 [ext_resource type="Texture2D" uid="uid://cafquw5yp4fes" path="res://Nodes/Mailbox/maibox bending.png" id="2_rkv73"]
-[ext_resource type="Texture2D" uid="uid://khbb75yik457" path="res://Sprites/mailbox atack 1.png" id="3_3gkxr"]
+[ext_resource type="Texture2D" uid="uid://0frj73387wsl" path="res://Nodes/Mailbox/mailbox attack 1.png" id="3_3gkxr"]
 [ext_resource type="Texture2D" uid="uid://bvo11txnd1x63" path="res://Nodes/Mailbox/mailbox attack 2.png" id="4_kb0fn"]
 [ext_resource type="Texture2D" uid="uid://brmhj2855nj1h" path="res://Nodes/Mailbox/mailbox attack 3.png" id="5_unq7y"]
 [ext_resource type="Texture2D" uid="uid://c4jt3ye2qvgvs" path="res://Nodes/Mailbox/mailbox attack 4.png" id="6_quagg"]
@@ -259,7 +259,7 @@ size = Vector2(25, 61.25)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5841v"]
 size = Vector2(37.5, 61.25)
 
-[node name="Mailbox" type="CharacterBody2D" groups=["mailbox"]]
+[node name="Mailbox" type="CharacterBody2D" groups=["enemy", "mailbox"]]
 position = Vector2(922, 463)
 scale = Vector2(2, 2)
 collision_layer = 26
@@ -267,6 +267,8 @@ collision_mask = 3
 script = ExtResource("1_65oug")
 
 [node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["mailbox"]]
 sprite_frames = SubResource("SpriteFrames_bk1yh")

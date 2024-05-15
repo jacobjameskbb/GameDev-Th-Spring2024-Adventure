@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://d1f1fk2kiy4ty"]
+[gd_scene load_steps=24 format=3 uid="uid://d1f1fk2kiy4ty"]
 
 [ext_resource type="Script" path="res://Nodes/Player/Player.gd" id="1_bn4lc"]
 [ext_resource type="PackedScene" uid="uid://8cclpqryrpk3" path="res://Nodes/HealthBar/health_bar.tscn" id="2_k76x2"]
@@ -143,10 +143,6 @@ size = Vector2(6.46809, 39.2148)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uwnri"]
 size = Vector2(14.5, 43)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_11bl0"]
-radius = 13.0
-height = 59.0
-
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 position = Vector2(704, 491)
 scale = Vector2(2, 2)
@@ -213,9 +209,9 @@ shape = SubResource("RectangleShape2D_uwnri")
 collision_layer = 1024
 collision_mask = 1024
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="KODetect"]
-position = Vector2(0.5, 4)
-shape = SubResource("CapsuleShape2D_11bl0")
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="KODetect"]
+position = Vector2(0.399994, 3.80001)
+shape = SubResource("CapsuleShape2D_clevp")
 
 [node name="DetectDark" type="Area2D" parent="."]
 collision_layer = 2048

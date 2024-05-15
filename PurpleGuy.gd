@@ -72,6 +72,7 @@ func set_state(new_state):
 
 	state = new_state
 
+
 func death():
 	for i in range(1,coin_amount):
 		var new_coin = coin.instantiate()

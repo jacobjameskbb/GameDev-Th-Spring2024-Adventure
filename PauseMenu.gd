@@ -12,16 +12,20 @@ func _process(delta):
 		if not get_tree().paused:
 			AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear_to_db(0))
 			get_tree().paused = true
+			Engine.time_scale=0.0 
+			print(get_tree().paused)
 			self.show()
 			
 		else:
 			self.hide()
 			get_tree().paused = false
+			Engine.time_scale=1
 
 
 func _on_resume_pressed():
 	self.hide()
 	get_tree().paused = false
+	Engine.time_scale=1
 
 
 func _on_main_menu_pressed():

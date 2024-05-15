@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ck33cosptyres"]
+[gd_scene load_steps=12 format=3 uid="uid://ck33cosptyres"]
 
 [ext_resource type="TileSet" uid="uid://cmjou2j22usyr" path="res://Tilemap source.tres" id="1_d23bx"]
 [ext_resource type="TileSet" uid="uid://dhpp7a8b1ufn" path="res://Tilemap card source.tres" id="2_swxk5"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://Checkpoint.gd" id="6_tydv1"]
 [ext_resource type="PackedScene" uid="uid://ce2kyubmccdjg" path="res://sounds.tscn" id="7_81ji5"]
 [ext_resource type="AudioStream" uid="uid://ca5q15msegdyq" path="res://Sounds/676234__newlocknew__ambdsgn_creepy-otherworldly-industrial-ambience-2_em.wav" id="8_53ofl"]
+[ext_resource type="PackedScene" uid="uid://c0rqscpwx8ycc" path="res://Pause menu.tscn" id="9_0r4yl"]
 [ext_resource type="Texture2D" uid="uid://b4cr3rrc08f32" path="res://Sprites/blue tile.png" id="9_p4bxf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iikel"]
@@ -99,6 +100,9 @@ stream = ExtResource("8_53ofl")
 autoplay = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("9_0r4yl")]
+visible = false
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 

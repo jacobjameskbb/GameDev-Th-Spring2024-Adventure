@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+@export var coin_amount = 10
+@onready var coin = load("res://money.tscn")
+
 var attack_over = true
 
 @export var max_health = 25
@@ -135,7 +138,13 @@ func shoot():
 func attack(damage, type='none'):
 	health -= damage
 	if health <= 0:
-		queue_free()
+		death()
+func death():
+	for i in range(1,coin_amount):
+		var new_coin = coin.instantiate()
+		new_coin.position = self.position
+		get_parent().call_deferred("add_child",new_coin)
+	queue_free()
 
 
 func _on_detect_wall_left_body_entered(body):
