@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ck33cosptyres"]
+[gd_scene load_steps=15 format=3 uid="uid://ck33cosptyres"]
 
 [ext_resource type="TileSet" uid="uid://cmjou2j22usyr" path="res://Tilemap source.tres" id="1_d23bx"]
 [ext_resource type="TileSet" uid="uid://dhpp7a8b1ufn" path="res://Tilemap card source.tres" id="2_swxk5"]
@@ -7,9 +7,12 @@
 [ext_resource type="PackedScene" uid="uid://b81mbj18jebcu" path="res://particle portal.tscn" id="5_3fqxb"]
 [ext_resource type="Script" path="res://Checkpoint.gd" id="6_tydv1"]
 [ext_resource type="PackedScene" uid="uid://ce2kyubmccdjg" path="res://sounds.tscn" id="7_81ji5"]
+[ext_resource type="PackedScene" uid="uid://b44wi20jjx5xx" path="res://purple_guy.tscn" id="7_e4nol"]
 [ext_resource type="AudioStream" uid="uid://ca5q15msegdyq" path="res://Sounds/676234__newlocknew__ambdsgn_creepy-otherworldly-industrial-ambience-2_em.wav" id="8_53ofl"]
+[ext_resource type="PackedScene" uid="uid://dyrysltj3wt0q" path="res://Nodes/Knight/knight.tscn" id="8_req4w"]
 [ext_resource type="PackedScene" uid="uid://c0rqscpwx8ycc" path="res://Pause menu.tscn" id="9_0r4yl"]
 [ext_resource type="Texture2D" uid="uid://b4cr3rrc08f32" path="res://Sprites/blue tile.png" id="9_p4bxf"]
+[ext_resource type="PackedScene" uid="uid://b1a3fapygsp46" path="res://mailbox.tscn" id="9_w6jjs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iikel"]
 size = Vector2(20, 95)
@@ -92,6 +95,54 @@ shape = SubResource("RectangleShape2D_iikel")
 
 [node name="Spawn" type="Marker2D" parent="World/Checkpoints/Checkpoint3"]
 position = Vector2(-17, -8)
+
+[node name="PurpleGuy" parent="World" instance=ExtResource("7_e4nol")]
+position = Vector2(6490, -516)
+
+[node name="PurpleGuy2" parent="World" instance=ExtResource("7_e4nol")]
+position = Vector2(1090, -115)
+
+[node name="PurpleGuy3" parent="World" instance=ExtResource("7_e4nol")]
+position = Vector2(3412, -1299)
+
+[node name="PurpleGuy4" parent="World" instance=ExtResource("7_e4nol")]
+position = Vector2(1229, -456)
+
+[node name="PurpleGuy5" parent="World" instance=ExtResource("7_e4nol")]
+position = Vector2(1275, -743)
+
+[node name="PurpleGuy6" parent="World" instance=ExtResource("7_e4nol")]
+position = Vector2(3832, -1236)
+
+[node name="PurpleGuy7" parent="World" instance=ExtResource("7_e4nol")]
+position = Vector2(6538, -768)
+
+[node name="PurpleGuy8" parent="World" instance=ExtResource("7_e4nol")]
+position = Vector2(6333, -365)
+
+[node name="PurpleGuy9" parent="World" instance=ExtResource("7_e4nol")]
+position = Vector2(8695, -676)
+
+[node name="PurpleGuy10" parent="World" instance=ExtResource("7_e4nol")]
+position = Vector2(8333, -524)
+
+[node name="PurpleGuy11" parent="World" instance=ExtResource("7_e4nol")]
+position = Vector2(8581, -530)
+
+[node name="Knight" parent="World" instance=ExtResource("8_req4w")]
+position = Vector2(2921, -1278)
+
+[node name="Knight2" parent="World" instance=ExtResource("8_req4w")]
+position = Vector2(1643, 63)
+
+[node name="Mailbox" parent="World" instance=ExtResource("9_w6jjs")]
+position = Vector2(5699, -263)
+
+[node name="Mailbox3" parent="World" instance=ExtResource("9_w6jjs")]
+position = Vector2(7440, -1165)
+
+[node name="Mailbox2" parent="World" instance=ExtResource("9_w6jjs")]
+position = Vector2(4803, -275)
 
 [node name="Sounds" parent="." instance=ExtResource("7_81ji5")]
 
