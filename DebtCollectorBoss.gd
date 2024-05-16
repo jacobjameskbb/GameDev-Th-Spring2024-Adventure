@@ -4,6 +4,8 @@ var state = 'jumping'
 var animation_over = false
 var direction = 'left'
 
+var spawn_direction = 1
+
 var random = RandomNumberGenerator.new()
 
 var bullet_preload = preload("res://bullet.tscn")
@@ -101,23 +103,25 @@ func shoot(direction = 'left', amount = 5):
 
 func spawn_enemy():
 	var spawn_position
-	if player.global_position.x < $Center.global_position.x:
-		spawn_position = $LeftEnemySpawn.global_position
+	if player.global_position.x > $"../Center".global_position.x:
+		spawn_position = $"../LeftEnemySpawn".global_position
+		spawn_direction = 1
 	else:
-		spawn_position = $RightEnemySpawn.global_position
+		spawn_position = $"../RightEnemySpawn".global_position
+		spawn_direction = -1
 		
 	if health == 5:
-		spawn(slug, spawn_position)
-		spawn(slug, spawn_position + Vector2(20,20))
+		spawn(slug, spawn_position + Vector2(-200*spawn_direction,20))
+		spawn(slug, spawn_position + Vector2(-100*spawn_direction,20))
 	elif health == 4:
 		spawn(green, spawn_position)
 		spawn(green, spawn_position + Vector2(20,20))
 	elif health == 3:
 		spawn(mailbox, spawn_position)
 	elif health == 2:
-		spawn(purple, spawn_position)
-		spawn(green, spawn_position + Vector2(20,20))
-		spawn(green, spawn_position + Vector2(40,40))
+		spawn(purple, $"../Center".global_position + Vector2(0,100))
+		#spawn(purple, $"../Center".global_position + Vector2(-20*spawn_direction,130))
+		#spawn(purple, $"../Center".global_position + Vector2(-40*spawn_direction,160))
 	elif health == 1:
 		spawn(knight, spawn_position)
 
@@ -144,9 +148,19 @@ func death():
 	$"../../CanvasLayer/FadeOut".fade()
 	
 func spawn(enemy, given_position):
-	var new_enemy = enemy.instantiate()
-	new_enemy.position = given_position
-	get_parent().add_child(new_enemy)
+	if health != 2:
+		var new_enemy = enemy.instantiate()
+		new_enemy.global_position = given_position
+		get_parent().add_child(new_enemy)
+	else:
+		print('player_position: ',player.global_position)
+		var new_enemy = enemy.instantiate()
+		get_parent().add_child(new_enemy)
+		new_enemy.global_position = given_position
+		new_enemy.target_position = Vector2(580, 221)
+		new_enemy.starting_position = Vector2(580, 221)
+		new_enemy.set_starting_positions()
+		
 
 
 func _on_fade_out_finished_fade():

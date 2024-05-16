@@ -1057,7 +1057,16 @@ scale = Vector2(2, 2)
 tile_set = SubResource("TileSet_s1sbm")
 format = 2
 
-[node name="DebtCollectorBoss" type="CharacterBody2D" parent="World" groups=["wall"]]
+[node name="LeftEnemySpawn" type="Marker2D" parent="World"]
+position = Vector2(153, 807)
+
+[node name="RightEnemySpawn" type="Marker2D" parent="World"]
+position = Vector2(805, 813)
+
+[node name="Center" type="Marker2D" parent="World"]
+position = Vector2(472, 672)
+
+[node name="DebtCollectorBoss" type="CharacterBody2D" parent="World" groups=["wall", "wall enemy"]]
 script = ExtResource("2_1835h")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="World/DebtCollectorBoss"]
@@ -1081,15 +1090,6 @@ position = Vector2(121, 804)
 [node name="BulletPositionRight" type="Marker2D" parent="World/DebtCollectorBoss"]
 position = Vector2(835, 804)
 
-[node name="Center" type="Marker2D" parent="World/DebtCollectorBoss"]
-position = Vector2(472, 672)
-
-[node name="LeftEnemySpawn" type="Marker2D" parent="World/DebtCollectorBoss"]
-position = Vector2(153, 807)
-
-[node name="RightEnemySpawn" type="Marker2D" parent="World/DebtCollectorBoss"]
-position = Vector2(805, 813)
-
 [node name="Bat detect" type="Area2D" parent="World/DebtCollectorBoss"]
 collision_layer = 5
 collision_mask = 5
@@ -1112,6 +1112,7 @@ player_level = 2
 [node name="Camera2D" type="Camera2D" parent="World/Player"]
 position = Vector2(-4.5, -22.5)
 scale = Vector2(0.5, 0.5)
+zoom = Vector2(0.25, 0.25)
 position_smoothing_enabled = true
 script = ExtResource("7_vietu")
 
@@ -1125,6 +1126,7 @@ autoplay = true
 
 [node name="Health" type="Node2D" parent="CanvasLayer"]
 script = ExtResource("10_y0dwn")
+max_health = 2
 
 [node name="HealthBar" parent="CanvasLayer/Health" instance=ExtResource("11_0s8hj")]
 position = Vector2(576, 34)

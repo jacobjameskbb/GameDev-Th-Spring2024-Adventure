@@ -21,14 +21,28 @@ var health = 16
 
 var coin_amount = 4
 
+var reset_at_ready = true
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
 	$Sprite.play("fly")
+	if reset_at_ready:
+		reset_variables()
+	print('target_position', target_position, ', starting_position: ', starting_position)
+	
+func set_starting_positions():
+	await get_tree().create_timer(1).timeout
+	starting_position = Vector2(580, 221)
+	target_position = Vector2(580, 221)
+func reset_variables():
 	target_position = self.global_position
 	starting_position = self.global_position
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	print('global_position: ',global_position, ', local_position: ', position)
 	adjust_angle_sum(delta)
 	hover()
 	
