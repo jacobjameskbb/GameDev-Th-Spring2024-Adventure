@@ -1,2 +1,16 @@
 # Godot 4+ specific ignores
 .godot/
+export.zip
+export/index.apple-touch-icon.png
+export/index.apple-touch-icon.png.import
+export/index.audio.worklet.js
+export/index.html
+export/index.icon.png
+export/index.icon.png.import
+export/index.js
+export/index.pck
+export/index.png
+export/index.png.import
+export/index.wasm
+export/index.worker.js
+export_presets.cfg
