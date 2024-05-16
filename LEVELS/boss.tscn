@@ -1106,7 +1106,6 @@ libraries = {
 
 [node name="Player" parent="World" instance=ExtResource("6_avjyb")]
 position = Vector2(469, 855)
-on_grass = true
 player_level = 2
 
 [node name="Camera2D" type="Camera2D" parent="World/Player"]
