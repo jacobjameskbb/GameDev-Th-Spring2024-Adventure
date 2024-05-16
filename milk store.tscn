@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bvlg1cwparbr" path="res://Sprites/sign.png" id="11_ii4sx"]
 [ext_resource type="PackedScene" uid="uid://ce2kyubmccdjg" path="res://sounds.tscn" id="12_npnvo"]
 [ext_resource type="AudioStream" uid="uid://ca5q15msegdyq" path="res://Sounds/676234__newlocknew__ambdsgn_creepy-otherworldly-industrial-ambience-2_em.wav" id="13_6amlp"]
-[ext_resource type="PackedScene" uid="uid://c0rqscpwx8ycc" path="res://Pause menu.tscn" id="14_aqpsp"]
+[ext_resource type="PackedScene" path="res://Pause menu.tscn" id="14_aqpsp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xawxv"]
 size = Vector2(4124, 620)

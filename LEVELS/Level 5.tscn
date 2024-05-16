@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cle4hk5h4m3gs"]
+[gd_scene load_steps=16 format=3 uid="uid://cle4hk5h4m3gs"]
 
 [ext_resource type="TileSet" uid="uid://cmjou2j22usyr" path="res://Tilemap source.tres" id="1_bo4dy"]
 [ext_resource type="TileSet" uid="uid://dhpp7a8b1ufn" path="res://Tilemap card source.tres" id="2_24lai"]
@@ -11,7 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://dyrysltj3wt0q" path="res://Nodes/Knight/knight.tscn" id="8_3c8do"]
 [ext_resource type="AudioStream" uid="uid://ca5q15msegdyq" path="res://Sounds/676234__newlocknew__ambdsgn_creepy-otherworldly-industrial-ambience-2_em.wav" id="8_xrmkd"]
 [ext_resource type="PackedScene" uid="uid://0yhtecd3nn4a" path="res://Nodes/GoombaAlien/goomba_alien.tscn" id="9_dtm5s"]
-[ext_resource type="PackedScene" uid="uid://c0rqscpwx8ycc" path="res://Pause menu.tscn" id="9_smn3h"]
+[ext_resource type="PackedScene" path="res://Pause menu.tscn" id="9_smn3h"]
+[ext_resource type="PackedScene" uid="uid://ddnyn77rc12u8" path="res://money_counter.tscn" id="13_oa8pd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iikel"]
 size = Vector2(20, 95)
@@ -122,6 +123,9 @@ autoplay = true
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("9_smn3h")]
 visible = false
+
+[node name="MoneyCounter" parent="CanvasLayer" instance=ExtResource("13_oa8pd")]
+position = Vector2(992, 57)
 
 [connection signal="body_entered" from="World/Checkpoints/Checkpoint/Area2D" to="World/Checkpoints/Checkpoint" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="World/Checkpoints/Checkpoint2/Area2D" to="World/Checkpoints/Checkpoint2" method="_on_area_2d_body_entered"]

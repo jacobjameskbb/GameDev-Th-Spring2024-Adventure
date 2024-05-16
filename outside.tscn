@@ -38,7 +38,7 @@
 [ext_resource type="AudioStream" uid="uid://ctq636usd44d0" path="res://Sounds/grass step2.wav" id="27_nkjll"]
 [ext_resource type="AudioStream" uid="uid://c3o25y66ypt5v" path="res://Sounds/grass step3.wav" id="28_oajgb"]
 [ext_resource type="AudioStream" uid="uid://bd8e30iarisml" path="res://Sounds/grass step4.wav" id="29_88gog"]
-[ext_resource type="PackedScene" uid="uid://c0rqscpwx8ycc" path="res://Pause menu.tscn" id="39_y5jmy"]
+[ext_resource type="PackedScene" path="res://Pause menu.tscn" id="39_y5jmy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3c4c1"]
 size = Vector2(1571.75, 361)

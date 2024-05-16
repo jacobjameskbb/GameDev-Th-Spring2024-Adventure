@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ck33cosptyres"]
+[gd_scene load_steps=16 format=3 uid="uid://ck33cosptyres"]
 
 [ext_resource type="TileSet" uid="uid://cmjou2j22usyr" path="res://Tilemap source.tres" id="1_d23bx"]
 [ext_resource type="TileSet" uid="uid://dhpp7a8b1ufn" path="res://Tilemap card source.tres" id="2_swxk5"]
@@ -10,9 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://b44wi20jjx5xx" path="res://purple_guy.tscn" id="7_e4nol"]
 [ext_resource type="AudioStream" uid="uid://ca5q15msegdyq" path="res://Sounds/676234__newlocknew__ambdsgn_creepy-otherworldly-industrial-ambience-2_em.wav" id="8_53ofl"]
 [ext_resource type="PackedScene" uid="uid://dyrysltj3wt0q" path="res://Nodes/Knight/knight.tscn" id="8_req4w"]
-[ext_resource type="PackedScene" uid="uid://c0rqscpwx8ycc" path="res://Pause menu.tscn" id="9_0r4yl"]
+[ext_resource type="PackedScene" path="res://Pause menu.tscn" id="9_0r4yl"]
 [ext_resource type="Texture2D" uid="uid://b4cr3rrc08f32" path="res://Sprites/blue tile.png" id="9_p4bxf"]
 [ext_resource type="PackedScene" uid="uid://b1a3fapygsp46" path="res://mailbox.tscn" id="9_w6jjs"]
+[ext_resource type="PackedScene" uid="uid://ddnyn77rc12u8" path="res://money_counter.tscn" id="13_0xfp3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iikel"]
 size = Vector2(20, 95)
@@ -154,6 +155,9 @@ autoplay = true
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("9_0r4yl")]
 visible = false
+
+[node name="MoneyCounter" parent="CanvasLayer" instance=ExtResource("13_0xfp3")]
+position = Vector2(992, 57)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 

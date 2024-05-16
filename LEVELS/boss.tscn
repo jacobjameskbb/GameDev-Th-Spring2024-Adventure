@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://hs7trrkmvc8x"]
+[gd_scene load_steps=32 format=3 uid="uid://hs7trrkmvc8x"]
 
 [ext_resource type="Texture2D" uid="uid://cx0vocrdtktrn" path="res://Sprites/PS_Tileset_06.png" id="1_ykry7"]
 [ext_resource type="Script" path="res://DebtCollectorBoss.gd" id="2_1835h"]
@@ -13,7 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://8cclpqryrpk3" path="res://Nodes/HealthBar/health_bar.tscn" id="11_0s8hj"]
 [ext_resource type="Script" path="res://Pixel fade to black.gd" id="12_tq7jh"]
 [ext_resource type="Texture2D" uid="uid://dons2uhaf4r6k" path="res://Sprites/black pixel.png" id="13_h8wcf"]
-[ext_resource type="PackedScene" uid="uid://c0rqscpwx8ycc" path="res://Pause menu.tscn" id="14_xriq3"]
+[ext_resource type="PackedScene" path="res://Pause menu.tscn" id="14_xriq3"]
+[ext_resource type="PackedScene" uid="uid://ddnyn77rc12u8" path="res://money_counter.tscn" id="15_tamja"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lgut4"]
 texture = ExtResource("1_ykry7")
@@ -1039,7 +1040,7 @@ texture = ExtResource("13_h8wcf")
 [sub_resource type="TileSet" id="TileSet_5j10i"]
 sources/0 = SubResource("TileSetAtlasSource_td8bg")
 
-[node name="Node2D" type="Node2D"]
+[node name="Boss" type="Node2D"]
 
 [node name="World" type="Node2D" parent="."]
 position = Vector2(108, -551)
@@ -1111,7 +1112,6 @@ player_level = 2
 [node name="Camera2D" type="Camera2D" parent="World/Player"]
 position = Vector2(-4.5, -22.5)
 scale = Vector2(0.5, 0.5)
-zoom = Vector2(0.25, 0.25)
 position_smoothing_enabled = true
 script = ExtResource("7_vietu")
 
@@ -1125,7 +1125,6 @@ autoplay = true
 
 [node name="Health" type="Node2D" parent="CanvasLayer"]
 script = ExtResource("10_y0dwn")
-max_health = 2
 
 [node name="HealthBar" parent="CanvasLayer/Health" instance=ExtResource("11_0s8hj")]
 position = Vector2(576, 34)
@@ -1142,6 +1141,9 @@ format = 2
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("14_xriq3")]
 visible = false
+
+[node name="MoneyCounter" parent="CanvasLayer" instance=ExtResource("15_tamja")]
+position = Vector2(992, 57)
 
 [connection signal="animation_finished" from="World/DebtCollectorBoss/AnimatedSprite2D" to="World/DebtCollectorBoss" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="World/DebtCollectorBoss/Bat detect" to="World/DebtCollectorBoss" method="_on_bat_detect_body_entered"]

@@ -106,6 +106,8 @@ func _physics_process(delta):
 	if not Input.is_anything_pressed():
 		check_anything = true
 	if is_anything_just_pressed and dead:
+		if $"../..".name == 'Boss':
+			get_tree().reload_current_scene()
 		dead = false
 		self.global_position = Global.spawnpoint
 		health = max_health

@@ -32,7 +32,7 @@
 [ext_resource type="AudioStream" uid="uid://dngqhoqek7ikm" path="res://Sounds/31622__srehpog__light_crate_smash1.wav" id="19_ljiq7"]
 [ext_resource type="AudioStream" uid="uid://c8snraakikxcc" path="res://Sounds/31623__srehpog__light_crate_smash2.wav" id="20_5ffr2"]
 [ext_resource type="AudioStream" uid="uid://bpjk3a3ntn755" path="res://Sounds/31624__srehpog__light_crate_smash3.wav" id="21_x46k2"]
-[ext_resource type="PackedScene" uid="uid://c0rqscpwx8ycc" path="res://Pause menu.tscn" id="33_2rnfy"]
+[ext_resource type="PackedScene" path="res://Pause menu.tscn" id="33_2rnfy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pgsb5"]
 size = Vector2(4124, 620)

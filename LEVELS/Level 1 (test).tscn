@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://b81mbj18jebcu" path="res://particle portal.tscn" id="13_chgru"]
 [ext_resource type="PackedScene" uid="uid://dyrysltj3wt0q" path="res://Nodes/Knight/knight.tscn" id="13_yvxj0"]
 [ext_resource type="PackedScene" uid="uid://dtuaast8087a5" path="res://Nodes/Slug/slug.tscn" id="14_ncvrv"]
-[ext_resource type="PackedScene" uid="uid://c0rqscpwx8ycc" path="res://Pause menu.tscn" id="17_4bb42"]
+[ext_resource type="PackedScene" path="res://Pause menu.tscn" id="17_4bb42"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1sud6"]
 size = Vector2(68.9695, 28.499)

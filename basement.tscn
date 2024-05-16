@@ -14,7 +14,7 @@
 [ext_resource type="FontFile" uid="uid://do5gjoyxrtu6a" path="res://PublicPixel.ttf" id="9_27nbt"]
 [ext_resource type="Script" path="res://tv.gd" id="9_wymxy"]
 [ext_resource type="Script" path="res://TutorialBreakWindow.gd" id="14_ouh5n"]
-[ext_resource type="PackedScene" uid="uid://c0rqscpwx8ycc" path="res://Pause menu.tscn" id="15_y4pkp"]
+[ext_resource type="PackedScene" path="res://Pause menu.tscn" id="15_y4pkp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xqh8e"]
 size = Vector2(514, 320)
